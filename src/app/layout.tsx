@@ -1,5 +1,4 @@
 "use client";
-import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -20,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Imagine UI - Component Library With React </title>
+      </head>
       <body className={`${inter.className} dark:bg-zinc-900`}>
         <ReduxProvider>
           <App>{children}</App>
