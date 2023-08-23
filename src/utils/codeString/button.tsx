@@ -51,3 +51,21 @@ export const buttonNotificationCodeString = `function Buttons() {
     <BellAlertIcon className="w-4 h-4" />
   </Button>
 }`;
+
+export const buttonImportCodeString = `import { Button } from "@imagine-io/react"`;
+
+export const buttonColorTypeCodeString = `type ButtonColor =
+| "red"
+| "green"
+| "blue"
+| "amber"
+| "purple"
+| "orange"
+| "pink";`;
+
+export const buttonVariantTypeCodeString = `type ButtonVariant =
+| "outlined"
+| "solid"
+| "ghost"
+| "text"
+| "transparent";`;
