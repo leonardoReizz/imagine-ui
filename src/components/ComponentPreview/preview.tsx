@@ -35,19 +35,23 @@ export function Preview({ children, codeString }: PreviewProps) {
   return (
     <div className="flex gap-4 items-center justify-center w-full h-full ">
       <Card
-        className={`h-full rounded-md border w-full ${
-          currentTheme === "dark" ? "bg-zinc-800 border-zinc-700" : "bg-white"
+        className={`h-full rounded-md border w-full  ${
+          state === 1 || currentTheme === "dark"
+            ? "bg-zinc-800 border-zinc-700"
+            : "bg-white"
         }`}
       >
         <div
-          className={`flex items-center justify-between bw-full py-1 border-b ${
-            currentTheme === "dark" ? "border-zinc-700" : "border-zinc-200"
+          className={`flex items-center justify-between w-full py-1 border-b ${
+            currentTheme === "dark" || state === 1
+              ? "border-zinc-700"
+              : "border-zinc-200"
           }`}
         >
-          <div className="flex items-center justify-start max-h-10 h-full  rounded-t-md  gap-2 px-2">
+          <div className="flex items-center justify-start max-h-10 h-full rounded-t-md  gap-2 px-2">
             <Button
               variant="transparent"
-              color="black"
+              color={state === 1 ? "white" : "black"}
               className="px-4 normal-case "
               size="sm"
               onClick={() => setState(0)}
@@ -57,7 +61,7 @@ export function Preview({ children, codeString }: PreviewProps) {
             </Button>
             <Button
               variant="transparent"
-              color="black"
+              color={state === 1 ? "white" : "black"}
               className="px-4 normal-case "
               size="sm"
               onClick={() => setState(1)}
@@ -69,7 +73,7 @@ export function Preview({ children, codeString }: PreviewProps) {
           <div className="flex items-center justify-start max-h-10 h-full  rounded-t-md  gap-2 px-2">
             <Button
               variant="transparent"
-              color={copiedCode ? "green" : "black"}
+              color={copiedCode ? "green" : state === 1 ? "white" : "black"}
               className="px-4 normal-case "
               size="sm"
               onClick={handleCopyCode}
@@ -80,12 +84,17 @@ export function Preview({ children, codeString }: PreviewProps) {
             </Button>
           </div>
         </div>
-        {state === 0 && (
-          <div className="w-full h-full flex items-center justify-center gap-4">
-            {children}
+
+        <div className="flex items-center justify-start h-full overflow-auto">
+          <div className="min-w-[600px] w-full">
+            {state === 0 && (
+              <div className="w-full h-full flex items-center justify-center gap-4 ">
+                {children}
+              </div>
+            )}
+            {state === 1 && <SyntaxHighlighter codeString={codeString} />}
           </div>
-        )}
-        {state === 1 && <SyntaxHighlighter codeString={codeString} />}
+        </div>
       </Card>
     </div>
   );
