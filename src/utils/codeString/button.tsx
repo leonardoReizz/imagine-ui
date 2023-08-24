@@ -55,12 +55,15 @@ export const buttonNotificationCodeString = `function Buttons() {
 export const buttonImportCodeString = `import { Button } from "@imagine-io/react"`;
 
 export const buttonColorTypeCodeString = `type ButtonColor =
+| "blue"
 | "red"
 | "green"
-| "blue"
-| "amber"
 | "purple"
 | "orange"
+| "amber"
+| "gray"
+| "black"
+| "white"
 | "pink";`;
 
 export const buttonVariantTypeCodeString = `type ButtonVariant =
@@ -69,3 +72,5 @@ export const buttonVariantTypeCodeString = `type ButtonVariant =
 | "ghost"
 | "text"
 | "transparent";`;
+
+export const buttonSizeTypeCodeString = `type ButtonSize = "sm" | "md" | "lg";`;
