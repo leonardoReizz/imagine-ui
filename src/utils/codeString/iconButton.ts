@@ -67,7 +67,7 @@ export const iconButtonColorCodeString = `function IconButtonColor() {
 export const iconButtonImportCodeString = `import { IconButton } from "@imagine-io/react"`;
 
 export const iconButtonColorTypeCodeString = `type IconButtonColor =
-| "red"
+"red"
 | "green"
 | "blue"
 | "amber"
@@ -76,7 +76,7 @@ export const iconButtonColorTypeCodeString = `type IconButtonColor =
 | "pink";`;
 
 export const iconButtonVariantTypeCodeString = `type IconButtonVariant =
-| "outlined"
+"outlined"
 | "solid"
 | "text"
 | "ghost"
