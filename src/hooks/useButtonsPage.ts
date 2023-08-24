@@ -15,6 +15,7 @@ export function useButtonsPage() {
     shadow: useRef<HTMLDivElement>(null),
     api: useRef<HTMLDivElement>(null),
     colorType: useRef<HTMLDivElement>(null),
+    sizeType: useRef<HTMLDivElement>(null),
     variantType: useRef<HTMLDivElement>(null),
   };
   const middleY = window.innerHeight / 3;
@@ -70,6 +71,13 @@ export function useButtonsPage() {
     },
     {
       id: "4",
+      name: "size",
+      type: "Size",
+      default: "md",
+      description: "Change button size",
+    },
+    {
+      id: "5",
       name: "ripple",
       type: "boolean",
       default: "true",
@@ -114,14 +122,19 @@ export function useButtonsPage() {
       ref: refs.api,
     },
     {
-      label: "Color Type",
-      name: "colorType",
-      ref: refs.colorType,
+      label: "Size Type",
+      name: "sizeType",
+      ref: refs.sizeType,
     },
     {
       label: "Variants Type",
       name: "variantType",
       ref: refs.variantType,
+    },
+    {
+      label: "Color Type",
+      name: "colorType",
+      ref: refs.colorType,
     },
   ];
 
