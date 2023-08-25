@@ -14,10 +14,12 @@ import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
 import { useInputPage } from "@/hooks/useInputPage";
 import {
+  inputCodeString,
   inputColorTypeCodeString,
   inputImportCodeString,
   inputVariantTypeCodeString,
 } from "@/utils/codeString/input";
+import { UserIcon } from "@heroicons/react/20/solid";
 
 export default function Inputs() {
   const { apiBody, currentSection, onThisPageList, refs } = useInputPage();
@@ -25,49 +27,34 @@ export default function Inputs() {
   return (
     <div className="w-full flex items-start justify-center gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.button}>
+        <div className="flex flex-col gap-4" ref={refs.introduction}>
           <Typography variant="h5">Input - React</Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            The Button is a fundamental component in web design. At its core,
-            it's a stylized link that grabs the user's attention. They guide
-            users through our websites or apps, leading them to specific
-            actions, such as submitting a contact form or easily placing an
-            order. Check below an example of our Button that can be integrated
-            into projects with Tailwind CSS and React. The example is also
-            available in a variety of styles, effects, and colors, allowing you
-            to customize it to your preferences.
+            The Input component is indispensable in web design. Serving as a
+            gateway for user data, its fundamental role is to capture and relay
+            user-inputted information, ensuring dynamic interaction between
+            users and platforms. It's the cornerstone for activities like user
+            registrations, searches, or feedback submissions.
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            The Button is a fundamental component in web design. At its core,
-            it's a stylized link that grabs the user's attention. They guide
-            users through our websites or apps, leading them to specific
-            actions, such as submitting a contact form or easily placing an
-            order.
-          </Typography>
-          <Typography
-            variant="sub-paragraph"
-            className="text-zinc-800 dark:text-zinc-300"
-          >
-            Check below an example of our Button that can be integrated into
-            projects with Tailwind CSS and React. The example is also available
-            in a variety of styles, effects, and colors, allowing you to
-            customize it to your preferences.
+            For developers seeking versatility, the example below highlights the
+            fluid alignment of the Input component with Tailwind CSS and React.
+            This portrayal introduces a spectrum of styles, effects, and
+            placeholders, ensuring its compatibility with a multitude of design
+            aspirations.
           </Typography>
         </div>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.variants}>
-            <Component.Container
-              title="Variants"
-              description="Multiple button designs available to suit different interface needs."
-            >
-              <Component.Preview codeString={buttonVariantCodeString}>
+          <ScrollSection ref={refs.input}>
+            <Component.Container title="Input">
+              <Component.Preview codeString={inputCodeString}>
                 <div className="w-full flex flex-col gap-4 max-w-[250px]">
                   <Input label="Username" size="md" color="green" />
                 </div>
@@ -79,11 +66,11 @@ export default function Inputs() {
               title="Variants"
               description="Multiple button designs available to suit different interface needs."
             >
-              <Component.Preview codeString={buttonVariantCodeString}>
+              <Component.Preview codeString={inputCodeString}>
                 <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Teste" variant="outlined" color="green" />
-                  <Input label="Teste" variant="standart" color="green" />
-                  <Input label="Teste" variant="static" color="green" />
+                  <Input label="Teste" variant="outlined" />
+                  <Input label="Teste" variant="standart" />
+                  <Input label="Teste" variant="static" />
                 </div>
               </Component.Preview>
             </Component.Container>
@@ -104,21 +91,6 @@ export default function Inputs() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.ripple}>
-            <Component.Container
-              title="Size"
-              className="h-[285px]"
-              description="An optional tactile ripple effect that can be toggled based on preference."
-            >
-              <Component.Preview codeString={buttonRippleEffectCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Size SM" size="sm" color="green" />
-                  <Input label="Size MD" size="md" color="green" />
-                  <Input label="Size LG" size="lg" color="green" />
-                </div>
-              </Component.Preview>
-            </Component.Container>
-          </ScrollSection>
           <ScrollSection ref={refs.withIcon}>
             <Component.Container
               className="h-[430px]"
@@ -127,7 +99,7 @@ export default function Inputs() {
             >
               <Component.Preview codeString={buttonNotificationCodeString}>
                 <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="With Icon" color="green" />
+                  <Input label="With Icon" icon={<UserIcon />} />
                 </div>
               </Component.Preview>
             </Component.Container>
