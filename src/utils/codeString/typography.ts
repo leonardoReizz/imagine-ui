@@ -1,6 +1,6 @@
 export const typographyCodeString = `import { Typography } from "@material-tailwind/react";
  
-export function TypographyComponent() {
+export function TypographyExample() {
   return (
     <Typography>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit.
