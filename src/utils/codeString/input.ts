@@ -1,7 +1,9 @@
-export const buttonVariantCodeString = `function Buttons() {
-  <Button size="sm">Size SM</Button>
-  <Button size="md">Size MD</Button>
-  <Button size="lg">Size LG</Button>
+export const inputCodeString = `import { Input } from "@imagine-io/react"
+
+export function InputExample() {
+  return (
+    <Input label="Username" size="md" color="green" />
+  )
 }`;
 
 export const buttonRippleEffectCodeString = `function Buttons() {
@@ -55,7 +57,7 @@ export const buttonNotificationCodeString = `function Buttons() {
 export const inputImportCodeString = `import { Input } from "@imagine-io/react"`;
 
 export const inputColorTypeCodeString = `type InputColor =
-| "red"
+"red"
 | "green"
 | "blue"
 | "amber"
@@ -64,6 +66,6 @@ export const inputColorTypeCodeString = `type InputColor =
 | "pink";`;
 
 export const inputVariantTypeCodeString = `type InputVariant =
-| "outlined"
+"outlined"
 | "solid"
 | "static"`;
