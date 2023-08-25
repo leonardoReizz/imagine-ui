@@ -8,7 +8,7 @@ export function useInputPage() {
   const [currentSection, setCurrentSection] = useState<string | null>(null);
   const refs: RefsType = {
     startPage: useRef<HTMLDivElement>(null),
-    button: useRef<HTMLDivElement>(null),
+    input: useRef<HTMLDivElement>(null),
     colors: useRef<HTMLDivElement>(null),
     ripple: useRef<HTMLDivElement>(null),
     variants: useRef<HTMLDivElement>(null),
@@ -19,10 +19,11 @@ export function useInputPage() {
     variantType: useRef<HTMLDivElement>(null),
     disable: useRef<HTMLDivElement>(null),
   };
-  const middleY = window.innerHeight / 3;
+
+  const middleY = (window && window?.innerHeight) || 0 / 3;
 
   const handleScroll = useDebounce(() => {
-    const yOffset = window.scrollY + middleY;
+    const yOffset = window?.scrollY + middleY;
 
     for (const section in refs) {
       const ref = refs[section];
@@ -38,9 +39,9 @@ export function useInputPage() {
   }, 10);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window?.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window?.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
 
@@ -50,7 +51,7 @@ export function useInputPage() {
       name: "color",
       type: "Color",
       default: "blue",
-      description: "Change button color",
+      description: "Set button color",
       onClickType: () =>
         scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
     },
@@ -59,7 +60,7 @@ export function useInputPage() {
       name: "variant",
       type: "Variant",
       default: "filled",
-      description: "Change button variant",
+      description: "Set button variant",
       onClickType: () =>
         scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
     },
@@ -75,7 +76,7 @@ export function useInputPage() {
       name: "label",
       type: "string",
       default: "",
-      description: "Define input label",
+      description: "Set input label",
     },
   ];
 
