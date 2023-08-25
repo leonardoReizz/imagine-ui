@@ -3,13 +3,22 @@ import { AiOutlineGithub } from "react-icons/ai";
 import { useCallback, useEffect, useState } from "react";
 import { Button, Card, IconButton, Typography } from "@imagine-ui/react";
 
-import { MagnifyingGlassIcon, SunIcon } from "@heroicons/react/20/solid";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  SunIcon,
+} from "@heroicons/react/20/solid";
 import { useDispatch } from "react-redux";
 import { AppDispath, useAppSelector } from "@/redux/store";
 import { changeTheme } from "@/redux/features/theme-slice";
 import { SearchDialog } from "./components/SearchDialog";
 
-function Navbar() {
+interface NavbarProps {
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+function Navbar({ isOpen, onOpenChange }: NavbarProps) {
   const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
 
   const keyDownHandler = useCallback(
@@ -49,7 +58,14 @@ function Navbar() {
         }`}
         shadow={false}
       >
-        <div className="w-full p-4">
+        <div className="w-full p-4 flex items-center gap-4">
+          <IconButton
+            variant="text"
+            onClick={() => onOpenChange(!isOpen)}
+            className="max-lg:opacity-100 opacity-0 "
+          >
+            <Bars3Icon className="w-4 h-4" />
+          </IconButton>
           <Typography variant="h6" align="left" className="normal-case">
             Imagine UI
           </Typography>
