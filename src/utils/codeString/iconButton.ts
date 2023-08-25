@@ -1,6 +1,6 @@
 export const iconButtonCodeString = `import { IconButton } from "@material-tailwind/react";
  
-export function IconButtonComponent() {
+export function IconButtonExample() {
   return (
     <IconButton>
       <CodeBracketIcon className="h-4 w-4" />
@@ -8,18 +8,21 @@ export function IconButtonComponent() {
   );
 }`;
 
-export const iconButtonVariantCodeString = `function IconButtonSize() {
+export const iconButtonVariantCodeString = `function IconButtonVariant() {
   return (
-    <IconButton variant="solid" color="green">
+    <IconButton variant="solid">
       <CodeBracketIcon className="h-4 w-4" />
     </IconButton>
-    <IconButton variant="outlined" color="green">
+    <IconButton variant="outlined">
       <CodeBracketIcon className="h-4 w-4" />
     </IconButton>
-    <IconButton variant="transparent" color="green">
+    <IconButton variant="ghost">
       <CodeBracketIcon className="h-4 w-4" />
     </IconButton>
-    <IconButton variant="text" color="green">
+    <IconButton variant="transparent">
+      <CodeBracketIcon className="h-4 w-4" />
+    </IconButton>
+    <IconButton variant="text">
       <CodeBracketIcon className="h-4 w-4" />
     </IconButton>
   )
@@ -36,9 +39,9 @@ export const iconButtonRippleEffectCodeString = `function IconButtonRipple() {
   )
 }`;
 
-export const iconButtonShadowCodeString = `function Buttons() {
+export const iconButtonShadowCodeString = `function IconButtonShadow() {
   return (
-    <IconButton color="green" variant="solid">
+    <IconButton color="green">
       <CodeBracketIcon className="h-4 w-4" />
     </IconButton>
     <IconButton color="red" shadow={false}>
@@ -66,18 +69,23 @@ export const iconButtonColorCodeString = `function IconButtonColor() {
 
 export const iconButtonImportCodeString = `import { IconButton } from "@imagine-io/react"`;
 
+export const iconButtonSizeTypeCodeString = `type IconButtonSize = "sm" | "md" | "lg";`;
+
 export const iconButtonColorTypeCodeString = `type IconButtonColor =
-"red"
-| "green"
 | "blue"
-| "amber"
+| "red"
+| "green"
 | "purple"
 | "orange"
+| "amber"
+| "gray"
+| "black"
+| "white"
 | "pink";`;
 
 export const iconButtonVariantTypeCodeString = `type IconButtonVariant =
-"outlined"
+| "outlined"
 | "solid"
-| "text"
 | "ghost"
+| "text"
 | "transparent";`;
