@@ -1,10 +1,11 @@
 "use client";
 import { Button, Typography } from "@imagine-ui/react";
 import {
+  buttonCodeString,
   buttonColorTypeCodeString,
   buttonColorsCodeString,
   buttonImportCodeString,
-  buttonNotificationCodeString,
+  buttonWithIconCodeString,
   buttonRippleEffectCodeString,
   buttonShadowCodeString,
   buttonSizeTypeCodeString,
@@ -30,82 +31,57 @@ export default function Buttons() {
   return (
     <div className="w-full flex items-start justify-center gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.button}>
+        <div className="flex flex-col gap-4" ref={refs.introduction}>
           <Typography variant="h5">Button - React</Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            The Button is a fundamental component in web design. At its core,
-            it's a stylized link that grabs the user's attention. They guide
-            users through our websites or apps, leading them to specific
-            actions, such as submitting a contact form or easily placing an
-            order. Check below an example of our Button that can be integrated
-            into projects with Tailwind CSS and React. The example is also
-            available in a variety of styles, effects, and colors, allowing you
-            to customize it to your preferences.
+            The Button component is essential in web design. Acting as an
+            interactive element, its primary purpose is to prompt users towards
+            specific actions or responses. It streamlines user experiences,
+            providing a clear directive for tasks like form submissions or
+            navigation prompts.{" "}
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            The Button is a fundamental component in web design. At its core,
-            it's a stylized link that grabs the user's attention. They guide
-            users through our websites or apps, leading them to specific
-            actions, such as submitting a contact form or easily placing an
-            order.
-          </Typography>
-          <Typography
-            variant="sub-paragraph"
-            className="text-zinc-800 dark:text-zinc-300"
-          >
-            Check below an example of our Button that can be integrated into
-            projects with Tailwind CSS and React. The example is also available
-            in a variety of styles, effects, and colors, allowing you to
-            customize it to your preferences.
+            For developers prioritizing adaptability, the example below
+            elucidates the effortless melding of the Button with Tailwind CSS
+            and React. This representation features an extensive palette of
+            styles, effects, and hues, making sure it can be molded to fit
+            varied design specifications.
           </Typography>
         </div>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
+          <ScrollSection ref={refs.button}>
+            <Component.Container title="Button">
+              <Component.Preview codeString={buttonCodeString}>
+                <Button>Example</Button>
+              </Component.Preview>
+            </Component.Container>
+          </ScrollSection>
           <ScrollSection ref={refs.variants}>
             <Component.Container
               title="Variants"
               description="Multiple button designs available to suit different interface needs."
             >
               <Component.Preview codeString={buttonVariantCodeString}>
-                <Button
-                  variant="solid"
-                  color="green"
-                  className="px-4 normal-case"
-                >
+                <Button variant="solid" color="green">
                   Solid
                 </Button>
-                <Button
-                  variant="outlined"
-                  color="green"
-                  className="px-4 normal-case"
-                >
+                <Button variant="outlined" color="green">
                   Outlined
                 </Button>
-                <Button
-                  variant="ghost"
-                  color="green"
-                  className="px-4 normal-case"
-                >
+                <Button variant="ghost" color="green">
                   Ghost
                 </Button>
-                <Button
-                  variant="transparent"
-                  color="green"
-                  className="px-4 normal-case"
-                >
+                <Button variant="transparent" color="green">
                   Transparent
                 </Button>
-                <Button
-                  variant="text"
-                  color="green"
-                  className="px-4 normal-case"
-                >
+                <Button variant="text" color="green">
                   Text
                 </Button>
               </Component.Preview>
@@ -118,18 +94,10 @@ export default function Buttons() {
               description=" A comprehensive color palette to choose from, ensuring buttons fit any design theme."
             >
               <Component.Preview codeString={buttonColorsCodeString}>
-                <Button color="blue" className="px-4 normal-case">
-                  Blue
-                </Button>
-                <Button color="green" className="px-4 normal-case">
-                  Green
-                </Button>
-                <Button color="red" className="px-4 normal-case">
-                  Red
-                </Button>
-                <Button color="purple" className="px-4 normal-case">
-                  Purple
-                </Button>
+                <Button color="blue">Blue</Button>
+                <Button color="green">Green</Button>
+                <Button color="red">Red</Button>
+                <Button color="purple">Purple</Button>
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
@@ -140,16 +108,8 @@ export default function Buttons() {
               description="An optional tactile ripple effect that can be toggled based on preference."
             >
               <Component.Preview codeString={buttonRippleEffectCodeString}>
-                <Button color="green" className="px-4 normal-case">
-                  Ripple ON
-                </Button>
-                <Button
-                  color="green"
-                  ripple={false}
-                  className="px-4 normal-case"
-                >
-                  Ripple OFF
-                </Button>
+                <Button>Ripple ON</Button>
+                <Button ripple={false}>Ripple OFF</Button>
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
@@ -160,39 +120,27 @@ export default function Buttons() {
               description=" Control over button shadowing, allowing for either a flat or elevated appearance."
             >
               <Component.Preview codeString={buttonShadowCodeString}>
-                <Button
-                  variant="solid"
-                  color="green"
-                  className="px-4 normal-case"
-                >
-                  Shadow ON
-                </Button>
-                <Button
-                  color="green"
-                  className="px-4 normal-case"
-                  shadow={false}
-                >
-                  Shadow OFF
-                </Button>
+                <Button>Shadow ON</Button>
+                <Button shadow={false}>Shadow OFF</Button>
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
           <ScrollSection ref={refs.withIcon}>
             <Component.Container
               className="h-[430px]"
-              title="Button With Icons"
+              title="With Icon"
               description="Buttons can incorporate icons for clear, visual representation of their function."
             >
-              <Component.Preview codeString={buttonNotificationCodeString}>
-                <Button color="blue" className="px-4 normal-case">
+              <Component.Preview codeString={buttonWithIconCodeString}>
+                <Button color="blue">
                   <UserIcon className="w-4 h-4" />
                   User
                 </Button>
-                <Button color="green" className="px-4 normal-case">
+                <Button color="green">
                   Settings
                   <Cog6ToothIcon className="w-4 h-4" />
                 </Button>
-                <Button color="red" className="px-4 normal-case">
+                <Button color="red">
                   Notification
                   <BellAlertIcon className="w-4 h-4" />
                 </Button>

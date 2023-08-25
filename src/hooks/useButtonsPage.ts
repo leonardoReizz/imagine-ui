@@ -7,6 +7,7 @@ import { smoothScrollTo } from "@/utils/smoothScroolTo";
 export function useButtonsPage() {
   const [currentSection, setCurrentSection] = useState<string | null>(null);
   const refs: RefsType = {
+    introduction: useRef<HTMLDivElement>(null),
     button: useRef<HTMLDivElement>(null),
     colors: useRef<HTMLDivElement>(null),
     ripple: useRef<HTMLDivElement>(null),
@@ -18,6 +19,7 @@ export function useButtonsPage() {
     sizeType: useRef<HTMLDivElement>(null),
     variantType: useRef<HTMLDivElement>(null),
   };
+
   const middleY = window.innerHeight / 3;
 
   const handleScroll = useDebounce(() => {
@@ -45,7 +47,21 @@ export function useButtonsPage() {
 
   const apiBody = [
     {
+      id: "0",
+      name: "className",
+      type: "string",
+      default: "",
+      description: "Custom styles",
+    },
+    {
       id: "1",
+      name: "children",
+      type: "node",
+      default: "",
+      description: "Button content",
+    },
+    {
+      id: "2",
       name: "color",
       type: "Color",
       default: "blue",
@@ -54,7 +70,30 @@ export function useButtonsPage() {
         scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
     },
     {
-      id: "2",
+      id: "3",
+      name: "ripple",
+      type: "boolean",
+      default: "true",
+      description: "Enable/disable ripple effect",
+    },
+    {
+      id: "4",
+      name: "shadow",
+      type: "boolean",
+      default: "true",
+      description: "Enable/disable shadow",
+    },
+    {
+      id: "5",
+      name: "size",
+      type: "Size",
+      default: "md",
+      description: "Change button size",
+      onClickType: () =>
+        scrollTo({ ref: refs.sizeType, callback: smoothScrollTo }),
+    },
+    {
+      id: "6",
       name: "variant",
       type: "Variant",
       default: "filled",
@@ -62,30 +101,14 @@ export function useButtonsPage() {
       onClickType: () =>
         scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
     },
-    {
-      id: "3",
-      name: "shadow",
-      type: "boolean",
-      default: "true",
-      description: "Turn on/off shadow effect",
-    },
-    {
-      id: "4",
-      name: "size",
-      type: "Size",
-      default: "md",
-      description: "Change button size",
-    },
-    {
-      id: "5",
-      name: "ripple",
-      type: "boolean",
-      default: "true",
-      description: "Turn on/off ripple effect",
-    },
   ];
 
   const onThisPageList: OnThisPageList = [
+    {
+      label: "Introduction",
+      name: "introduction",
+      ref: refs.introduction,
+    },
     {
       label: "Button",
       name: "button",
@@ -112,7 +135,7 @@ export function useButtonsPage() {
       ref: refs.shadow,
     },
     {
-      label: "With Icons",
+      label: "With Icon",
       name: "withIcon",
       ref: refs.withIcon,
     },
