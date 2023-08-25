@@ -15,6 +15,7 @@ import {
   iconButtonImportCodeString,
   iconButtonRippleEffectCodeString,
   iconButtonShadowCodeString,
+  iconButtonSizeTypeCodeString,
   iconButtonVariantCodeString,
   iconButtonVariantTypeCodeString,
 } from "@/utils/codeString/iconButton";
@@ -59,12 +60,9 @@ export default function IconButtons() {
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
           <ScrollSection ref={refs.button}>
-            <Component.Container
-              title="Icon Button"
-              description="Preview and copy a ready-to-use code for a button with default settings, ensuring a swift integration into your project."
-            >
+            <Component.Container title="Icon Button">
               <Component.Preview codeString={iconButtonCodeString}>
-                <IconButton variant="solid" color="green">
+                <IconButton>
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
               </Component.Preview>
@@ -76,17 +74,19 @@ export default function IconButtons() {
               description="Switch between different button styles to match your design."
             >
               <Component.Preview codeString={iconButtonVariantCodeString}>
-                <IconButton variant="solid" color="green">
+                <IconButton variant="solid">
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
-                <IconButton variant="outlined" color="green">
+                <IconButton variant="outlined">
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
-                <IconButton variant="transparent" color="green">
+                <IconButton variant="ghost">
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
-
-                <IconButton variant="text" color="green">
+                <IconButton variant="transparent">
+                  <CodeBracketIcon className="h-4 w-4" />
+                </IconButton>
+                <IconButton variant="text">
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
               </Component.Preview>
@@ -137,7 +137,7 @@ export default function IconButtons() {
               description="Toggle button's depth perception with a shadow effect."
             >
               <Component.Preview codeString={iconButtonShadowCodeString}>
-                <IconButton color="green" variant="solid">
+                <IconButton color="green">
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
                 <IconButton color="red" shadow={false}>
@@ -156,7 +156,7 @@ export default function IconButtons() {
                 <IconButton variant="solid" color="green">
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
-                <IconButton variant="solid" color="red">
+                <IconButton variant="solid" color="red" disabled>
                   <CodeBracketIcon className="h-4 w-4" />
                 </IconButton>
               </Component.Preview>
@@ -180,6 +180,10 @@ export default function IconButtons() {
                 <TableAPI body={apiBody} />
               </div>
             </div>
+          </ScrollSection>
+          <ScrollSection ref={refs.sizeType}>
+            <Typography variant="h6">Size Type</Typography>
+            <SyntaxHighlighter codeString={iconButtonSizeTypeCodeString} />
           </ScrollSection>
           <ScrollSection ref={refs.colorType}>
             <Typography variant="h6">Color Type</Typography>
