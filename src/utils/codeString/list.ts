@@ -1,4 +1,6 @@
-export const listCodeString = `function ListComponent() {
+export const listCodeString = `import { List, ListItem } from "@imagine-io/react"
+
+function ListExample() {
   return (
     <List className="w-80">
       <ListItem>Item 1</ListItem>
