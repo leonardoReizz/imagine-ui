@@ -15,6 +15,7 @@ export function useIconButtonPage() {
     shadow: useRef<HTMLDivElement>(null),
     disabled: useRef<HTMLDivElement>(null),
     api: useRef<HTMLDivElement>(null),
+    sizeType: useRef<HTMLDivElement>(null),
     colorType: useRef<HTMLDivElement>(null),
     variantType: useRef<HTMLDivElement>(null),
   };
@@ -45,6 +46,13 @@ export function useIconButtonPage() {
 
   const apiBody = [
     {
+      id: "0",
+      name: "className",
+      type: "string",
+      default: "",
+      description: "Custom styles",
+    },
+    {
       id: "1",
       name: "children",
       type: "node",
@@ -53,49 +61,44 @@ export function useIconButtonPage() {
     },
     {
       id: "2",
-      name: "className",
-      type: "string",
-      default: "",
-      description: "Custom styles",
-    },
-    {
-      id: "3",
       name: "color",
       type: "Color",
       default: "blue",
-      description: "Set button color",
+      description: "Change button color",
       onClickType: () =>
         scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
     },
     {
-      id: "4",
-      name: "variant",
-      type: "Variant",
-      default: "filled",
-      description: "Set button variant",
-      onClickType: () =>
-        scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
-    },
-    {
-      id: "5",
-      name: "shadow",
-      type: "boolean",
-      default: "true",
-      description: "Enable/disable shadow",
-    },
-    {
-      id: "6",
+      id: "3",
       name: "ripple",
       type: "boolean",
       default: "true",
       description: "Enable/disable ripple effect",
     },
     {
-      id: "7",
-      name: "disabled",
+      id: "4",
+      name: "shadow",
       type: "boolean",
-      default: "false",
-      description: "Enable/disable button",
+      default: "true",
+      description: "Enable/disable shadow",
+    },
+    {
+      id: "5",
+      name: "size",
+      type: "Size",
+      default: "md",
+      description: "Change button size",
+      onClickType: () =>
+        scrollTo({ ref: refs.sizeType, callback: smoothScrollTo }),
+    },
+    {
+      id: "6",
+      name: "variant",
+      type: "Variant",
+      default: "filled",
+      description: "Change button variant",
+      onClickType: () =>
+        scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
     },
   ];
 
@@ -134,6 +137,11 @@ export function useIconButtonPage() {
       label: "Api",
       name: "api",
       ref: refs.api,
+    },
+    {
+      label: "Size Type",
+      name: "sizeType",
+      ref: refs.sizeType,
     },
     {
       label: "Color Type",
