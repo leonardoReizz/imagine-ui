@@ -1,4 +1,5 @@
 "use client";
+import { useSidebar } from "@/hooks/useSidebar";
 import {
   ArrowDownTrayIcon,
   CubeTransparentIcon,
@@ -6,22 +7,22 @@ import {
 } from "@heroicons/react/20/solid";
 import { Card, List, ListItem, Typography } from "@imagine-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 interface SidebarProps {
   isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
-export default function Sidebar({ isOpen }: SidebarProps) {
-  const router = useRouter();
-
+export default function Sidebar({ isOpen, onOpenChange }: SidebarProps) {
+  const { cardRef, router } = useSidebar({ onOpenChange });
   return (
     <>
       <Card
-        className={` fixed bg-gray-50 z-[99] rounded-none border-r w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
+        className={`fixed bg-gray-50 z-[99] z-[100] rounded-none border-r w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
           isOpen ? "" : "max-lg:-left-64"
         }`}
         shadow={false}
+        ref={cardRef}
       >
         <div className="flex  flex-col gap-4">
           <div>
@@ -29,7 +30,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
               <ArrowDownTrayIcon className="w-8 h-8 text-green-500 p-2 rounded-md" />{" "}
               <Typography>Getting Started</Typography>
             </div>
-            <List className="text-sm text-black">
+            <List className="text-sm text-black" shadow={false}>
               <ListItem onClick={() => router.push("/")}>Overview</ListItem>
               <Link href="/docs/installation">
                 <ListItem>Installation</ListItem>
@@ -43,7 +44,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
               <PaintBrushIcon className="w-8 h-8 text-green-500 p-2 rounded-md" />
               <Typography>Customization</Typography>
             </div>
-            <List className="text-sm">
+            <List className="text-sm" shadow={false}>
               <ListItem>Theming</ListItem>
             </List>
           </div>
@@ -53,7 +54,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
               <CubeTransparentIcon className="w-8 h-8 text-green-500 p-2  rounded-md" />{" "}
               <Typography>Components</Typography>
             </div>
-            <List className="text-sm text-black">
+            <List className="text-sm text-black" shadow={false}>
               <ListItem onClick={() => router.push("/docs/button")}>
                 <Link href="/docs/button">Button</Link>
               </ListItem>
