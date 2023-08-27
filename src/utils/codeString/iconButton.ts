@@ -1,4 +1,4 @@
-export const iconButtonCodeString = `import { IconButton } from "@material-tailwind/react";
+export const iconButtonCodeString = `import { IconButton } from "@imagine-ui/react";
  
 export function IconButtonExample() {
   return (
