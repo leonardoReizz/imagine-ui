@@ -15,7 +15,6 @@ import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
-
 import {
   listCodeString,
   listCustomStyleCodeString,
@@ -75,7 +74,7 @@ export default function Lists() {
               description="Preview and copy a ready-to-use code for a button with default settings, ensuring a swift integration into your project."
             >
               <Component.Preview codeString={listCodeString}>
-                <List className="w-80 shadow-md rounded-md">
+                <List className="w-80">
                   <ListItem>Item 1</ListItem>
                   <ListItem>Item 2</ListItem>
                   <ListItem>Item 3</ListItem>
@@ -90,7 +89,7 @@ export default function Lists() {
               description="Switch between different button styles to match your design."
             >
               <Component.Preview codeString={listWithIconCodeString}>
-                <List className="w-80 shadow-md rounded-md">
+                <List className="w-80">
                   <ListItem>
                     Notifications <BellIcon className="h-5 w-5 ml-auto " />
                   </ListItem>
@@ -113,7 +112,7 @@ export default function Lists() {
               description="Customize the button hue for seamless UI integration."
             >
               <Component.Preview codeString={listWithItemDisabledCodeString}>
-                <List className="w-80 shadow-md rounded-md">
+                <List className="w-80">
                   <ListItem>Disabled</ListItem>
                   <ListItem>Trash</ListItem>
                   <ListItem>Logout</ListItem>
@@ -128,7 +127,7 @@ export default function Lists() {
               description="Toggle button's depth perception with a shadow effect."
             >
               <Component.Preview codeString={listCustomStyleCodeString}>
-                <List className="w-60">
+                <List className="w-80">
                   <ListItem
                     className="hover:bg-transparent hover:text-green-500 border-b rounded-none"
                     ripple={false}
@@ -151,7 +150,7 @@ export default function Lists() {
                     Inventory
                   </ListItem>
                   <ListItem
-                    className="hover:bg-transparent hover:text-green-500 border-b rounded-none"
+                    className="hover:bg-transparent hover:text-green-500 rounded-none"
                     ripple={false}
                   >
                     <Cog6ToothIcon className="h-4 w-4  mr-2" />
@@ -166,7 +165,7 @@ export default function Lists() {
               <div className="flex flex-col gap-4">
                 <Typography variant="h6">API List</Typography>
                 <Typography>
-                  Dive into the detailed specifications of our LIST component.
+                  Dive into the detailed specifications of our List component.
                   This section outlines the properties you can adjust, including
                   layout and item types, to seamlessly integrate the list into
                   your application's design.
