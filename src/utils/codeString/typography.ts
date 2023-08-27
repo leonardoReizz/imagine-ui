@@ -1,4 +1,4 @@
-export const typographyCodeString = `import { Typography } from "@material-tailwind/react";
+export const typographyCodeString = `import { Typography } from "@imagine-ui/react";
  
 export function TypographyExample() {
   return (
