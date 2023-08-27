@@ -7,23 +7,25 @@ import { smoothScrollTo } from "@/utils/smoothScroolTo";
 export function useInputPage() {
   const [currentSection, setCurrentSection] = useState<string | null>(null);
   const refs: RefsType = {
-    startPage: useRef<HTMLDivElement>(null),
+    introduction: useRef<HTMLDivElement>(null),
     input: useRef<HTMLDivElement>(null),
     colors: useRef<HTMLDivElement>(null),
-    ripple: useRef<HTMLDivElement>(null),
+    sizes: useRef<HTMLDivElement>(null),
     variants: useRef<HTMLDivElement>(null),
     withIcon: useRef<HTMLDivElement>(null),
-    shadow: useRef<HTMLDivElement>(null),
+    disabled: useRef<HTMLDivElement>(null),
     api: useRef<HTMLDivElement>(null),
     colorType: useRef<HTMLDivElement>(null),
     variantType: useRef<HTMLDivElement>(null),
-    disable: useRef<HTMLDivElement>(null),
+    containerPropsType: useRef<HTMLDivElement>(null),
+    iconPropsType: useRef<HTMLDivElement>(null),
+    labelPropsType: useRef<HTMLDivElement>(null),
   };
 
-  const middleY = (window && window?.innerHeight) || 0 / 3;
+  const middleY = window.innerHeight / 3;
 
   const handleScroll = useDebounce(() => {
-    const yOffset = window?.scrollY + middleY;
+    const yOffset = window.scrollY + middleY;
 
     for (const section in refs) {
       const ref = refs[section];
@@ -39,6 +41,13 @@ export function useInputPage() {
   }, 10);
 
   useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
+  useEffect(() => {
     window?.addEventListener("scroll", handleScroll);
     return () => {
       window?.removeEventListener("scroll", handleScroll);
@@ -47,44 +56,97 @@ export function useInputPage() {
 
   const apiBody = [
     {
+      id: "0",
+      name: "className",
+      type: "string",
+      default: "",
+      description: "Input custom styles",
+    },
+    {
       id: "1",
       name: "color",
       type: "Color",
-      default: "blue",
-      description: "Set button color",
+      default: "green",
+      description: "Set input color",
       onClickType: () =>
         scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
     },
     {
       id: "2",
+      name: "error",
+      type: "boolean",
+      default: "false",
+      description: "Set error input",
+    },
+    {
+      id: "3",
       name: "variant",
       type: "Variant",
-      default: "filled",
-      description: "Set button variant",
+      default: "outlined",
+      description: "Set input variant",
       onClickType: () =>
         scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
     },
     {
-      id: "3",
+      id: "4",
       name: "disabled",
       type: "boolean",
       default: "false",
       description: "Turn on/off disabled",
     },
     {
-      id: "4",
+      id: "5",
       name: "label",
       type: "string",
       default: "",
       description: "Set input label",
     },
+    {
+      id: "6",
+      name: "icon",
+      type: "node",
+      default: "",
+      description: "Set input icon",
+    },
+    {
+      id: "7",
+      name: "containerProps",
+      type: "ContainerProps",
+      default: "",
+      description: "Set container props",
+      onClickType: () =>
+        scrollTo({ ref: refs.containerPropsType, callback: smoothScrollTo }),
+    },
+    {
+      id: "8",
+      name: "labelProps",
+      type: "LabelProps",
+      default: "",
+      description: "Set label props",
+      onClickType: () =>
+        scrollTo({ ref: refs.labelPropsType, callback: smoothScrollTo }),
+    },
+    {
+      id: "9",
+      name: "iconProps",
+      type: "IconProps",
+      default: "",
+      description: "Set icon props",
+      onClickType: () =>
+        scrollTo({ ref: refs.iconPropsType, callback: smoothScrollTo }),
+    },
   ];
 
   const onThisPageList: OnThisPageList = [
     {
-      label: "Button",
-      name: "button",
-      ref: refs.button,
+      label: "Introduction",
+      name: "introduction",
+      ref: refs.introduction,
+    },
+    {
+      label: "Input",
+      name: "input",
+      ref: refs.input,
     },
     {
       label: "Variants",
@@ -97,14 +159,9 @@ export function useInputPage() {
       ref: refs.colors,
     },
     {
-      label: "Ripple",
-      name: "ripple",
-      ref: refs.ripple,
-    },
-    {
-      label: "Shadow",
-      name: "shadow",
-      ref: refs.shadow,
+      label: "Sizes",
+      name: "sizes",
+      ref: refs.sizes,
     },
     {
       label: "With Icons",
@@ -112,9 +169,19 @@ export function useInputPage() {
       ref: refs.withIcon,
     },
     {
+      label: "Disabled",
+      name: "disabled",
+      ref: refs.disabled,
+    },
+    {
       label: "Api",
       name: "api",
       ref: refs.api,
+    },
+    {
+      label: "Variants Type",
+      name: "variantType",
+      ref: refs.variantType,
     },
     {
       label: "Color Type",
@@ -122,9 +189,19 @@ export function useInputPage() {
       ref: refs.colorType,
     },
     {
-      label: "Variants Type",
-      name: "variantType",
-      ref: refs.variantType,
+      label: "Container Props Type",
+      name: "containerPropsType",
+      ref: refs.containerPropsType,
+    },
+    {
+      label: "Icon Props Type",
+      name: "iconPropsType",
+      ref: refs.iconPropsType,
+    },
+    {
+      label: "Label Props Type",
+      name: "labelPropsType",
+      ref: refs.labelPropsType,
     },
   ];
 
