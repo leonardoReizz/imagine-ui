@@ -6,8 +6,8 @@ import {
   nextImportButtonCodeString,
   nextInstallNpmCodeString,
   nextInstallPnpmCodeString,
+  nextInstallYarnCodeString,
   nextTailwindConfigCodeString,
-  nextThemeProvider,
   nextThemeProviderCodeString,
 } from "@/utils/codeString/nextInstallation";
 import { Typography } from "@imagine-ui/react";
@@ -16,7 +16,7 @@ export default function InstallationNext() {
   return (
     <>
       <ScrollSection className="mt-10">
-        <Typography variant="h6">Material Tailwind with Next.js</Typography>
+        <Typography variant="h6">Imagine UI with Next.js</Typography>
         <Typography variant="sub-paragraph" className="mt-4">
           Learn how to setup and install @imagine-ui/react with Next.js. First
           you need to create a new project using next.js, for more details check
@@ -44,7 +44,7 @@ export default function InstallationNext() {
           description="Install @imagine-ui/react as a dependency using Yarn by running
         the following command:"
         >
-          <SyntaxHighlighter codeString={nextInstallPnpmCodeString} />
+          <SyntaxHighlighter codeString={nextInstallYarnCodeString} />
         </Component.Container>
       </ScrollSection>
       <ScrollSection>

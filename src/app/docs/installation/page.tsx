@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Installation() {
   return (
-    <div className="flex flex-col gap-16 mt-10">
+    <div className="flex flex-col gap-10 mt-10">
       <div className="flex flex-col gap-4">
         <Typography variant="h6">
           Commencing with Imagine UI and Tailwin
@@ -25,7 +25,7 @@ export default function Installation() {
           documentation, facilitating the creation of graceful, adaptable pages
           seamlessly integrated with Tailwind CSS.
         </Typography>
-        <Typography>
+        <Typography variant="sub-paragraph">
           @imagine-ui/react seamlessly interfaces with Tailwind CSS classes;
           hence, the prior installation of Tailwind CSS within your project
           infrastructure is a prerequisite. The Tailwind CSS Installation Guide
