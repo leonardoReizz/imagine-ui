@@ -13,20 +13,8 @@ import {
   Cog6ToothIcon,
   ArrowRightIcon,
 } from "@heroicons/react/20/solid";
-import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-function ListItem({ children }: { children: ReactNode }) {
-  return (
-    <ImagineListItem
-      ripple={false}
-      className="hover:bg-transparent hover:text-green-500 text-sm h-6"
-    >
-      {children}
-    </ImagineListItem>
-  );
-}
 
 export default function Home() {
   const router = useRouter();
@@ -71,12 +59,12 @@ export default function Home() {
                   Notification <BellAlertIcon className="h-4 w-4" />
                 </Button>
               </div>
-              <List className="shadow  rounded-md dark:shadow-zinc-600 ">
+              <List className="w-full">
                 <ImagineListItem>Item 1</ImagineListItem>
                 <ImagineListItem>Item 2</ImagineListItem>
                 <ImagineListItem>Item 3</ImagineListItem>
-                <ImagineListItem>Item 4</ImagineListItem>
-                <ImagineListItem>Item 5</ImagineListItem>
+                <ImagineListItem disabled>Item 4</ImagineListItem>
+                <ImagineListItem disabled>Item 5</ImagineListItem>
               </List>
             </div>
             {/* <div className="flex flex-col gap-4 w-full min-h-[400px] h-full">
