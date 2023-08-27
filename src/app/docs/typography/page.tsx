@@ -122,10 +122,12 @@ export default function Typographys() {
               <div className="flex flex-col gap-4">
                 <Typography variant="h6">API</Typography>
                 <Typography>
-                  Dive into the detailed specifications of our Icon Button
-                  component. This section outlines the properties you can tweak,
-                  including color and variant types, to seamlessly integrate the
-                  button into your application's design.
+                  Embark on a journey through the specifics of our Typography
+                  component. This section dives deep into the different styles,
+                  weight options, and customizable properties that ensure your
+                  text elements are not only readable but also aesthetically
+                  aligned with your application's design ethos. From headers to
+                  paragraphs, our Typography component has got you covered.
                 </Typography>
               </div>
               <ScrollSection>
