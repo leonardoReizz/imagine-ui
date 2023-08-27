@@ -1,32 +1,41 @@
 "use client";
-import { Button, Input, Typography } from "@imagine-ui/react";
-import {
-  buttonColorsCodeString,
-  buttonNotificationCodeString,
-  buttonRippleEffectCodeString,
-  buttonVariantCodeString,
-} from "@/utils/codeString/button";
+import { Button, Checkbox, Typography } from "@imagine-ui/react";
 import Component from "@/components/ComponentPreview";
 import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
-import {
-  inputColorTypeCodeString,
-  inputImportCodeString,
-  inputVariantTypeCodeString,
-} from "@/utils/codeString/input";
-import { useCheckboxPage } from "@/hooks/useCheckboxPage";
 
-export default function Checkbox() {
-  const { apiBody, currentSection, onThisPageList, refs } = useCheckboxPage();
+import { useCheckboxPage } from "@/hooks/useCheckboxPage";
+import {
+  checkboxCodeString,
+  checkboxColorTypeCodeString,
+  checkboxColorsCodeString,
+  checkboxContainerPropsTypeCodeString,
+  checkboxCustomIconCodeString,
+  checkboxImportCodeString,
+  checkboxInputPropsTypeCodeString,
+  checkboxRippleEffectCodeString,
+  checkboxSizeTypeCodeString,
+  checkboxSpanPropsTypeCodeString,
+} from "@/utils/codeString/checkbox";
+
+export default function Checkboxes() {
+  const {
+    apiBody,
+    currentSection,
+    onThisPageList,
+    refs,
+    checked,
+    handleCheckbox,
+  } = useCheckboxPage();
 
   return (
     <div className="w-full flex items-start justify-center gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.button}>
-          <Typography variant="h5">Input - React</Typography>
+        <div className="flex flex-col gap-4" ref={refs.introduction}>
+          <Typography variant="h5">Checkbox - React</Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
@@ -62,28 +71,14 @@ export default function Checkbox() {
         </div>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.variants}>
-            <Component.Container
-              title="Variants"
-              description="Multiple button designs available to suit different interface needs."
-            >
-              <Component.Preview codeString={buttonVariantCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Username" size="md" color="green" />
-                </div>
-              </Component.Preview>
-            </Component.Container>
-          </ScrollSection>
-          <ScrollSection ref={refs.variants}>
-            <Component.Container
-              title="Variants"
-              description="Multiple button designs available to suit different interface needs."
-            >
-              <Component.Preview codeString={buttonVariantCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Teste" variant="outlined" color="green" />
-                  <Input label="Teste" variant="standart" color="green" />
-                  <Input label="Teste" variant="static" color="green" />
+          <ScrollSection ref={refs.checkbox}>
+            <Component.Container title="Checkbox" className="h-[260px]">
+              <Component.Preview codeString={checkboxCodeString}>
+                <div className="w-full flex gap-4 justify-center">
+                  <Checkbox
+                    checked={checked[1]}
+                    onClick={() => handleCheckbox(1)}
+                  />
                 </div>
               </Component.Preview>
             </Component.Container>
@@ -91,56 +86,110 @@ export default function Checkbox() {
           <ScrollSection ref={refs.colors}>
             <Component.Container
               title="Colors"
-              className="h-[430px]"
+              className="h-[340px]"
               description=" A comprehensive color palette to choose from, ensuring buttons fit any design theme."
             >
-              <Component.Preview codeString={buttonColorsCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Blue" color="blue" size="md" />
-                  <Input label="Green" color="green" size="md" />
-                  <Input label="Red" color="red" size="md" />
-                  <Input label="Purple" color="purple" size="md" />
+              <Component.Preview codeString={checkboxColorsCodeString}>
+                <div className="w-full flex gap-4 items-center justify-center">
+                  <Checkbox
+                    color="green"
+                    checked={checked[2]}
+                    onClick={() => handleCheckbox(2)}
+                  />
+                  <Checkbox
+                    color="red"
+                    checked={checked[3]}
+                    onClick={() => handleCheckbox(3)}
+                  />
+                  <Checkbox
+                    color="blue"
+                    checked={checked[4]}
+                    onClick={() => handleCheckbox(4)}
+                  />
+                  <Checkbox
+                    color="orange"
+                    checked={checked[5]}
+                    onClick={() => handleCheckbox(5)}
+                  />
+                  <Checkbox
+                    color="pink"
+                    checked={checked[6]}
+                    onClick={() => handleCheckbox(6)}
+                  />
+                  <Checkbox
+                    color="purple"
+                    checked={checked[7]}
+                    onClick={() => handleCheckbox(7)}
+                  />
                 </div>
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
           <ScrollSection ref={refs.ripple}>
             <Component.Container
-              title="Size"
-              className="h-[285px]"
+              title="Ripple"
+              className="h-[245px]"
               description="An optional tactile ripple effect that can be toggled based on preference."
             >
-              <Component.Preview codeString={buttonRippleEffectCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Size SM" size="sm" color="green" />
-                  <Input label="Size MD" size="md" color="green" />
-                  <Input label="Size LG" size="lg" color="green" />
+              <Component.Preview codeString={checkboxRippleEffectCodeString}>
+                <div className="w-full flex  gap-4 justify-center">
+                  <Checkbox
+                    color="green"
+                    checked={checked[8]}
+                    onClick={() => handleCheckbox(8)}
+                  />
+                  <Checkbox
+                    color="red"
+                    checked={checked[9]}
+                    onClick={() => handleCheckbox(9)}
+                    ripple={false}
+                  />
                 </div>
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.withIcon}>
+          <ScrollSection ref={refs.customIcon}>
             <Component.Container
+              title="Custom Icon"
               className="h-[430px]"
-              title="Input With Icon"
-              description="Buttons can incorporate icons for clear, visual representation of their function."
+              description="An optional tactile ripple effect that can be toggled based on preference."
             >
-              <Component.Preview codeString={buttonNotificationCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="With Icon" color="green" />
-                </div>
-              </Component.Preview>
-            </Component.Container>
-          </ScrollSection>
-          <ScrollSection ref={refs.disable}>
-            <Component.Container
-              className="h-[430px]"
-              title="Input Disabled"
-              description="Buttons can incorporate icons for clear, visual representation of their function."
-            >
-              <Component.Preview codeString={buttonNotificationCodeString}>
-                <div className="w-full flex flex-col gap-4 max-w-[250px]">
-                  <Input label="Disabled" color="green" disabled />
+              <Component.Preview codeString={checkboxCustomIconCodeString}>
+                <div className="w-full flex  gap-4 justify-center">
+                  <Checkbox
+                    color="pink"
+                    size="lg"
+                    icon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                      </svg>
+                    }
+                    checked={checked[10]}
+                    onClick={() => handleCheckbox(10)}
+                  />
+                  <Checkbox
+                    color="green"
+                    checked={checked[11]}
+                    size="lg"
+                    icon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                      </svg>
+                    }
+                    onClick={() => handleCheckbox(11)}
+                  />
                 </div>
               </Component.Preview>
             </Component.Container>
@@ -150,27 +199,43 @@ export default function Checkbox() {
               <div>
                 <Typography variant="h6">API</Typography>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                  dicta porro eum natus obcaecati. Laudantium maiores molestias
-                  aliquid, distinctio itaque modi ullam corrupti earum pariatur
-                  maxime possimus iusto, repellat nisi.
+                  Step into the intricate details of our Input Checkbox
+                  component. Here, we detail the facets and properties that can
+                  be adjusted, like the checkbox's size, its state (checked or
+                  unchecked), and even its color. Tailor it to perfection,
+                  ensuring that it matches the overarching theme and
+                  functionality of your application.
                 </Typography>
               </div>
               <ScrollSection>
-                <SyntaxHighlighter codeString={inputImportCodeString} />
+                <SyntaxHighlighter codeString={checkboxImportCodeString} />
               </ScrollSection>
               <div>
                 <TableAPI body={apiBody} />
               </div>
             </div>
           </ScrollSection>
+          <ScrollSection ref={refs.sizeType}>
+            <Typography variant="h6">Size Type</Typography>
+            <SyntaxHighlighter codeString={checkboxSizeTypeCodeString} />
+          </ScrollSection>
           <ScrollSection ref={refs.colorType}>
             <Typography variant="h6">Color Type</Typography>
-            <SyntaxHighlighter codeString={inputColorTypeCodeString} />
+            <SyntaxHighlighter codeString={checkboxColorTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.variantType}>
-            <Typography variant="h6">Variant Type</Typography>
-            <SyntaxHighlighter codeString={inputVariantTypeCodeString} />
+          <ScrollSection ref={refs.containerPropsType}>
+            <Typography variant="h6">Container Props Type</Typography>
+            <SyntaxHighlighter
+              codeString={checkboxContainerPropsTypeCodeString}
+            />
+          </ScrollSection>
+          <ScrollSection ref={refs.inputPropsType}>
+            <Typography variant="h6">Input Props Type</Typography>
+            <SyntaxHighlighter codeString={checkboxInputPropsTypeCodeString} />
+          </ScrollSection>
+          <ScrollSection ref={refs.spanPropsType}>
+            <Typography variant="h6">Span Props Type</Typography>
+            <SyntaxHighlighter codeString={checkboxSpanPropsTypeCodeString} />
           </ScrollSection>
         </div>
         <div className="w-full flex gap-4 ">
