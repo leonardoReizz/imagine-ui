@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { useAppSelector } from "@/redux/store";
 import { List, ThemeProvider, Typography } from "@imagine-ui/react";
-import { ReactNode, useCallback, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -24,11 +24,22 @@ export function App({ children }: AppProps) {
   const onOpenChangeSidebar = useCallback((open: boolean) => {
     setIsOpenSidebar(open);
   }, []);
+
+  useEffect(() => {
+    if (currentTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [currentTheme]);
+
   return (
     <ThemeProvider theme={{ current: currentTheme }}>
       <div>
         <Navbar onOpenChange={onOpenChangeSidebar} isOpen={isOpenSidebar} />
-        {currentPathname !== "/" && <Sidebar isOpen={isOpenSidebar} />}
+        {currentPathname !== "/" && (
+          <Sidebar isOpen={isOpenSidebar} onOpenChange={onOpenChangeSidebar} />
+        )}
         {currentPathname === "/" && (
           <div className=" w-full flex items-center justify-center gap-2 relative">
             <div className="max-w-7xl">{children}</div>
@@ -44,7 +55,7 @@ export function App({ children }: AppProps) {
         className={`z-[999999999] flex flex-col items-center justify-center h-[300px] mt-20 p-4 gap-4`}
       >
         <div
-          className={` relative w-full flex flex-col items-center justify-center lg:flex-row left-14  ${
+          className={`relative w-full flex flex-col items-center justify-center lg:flex-row left-14  ${
             currentPathname === "/" ? "max-w-7xl" : "w-[calc(100%-30rem)]"
           }`}
         >
@@ -59,7 +70,7 @@ export function App({ children }: AppProps) {
               <Typography bold variant="small">
                 Help and Support
               </Typography>
-              <List className="p-0 -ml-2">
+              <List className="p-0 -ml-2" shadow={false}>
                 <ListItem>Contact Us</ListItem>
               </List>
             </div>
@@ -67,7 +78,7 @@ export function App({ children }: AppProps) {
               <Typography bold variant="small">
                 Resources
               </Typography>
-              <List className="p-0 -ml-2">
+              <List className="p-0 -ml-2" shadow={false}>
                 <Link href="">
                   <ListItem>Documentation</ListItem>
                 </Link>
@@ -83,7 +94,7 @@ export function App({ children }: AppProps) {
               <Typography bold variant="small">
                 Technologies
               </Typography>
-              <List className="p-0 -ml-2">
+              <List className="p-0 -ml-2" shadow={false}>
                 <Link href="https://react.dev">
                   <ListItem>React</ListItem>
                 </Link>

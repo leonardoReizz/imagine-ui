@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { AppDispath, useAppSelector } from "@/redux/store";
 import { changeTheme } from "@/redux/features/theme-slice";
 import { SearchDialog } from "./components/SearchDialog";
+import Cookies from "js-cookie";
 
 interface NavbarProps {
   isOpen: boolean;
@@ -43,7 +44,10 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
   );
 
   const handleTheme = useCallback(() => {
-    dispatch(changeTheme(currentTheme === "light" ? "dark" : "light"));
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    Cookies.set("theme", JSON.stringify({ theme: newTheme }));
+    dispatch(changeTheme(newTheme));
   }, [currentTheme, dispatch]);
 
   return (
