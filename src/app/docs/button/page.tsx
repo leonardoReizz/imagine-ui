@@ -12,11 +12,6 @@ import {
   buttonVariantCodeString,
   buttonVariantTypeCodeString,
 } from "@/utils/codeString/button";
-import {
-  BellAlertIcon,
-  Cog6ToothIcon,
-  UserIcon,
-} from "@heroicons/react/20/solid";
 import Component from "@/components/ComponentPreview";
 import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
@@ -57,7 +52,7 @@ export default function Buttons() {
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
           <ScrollSection ref={refs.button}>
-            <Component.Container title="Button">
+            <Component.Container title="Button" className="h-[260px]">
               <Component.Preview codeString={buttonCodeString}>
                 <Button>Example</Button>
               </Component.Preview>
@@ -66,6 +61,7 @@ export default function Buttons() {
           <ScrollSection ref={refs.variants}>
             <Component.Container
               title="Variants"
+              className="h-[430px]"
               description="Multiple button designs available to suit different interface needs."
             >
               <Component.Preview codeString={buttonVariantCodeString}>
@@ -90,7 +86,7 @@ export default function Buttons() {
           <ScrollSection ref={refs.colors}>
             <Component.Container
               title="Colors"
-              className="h-[430px]"
+              className="h-[290px]"
               description=" A comprehensive color palette to choose from, ensuring buttons fit any design theme."
             >
               <Component.Preview codeString={buttonColorsCodeString}>
@@ -104,7 +100,7 @@ export default function Buttons() {
           <ScrollSection ref={refs.ripple}>
             <Component.Container
               title="Ripple Effect"
-              className="h-[285px]"
+              className="h-[235px]"
               description="An optional tactile ripple effect that can be toggled based on preference."
             >
               <Component.Preview codeString={buttonRippleEffectCodeString}>
@@ -116,7 +112,7 @@ export default function Buttons() {
           <ScrollSection ref={refs.shadow}>
             <Component.Container
               title="Shadow"
-              className="h-[285px]"
+              className="h-[240px]"
               description=" Control over button shadowing, allowing for either a flat or elevated appearance."
             >
               <Component.Preview codeString={buttonShadowCodeString}>
@@ -133,16 +129,40 @@ export default function Buttons() {
             >
               <Component.Preview codeString={buttonWithIconCodeString}>
                 <Button color="blue">
-                  <UserIcon className="w-4 h-4" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                  </svg>
                   User
                 </Button>
                 <Button color="green">
                   Settings
-                  <Cog6ToothIcon className="w-4 h-4" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                  </svg>
                 </Button>
                 <Button color="red">
                   Notification
-                  <BellAlertIcon className="w-4 h-4" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                  </svg>
                 </Button>
               </Component.Preview>
             </Component.Container>
@@ -152,10 +172,12 @@ export default function Buttons() {
               <div>
                 <Typography variant="h6">API</Typography>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                  dicta porro eum natus obcaecati. Laudantium maiores molestias
-                  aliquid, distinctio itaque modi ullam corrupti earum pariatur
-                  maxime possimus iusto, repellat nisi.
+                  Dive into the detailed specifications of our Button component.
+                  This section sheds light on the plethora of options available
+                  to you, ranging from size to color. Whether you're aiming for
+                  a minimalist design or a more attention-grabbing approach, our
+                  Button component offers the flexibility to suit your
+                  application's needs.
                 </Typography>
               </div>
               <ScrollSection>
