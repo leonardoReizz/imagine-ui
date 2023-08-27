@@ -63,7 +63,7 @@ export function useIconButtonPage() {
       id: "2",
       name: "color",
       type: "Color",
-      default: "blue",
+      default: "green",
       description: "Change button color",
       onClickType: () =>
         scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
