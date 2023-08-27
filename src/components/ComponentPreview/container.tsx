@@ -3,6 +3,7 @@ import { LegacyRef, ReactNode } from "react";
 
 interface ContainerPreviewProps {
   className?: string;
+  containerClassName?: string;
   children: ReactNode;
   title?: string;
   description?: string;
@@ -12,12 +13,16 @@ interface ContainerPreviewProps {
 export function ContainerPreview({
   children,
   className = "",
+  containerClassName = "",
   title = "",
   description = "",
   ref,
 }: ContainerPreviewProps) {
   return (
-    <div className={` min-h-[200px] w-full flex flex-col gap-4 `} ref={ref}>
+    <div
+      className={` min-h-[200px] w-full flex flex-col gap-4 ${containerClassName} `}
+      ref={ref}
+    >
       <Typography variant="h6" align="left">
         {title}
       </Typography>
