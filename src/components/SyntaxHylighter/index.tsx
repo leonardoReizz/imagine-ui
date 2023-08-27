@@ -14,7 +14,6 @@ export function SyntaxHighlighter({ codeString }: SyntaxHighlighterProps) {
       language="jsx"
       style={prism}
       wrapLines={true}
-      wrapLongLines={true}
       showLineNumbers={true}
       customStyle={{
         background: "#27272a",
