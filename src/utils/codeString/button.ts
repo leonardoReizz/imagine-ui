@@ -1,4 +1,4 @@
-export const buttonCodeString = `import { Button } from "@imagine-io/react"
+export const buttonCodeString = `import { Button } from "@imagine-ui/react"
 
 export function ButtonExample() {
   return (
