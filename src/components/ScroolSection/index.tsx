@@ -5,7 +5,7 @@ export const ScrollSection = forwardRef(
     props: HTMLAttributes<HTMLDivElement>,
     ref: LegacyRef<HTMLDivElement> | undefined,
   ) => (
-    <div ref={ref} {...props} className="w-full">
+    <div ref={ref} {...props} className={`w-full ${props.className}`}>
       {props.children}
     </div>
   ),
