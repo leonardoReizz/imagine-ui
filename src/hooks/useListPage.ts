@@ -1,8 +1,6 @@
 import { OnThisPageList } from "@/components/OnThisPage";
 import { useEffect, useRef, useState } from "react";
-import { scrollTo } from "@/utils/scroolTo";
 import { useDebounce } from "@/utils/useDebounce";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
 
 export function useListPage() {
   const [currentSection, setCurrentSection] = useState<string | null>(null);
@@ -46,7 +44,7 @@ export function useListPage() {
       name: "children",
       type: "node",
       default: "",
-      description: "Button content",
+      description: "List content",
     },
     {
       id: "2",
@@ -59,7 +57,7 @@ export function useListPage() {
       id: "4",
       name: "shadow",
       type: "boolean",
-      default: "false",
+      default: "true",
       description: "Enable/disable shadow",
     },
   ];
@@ -70,7 +68,7 @@ export function useListPage() {
       name: "children",
       type: "node",
       default: "",
-      description: "Button content",
+      description: "List Item content",
     },
     {
       id: "2",
