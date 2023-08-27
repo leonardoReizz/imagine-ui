@@ -1,4 +1,4 @@
-import { Button, Card, IconButton } from "@imagine-ui/react";
+import { Button, Card } from "@imagine-ui/react";
 import {
   CodeBracketIcon,
   EyeIcon,
@@ -8,8 +8,6 @@ import {
 import { ReactNode, useCallback, useState } from "react";
 import { useAppSelector } from "@/redux/store";
 import { SyntaxHighlighter } from "../SyntaxHylighter";
-
-// import Image from "next/image";
 
 interface PreviewProps {
   codeString: string;
@@ -33,9 +31,9 @@ export function Preview({ children, codeString }: PreviewProps) {
   }, [codeString]);
 
   return (
-    <div className="flex gap-4 items-center justify-center w-full h-full ">
+    <div className="flex gap-4 items-start justify-center w-full h-full ">
       <Card
-        className={`h-full rounded-md border w-full  ${
+        className={`h-full rounded-md border p-0 w-full ${
           state === 1 || currentTheme === "dark"
             ? "bg-zinc-800 border-zinc-700"
             : "bg-white"
@@ -85,16 +83,20 @@ export function Preview({ children, codeString }: PreviewProps) {
           </div>
         </div>
 
-        <div className="flex items-center justify-start h-full overflow-auto">
-          <div className="min-w-[600px] w-full">
-            {state === 0 && (
+        {state === 0 && (
+          <div className="flex items-center justify-start h-full overflow-auto">
+            <div className="min-w-[600px] w-full">
               <div className="w-full h-full flex items-center justify-center gap-4 ">
                 {children}
               </div>
-            )}
-            {state === 1 && <SyntaxHighlighter codeString={codeString} />}
+            </div>
           </div>
-        </div>
+        )}
+        {state === 1 && (
+          <div className="flex items-start justify-start  h-full overflow-auto ">
+            <SyntaxHighlighter codeString={codeString} />
+          </div>
+        )}
       </Card>
     </div>
   );
