@@ -31,11 +31,17 @@ export default function Sidebar({ isOpen, onOpenChange }: SidebarProps) {
               <Typography>Getting Started</Typography>
             </div>
             <List className="text-sm text-black" shadow={false}>
-              <ListItem onClick={() => router.push("/")}>Overview</ListItem>
-              <Link href="/docs/installation">
-                <ListItem>Installation</ListItem>
-              </Link>
-              <ListItem>License</ListItem>
+              <ListItem onClick={() => router.push("/docs/overview")}>
+                Overview
+              </ListItem>
+
+              <ListItem onClick={() => router.push("/docs/installation")}>
+                Installation
+              </ListItem>
+
+              <ListItem onClick={() => router.push("/docs/license")}>
+                License
+              </ListItem>
             </List>
           </div>
           <hr className="w-full -mt-4 dark:border-zinc-700" />
@@ -45,7 +51,9 @@ export default function Sidebar({ isOpen, onOpenChange }: SidebarProps) {
               <Typography>Customization</Typography>
             </div>
             <List className="text-sm" shadow={false}>
-              <ListItem>Theming</ListItem>
+              <ListItem onClick={() => router.push("/docs/theming")}>
+                Theming
+              </ListItem>
             </List>
           </div>
           <hr className="w-full -mt-4 dark:border-zinc-700" />
@@ -56,22 +64,22 @@ export default function Sidebar({ isOpen, onOpenChange }: SidebarProps) {
             </div>
             <List className="text-sm text-black" shadow={false}>
               <ListItem onClick={() => router.push("/docs/button")}>
-                <Link href="/docs/button">Button</Link>
+                Button
               </ListItem>
               <ListItem onClick={() => router.push("/docs/checkbox")}>
-                <Link href="/docs/checkbox">Checkbox</Link>
+                Checkbox
               </ListItem>
               <ListItem onClick={() => router.push("/docs/iconButton")}>
-                <Link href="/docs/input">Icon Button</Link>
+                Icon Button
               </ListItem>
               <ListItem onClick={() => router.push("/docs/input")}>
-                <Link href="/docs/input">Input</Link>
+                Input
               </ListItem>
               <ListItem onClick={() => router.push("/docs/list")}>
-                <Link href="/docs/list">List</Link>
+                List
               </ListItem>
               <ListItem onClick={() => router.push("/docs/typography")}>
-                <Link href="/docs/typography">Typography</Link>
+                Typography
               </ListItem>
             </List>
           </div>
