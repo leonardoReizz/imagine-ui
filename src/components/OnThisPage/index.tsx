@@ -21,7 +21,7 @@ export function OnThisPage({ currentSection, list }: OnThisPageProps) {
       <Typography bold variant="small">
         On This Page
       </Typography>
-      <List className="p-0">
+      <List className="p-0" shadow={false}>
         {list.map((t) => {
           return (
             <ListItem
