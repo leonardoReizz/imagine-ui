@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type InitialState = {
-  value: ThemeState;
-};
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 type ThemeState = {
   theme: "light" | "dark";
 };
 
+type InitialState = {
+  value: ThemeState;
+};
+
 const initialState = {
   value: {
-    theme: "light",
+    theme: JSON.parse(Cookies.get("theme") || "{}")?.theme || "light",
   } as ThemeState,
 } as InitialState;
 
@@ -19,12 +21,6 @@ export const theme = createSlice({
   initialState,
   reducers: {
     changeTheme: (state, action: PayloadAction<"light" | "dark">) => {
-      if (action.payload === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-
       return {
         value: {
           theme: action.payload,
