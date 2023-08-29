@@ -1,11 +1,10 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { scrollTo } from "@/utils/scroolTo";
-import { useDebounce } from "@/utils/useDebounce";
 import { smoothScrollTo } from "@/utils/smoothScroolTo";
+import { useScroll } from "./useScroll";
 
 export function useIconButtonPage() {
-  const [currentSection, setCurrentSection] = useState<string | null>(null);
   const refs: RefsType = {
     introdution: useRef<HTMLDivElement>(null),
     button: useRef<HTMLDivElement>(null),
@@ -19,30 +18,8 @@ export function useIconButtonPage() {
     colorType: useRef<HTMLDivElement>(null),
     variantType: useRef<HTMLDivElement>(null),
   };
-  const middleY = window.innerHeight / 3;
 
-  const handleScroll = useDebounce(() => {
-    const yOffset = window.scrollY + middleY;
-
-    for (const section in refs) {
-      const ref = refs[section];
-      if (
-        ref.current &&
-        yOffset >= ref.current.offsetTop &&
-        yOffset < ref.current.offsetTop + ref.current.offsetHeight
-      ) {
-        setCurrentSection(section);
-        return;
-      }
-    }
-  }, 10);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
+  const { currentSection } = useScroll({ refs });
 
   const apiBody = [
     {

@@ -1,11 +1,10 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { scrollTo } from "@/utils/scroolTo";
-import { useDebounce } from "@/utils/useDebounce";
 import { smoothScrollTo } from "@/utils/smoothScroolTo";
+import { useScroll } from "./useScroll";
 
 export function useCheckboxPage() {
-  const [currentSection, setCurrentSection] = useState<string | null>(null);
   const [checked, setChecked] = useState<boolean[]>([
     true,
     true,
@@ -34,30 +33,8 @@ export function useCheckboxPage() {
     inputPropsType: useRef<HTMLDivElement>(null),
     spanPropsType: useRef<HTMLDivElement>(null),
   };
-  const middleY = window.innerHeight / 3;
 
-  const handleScroll = useDebounce(() => {
-    const yOffset = window.scrollY + middleY;
-
-    for (const section in refs) {
-      const ref = refs[section];
-      if (
-        ref.current &&
-        yOffset >= ref.current.offsetTop &&
-        yOffset < ref.current.offsetTop + ref.current.offsetHeight
-      ) {
-        setCurrentSection(section);
-        return;
-      }
-    }
-  }, 10);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
+  const { currentSection } = useScroll({ refs });
 
   const handleCheckbox = useCallback((index: number) => {
     setChecked((t) => {
@@ -190,7 +167,7 @@ export function useCheckboxPage() {
       ref: refs.containerPropsType,
     },
     {
-      label: "InputProps Type",
+      label: "Input Props Type",
       name: "inputPropsType",
       ref: refs.inputPropsType,
     },
