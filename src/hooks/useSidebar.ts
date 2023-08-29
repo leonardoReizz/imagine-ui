@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, MouseEvent } from "react";
+import { useEffect, useRef } from "react";
 
 interface UseSidebarProps {
   onOpenChange: (open: boolean) => void;
@@ -10,8 +10,8 @@ export function useSidebar({ onOpenChange }: UseSidebarProps) {
   const router = useRouter();
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent<Element, MouseEvent>) {
-      if (cardRef.current && !cardRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
         onOpenChange(false);
       }
     }
@@ -21,7 +21,7 @@ export function useSidebar({ onOpenChange }: UseSidebarProps) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [onOpenChange]);
 
   return { cardRef, router };
 }
