@@ -1,8 +1,6 @@
 "use client";
-import { Button, IconButton, Typography } from "@imagine-ui/react";
-import { CodeBracketIcon } from "@heroicons/react/20/solid";
+import { Typography } from "@imagine-ui/react";
 import Component from "@/components/ComponentPreview";
-import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
@@ -17,12 +15,13 @@ import {
   typographyVariantTypeCodeString,
 } from "@/utils/codeString/typography";
 import { useTypographyPage } from "@/hooks/useTypographyPage";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Typographys() {
   const { apiBody, currentSection, onThisPageList, refs } = useTypographyPage();
 
   return (
-    <div className="w-full flex items-start justify-center gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
         <div className="flex flex-col gap-4" ref={refs.introdution}>
           <Typography variant="h5"> Typography - React</Typography>
@@ -33,7 +32,7 @@ export default function Typographys() {
             The Typography component emerges as a linchpin in web design,
             serving as an adaptable and stylized textual element. It
             encapsulates the essence of content, ensuring legibility while
-            enhancing the user's engagement with the platform.
+            enhancing the user&apos;s engagement with the platform.
           </Typography>
           <Typography
             variant="sub-paragraph"
@@ -49,8 +48,8 @@ export default function Typographys() {
             className="text-zinc-800 dark:text-zinc-300"
           >
             Developers aiming for flexibility will find the Typography component
-            a boon. Demonstrated below, the component's seamless synergy with
-            React allows for a plethora of styles, alignments, and emphasis
+            a boon. Demonstrated below, the component&apos;s seamless synergy
+            with React allows for a plethora of styles, alignments, and emphasis
             options. This versatility ensures that every piece of text can be
             crafted to align perfectly with the broader design narrative.
           </Typography>
@@ -126,8 +125,9 @@ export default function Typographys() {
                   component. This section dives deep into the different styles,
                   weight options, and customizable properties that ensure your
                   text elements are not only readable but also aesthetically
-                  aligned with your application's design ethos. From headers to
-                  paragraphs, our Typography component has got you covered.
+                  aligned with your application&apos;s design ethos. From
+                  headers to paragraphs, our Typography component has got you
+                  covered.
                 </Typography>
               </div>
               <ScrollSection>
@@ -151,33 +151,11 @@ export default function Typographys() {
             <SyntaxHighlighter codeString={typographyAlignTypeCodeString} />
           </ScrollSection>
         </div>
-        <div className="w-full flex gap-4 ">
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="w-full">
-                <Typography>Previous</Typography>
-                <Typography color="green">Typography</Typography>
-              </div>
-            </Button>
-          </Link>
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="ml-auto">
-                <Typography className="ml-auto">Next</Typography>
-                <Typography color="green">Icon Button</Typography>
-              </div>
-            </Button>
-          </Link>
-        </div>
       </div>
+      <PreviousAndNext
+        previous={{ label: "List", path: "/docs/list" }}
+        next={{ label: "Overview", path: "/docs/overview" }}
+      />
       <OnThisPage currentSection={currentSection} list={onThisPageList} />
     </div>
   );

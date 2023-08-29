@@ -24,13 +24,14 @@ import {
   listWithItemDisabledCodeString,
 } from "@/utils/codeString/list";
 import { useListPage } from "@/hooks/useListPage";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Lists() {
   const { apiListBody, apiListItemBody, currentSection, onThisPageList, refs } =
     useListPage();
 
   return (
-    <div className="w-full flex items-start justify-center gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start  gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
         <div className="flex flex-col gap-4" ref={refs.introdution}>
           <Typography variant="h5">List - React</Typography>
@@ -39,9 +40,9 @@ export default function Lists() {
             className="text-zinc-800 dark:text-zinc-300"
           >
             The LIST component is pivotal in web design. Serving as a versatile
-            and organizational tool, it's designed to present information in a
-            structured manner, ensuring intuitive and user-friendly navigation.
-            For developers aiming for adaptability, an example below
+            and organizational tool, it&apos;s designed to present information
+            in a structured manner, ensuring intuitive and user-friendly
+            navigation. For developers aiming for adaptability, an example below
             demonstrates the seamless integration of the LIST with Tailwind CSS
             and React. This depiction showcases a variety of styles, effects,
             and colors, ensuring it can be customized to cater to diverse design
@@ -168,7 +169,7 @@ export default function Lists() {
                   Dive into the detailed specifications of our List component.
                   This section outlines the properties you can adjust, including
                   layout and item types, to seamlessly integrate the list into
-                  your application's design.
+                  your application&apos;s design.
                 </Typography>
               </div>
               <ScrollSection>
@@ -220,6 +221,10 @@ export default function Lists() {
           </Link>
         </div>
       </div>
+      <PreviousAndNext
+        previous={{ label: "Input", path: "/docs/input" }}
+        next={{ label: "Typography", path: "/docs/Typography" }}
+      />
       <OnThisPage currentSection={currentSection} list={onThisPageList} />
     </div>
   );

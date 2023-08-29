@@ -1,6 +1,5 @@
 "use client";
 import { Button, IconButton, Typography } from "@imagine-ui/react";
-import { CodeBracketIcon } from "@heroicons/react/20/solid";
 import Component from "@/components/ComponentPreview";
 import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
@@ -20,12 +19,13 @@ import {
   iconButtonVariantCodeString,
   iconButtonVariantTypeCodeString,
 } from "@/utils/codeString/iconButton";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function IconButtons() {
   const { apiBody, currentSection, onThisPageList, refs } = useIconButtonPage();
 
   return (
-    <div className="w-full flex items-start justify-center gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
         <div className="flex flex-col gap-4" ref={refs.introdution}>
           <Typography variant="h5"> Icon Button - React</Typography>
@@ -34,27 +34,27 @@ export default function IconButtons() {
             className="text-zinc-800 dark:text-zinc-300"
           >
             The IconButton stands as a cornerstone in web design. Acting as a
-            distinctive, stylized prompt, it effectively captures the user's
-            attention and steers them through our platforms. For developers
-            seeking adaptability, an example below showcases the IconButton's
-            smooth integration with Tailwind CSS and React. This illustration
-            offers a spectrum of styles, effects, and colors, ensuring it can be
-            tailored to suit various design needs.
+            distinctive, stylized prompt, it effectively captures the
+            user&apos;s attention and steers them through our platforms. For
+            developers seeking adaptability, an example below showcases the
+            IconButton&apos;s smooth integration with Tailwind CSS and React.
+            This illustration offers a spectrum of styles, effects, and colors,
+            ensuring it can be tailored to suit various design needs.
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
             Its primary role is to lead users toward specific actions, whether
-            it's submitting feedback or navigating further into the app.
+            it&apos;s submitting feedback or navigating further into the app.
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
             For developers seeking adaptability, an example below showcases the
-            IconButton's smooth integration with Tailwind CSS and React. This
-            illustration offers a spectrum of styles, effects, and colors,
+            IconButton&apos;s smooth integration with Tailwind CSS and React.
+            This illustration offers a spectrum of styles, effects, and colors,
             ensuring it can be tailored to suit various design needs.
           </Typography>
         </div>
@@ -300,7 +300,7 @@ export default function IconButtons() {
                   Dive into the detailed specifications of our Icon Button
                   component. This section outlines the properties you can tweak,
                   including color and variant types, to seamlessly integrate the
-                  button into your application's design.
+                  button into your application&apos;s design.
                 </Typography>
               </div>
               <ScrollSection>
@@ -324,33 +324,11 @@ export default function IconButtons() {
             <SyntaxHighlighter codeString={iconButtonVariantTypeCodeString} />
           </ScrollSection>
         </div>
-        <div className="w-full flex gap-4 ">
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="w-full">
-                <Typography>Previous</Typography>
-                <Typography color="green">Typography</Typography>
-              </div>
-            </Button>
-          </Link>
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="ml-auto">
-                <Typography className="ml-auto">Next</Typography>
-                <Typography color="green">Icon Button</Typography>
-              </div>
-            </Button>
-          </Link>
-        </div>
       </div>
+      <PreviousAndNext
+        previous={{ label: "Checkbox", path: "/docs/checkbox" }}
+        next={{ label: "Input", path: "/docs/input" }}
+      />
       <OnThisPage currentSection={currentSection} list={onThisPageList} />
     </div>
   );

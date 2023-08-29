@@ -1,11 +1,12 @@
 "use client";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 import { ScrollSection } from "@/components/ScroolSection";
 import { Typography } from "@imagine-ui/react";
 
 export default function Overview() {
   return (
-    <>
-      <ScrollSection className="mt-10">
+    <div className="flex flex-col items-start justify-center gap-10 mt-10">
+      <ScrollSection>
         <Typography variant="h6">
           Imagine UI - Comprehensive React Component Suite
         </Typography>
@@ -14,14 +15,14 @@ export default function Overview() {
           meticulously designed to enhance your development endeavors.
         </Typography>
       </ScrollSection>
-      <ScrollSection className="mt-10">
+      <ScrollSection>
         <Typography variant="h6">Overview</Typography>
         <Typography variant="sub-paragraph" className="mt-4">
           Imagine UI stands as a proprietary collection of carefully crafted
           React components, developed using the capabilities of Tailwind CSS.
         </Typography>
       </ScrollSection>
-      <ScrollSection className="mt-10">
+      <ScrollSection>
         <Typography variant="h6"> Key Features</Typography>
         <Typography bold className="mt-4">
           Component Arsenal:
@@ -47,7 +48,9 @@ export default function Overview() {
           UI is poised to introduce advanced theming capabilities in the near
           future. Diverse
         </Typography>
-        <Typography variant="h6" bold className="mt-10">
+      </ScrollSection>
+      <ScrollSection>
+        <Typography variant="h6" bold>
           About
         </Typography>
         <Typography variant="sub-paragraph" className="mt-4" bold>
@@ -56,16 +59,21 @@ export default function Overview() {
           configurations might be required for optimal integration.
         </Typography>
         <Typography variant="sub-paragraph" className="mt-4">
-          Imagine UI's documentation is your guiding light. The open GitHub
-          repository welcomes contributions, whether it's addressing library
-          issues or refining the website content.
+          Imagine UI&apos;s documentation is your guiding light. The open GitHub
+          repository welcomes contributions, whether it&apos;s addressing
+          library issues or refining the website content.
         </Typography>
         <Typography variant="sub-paragraph" className="mt-4">
-          We're thrilled to be part of your development journey. Welcome to the
-          world of Imagine UI – where innovation meets code, and possibilities
-          abound.
+          We&apos;re thrilled to be part of your development journey. Welcome to
+          the world of Imagine UI – where innovation meets code, and
+          possibilities abound.
         </Typography>
       </ScrollSection>
-    </>
+      <PreviousAndNext
+        className="mt-20"
+        previous={{ path: "/", label: "Imagine-UI" }}
+        next={{ path: "/docs/installation", label: "Installation" }}
+      />
+    </div>
   );
 }

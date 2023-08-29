@@ -20,6 +20,7 @@ import {
   checkboxSizeTypeCodeString,
   checkboxSpanPropsTypeCodeString,
 } from "@/utils/codeString/checkbox";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Checkboxes() {
   const {
@@ -32,7 +33,7 @@ export default function Checkboxes() {
   } = useCheckboxPage();
 
   return (
-    <div className="w-full flex items-start justify-center gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
         <div className="flex flex-col gap-4" ref={refs.introduction}>
           <Typography variant="h5">Checkbox - React</Typography>
@@ -42,22 +43,22 @@ export default function Checkboxes() {
           >
             The Checkbox is an essential component in web design. At its
             essence, it represents a simple choice mechanism that effectively
-            captures the user's input. These checkboxes facilitate interactions
-            within our websites or apps, enabling users to indicate preferences,
-            make selections, or provide consent. Examine an example of our
-            Checkbox below that can be smoothly integrated into projects with
-            Tailwind CSS and React. This demonstration encompasses a range of
-            styles, effects, and colors, empowering you to tailor it according
-            to your design needs.
+            captures the user&apos;s input. These checkboxes facilitate
+            interactions within our websites or apps, enabling users to indicate
+            preferences, make selections, or provide consent. Examine an example
+            of our Checkbox below that can be smoothly integrated into projects
+            with Tailwind CSS and React. This demonstration encompasses a range
+            of styles, effects, and colors, empowering you to tailor it
+            according to your design needs.
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
             The Checkbox is an indispensable element in web design. At its
-            heart, it's a clear indication of choice, effectively grabbing the
-            user's focus. They steer users through our digital platforms,
-            allowing them to confirm choices or indicate agreement.
+            heart, it&apos;s a clear indication of choice, effectively grabbing
+            the user&apos;s focus. They steer users through our digital
+            platforms, allowing them to confirm choices or indicate agreement.
           </Typography>
           <Typography
             variant="sub-paragraph"
@@ -201,8 +202,8 @@ export default function Checkboxes() {
                 <Typography>
                   Step into the intricate details of our Input Checkbox
                   component. Here, we detail the facets and properties that can
-                  be adjusted, like the checkbox's size, its state (checked or
-                  unchecked), and even its color. Tailor it to perfection,
+                  be adjusted, like the checkbox&apos;s size, its state (checked
+                  or unchecked), and even its color. Tailor it to perfection,
                   ensuring that it matches the overarching theme and
                   functionality of your application.
                 </Typography>
@@ -238,33 +239,11 @@ export default function Checkboxes() {
             <SyntaxHighlighter codeString={checkboxSpanPropsTypeCodeString} />
           </ScrollSection>
         </div>
-        <div className="w-full flex gap-4 ">
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="w-full">
-                <Typography>Previous</Typography>
-                <Typography color="green">Typography</Typography>
-              </div>
-            </Button>
-          </Link>
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="ml-auto">
-                <Typography className="ml-auto">Next</Typography>
-                <Typography color="green">Icon Button</Typography>
-              </div>
-            </Button>
-          </Link>
-        </div>
       </div>
+      <PreviousAndNext
+        previous={{ label: "Button", path: "/docs/button" }}
+        next={{ label: "Icon Button", path: "/docs/iconButton" }}
+      />
       <OnThisPage currentSection={currentSection} list={onThisPageList} />
     </div>
   );

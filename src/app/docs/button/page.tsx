@@ -19,12 +19,13 @@ import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
 import { useButtonsPage } from "@/hooks/useButtonsPage";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Buttons() {
   const { apiBody, currentSection, onThisPageList, refs } = useButtonsPage();
 
   return (
-    <div className="w-full flex items-start justify-center gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
         <div className="flex flex-col gap-4" ref={refs.introduction}>
           <Typography variant="h5">Button - React</Typography>
@@ -174,10 +175,10 @@ export default function Buttons() {
                 <Typography>
                   Dive into the detailed specifications of our Button component.
                   This section sheds light on the plethora of options available
-                  to you, ranging from size to color. Whether you're aiming for
-                  a minimalist design or a more attention-grabbing approach, our
-                  Button component offers the flexibility to suit your
-                  application's needs.
+                  to you, ranging from size to color. Whether you&apos;re aiming
+                  for a minimalist design or a more attention-grabbing approach,
+                  our Button component offers the flexibility to suit your
+                  application&apos;s needs.
                 </Typography>
               </div>
               <ScrollSection>
@@ -201,33 +202,11 @@ export default function Buttons() {
             <SyntaxHighlighter codeString={buttonColorTypeCodeString} />
           </ScrollSection>
         </div>
-        <div className="w-full flex gap-4 ">
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="w-full">
-                <Typography>Previous</Typography>
-                <Typography color="green">Typography</Typography>
-              </div>
-            </Button>
-          </Link>
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="ml-auto">
-                <Typography className="ml-auto">Next</Typography>
-                <Typography color="green">Icon Button</Typography>
-              </div>
-            </Button>
-          </Link>
-        </div>
       </div>
+      <PreviousAndNext
+        previous={{ label: "Theming", path: "/docs/theming" }}
+        next={{ label: "Checkbox", path: "/docs/checkbox" }}
+      />
       <OnThisPage currentSection={currentSection} list={onThisPageList} />
     </div>
   );

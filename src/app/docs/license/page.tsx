@@ -1,18 +1,20 @@
 "use client";
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 import { Typography } from "@imagine-ui/react";
 
 export default function License() {
   return (
-    <div className="flex flex-col gap-4 mt-10">
+    <div className="flex flex-col gap-10 mt-10">
       <Typography variant="h6">
         Imagine UI (@imagine-ui) Software License Agreement
       </Typography>
       <Typography variant="sub-paragraph">
-        This License Agreement ("Agreement") is entered into between you
-        ("Licensee") and Imagine UI ("Licensor"), establishing the terms and
-        conditions under which the user interface software known as Imagine UI,
-        including any subsequent updates or enhancements ("Software"), is
-        licensed for use by the Licensee.
+        This License Agreement (&quot;Agreement&quot;) is entered into between
+        you (&quot;Licensee&quot;) and Imagine UI (&quot;Licensor&quot;),
+        establishing the terms and conditions under which the user interface
+        software known as Imagine UI, including any subsequent updates or
+        enhancements (&quot;Software&quot;), is licensed for use by the
+        Licensee.
       </Typography>
 
       <Typography bold>1. License Grant</Typography>
@@ -67,10 +69,10 @@ export default function License() {
         5. Disclaimer of Warranties
       </Typography>
       <Typography>
-        5.1. No Warranties: The Software is provided "as is," without warranties
-        of any kind, whether express or implied. The Licensor does not warrant
-        the suitability of the Software for any specific purpose or its
-        error-free operation.
+        5.1. No Warranties: The Software is provided &quot;as is,&quot; without
+        warranties of any kind, whether express or implied. The Licensor does
+        not warrant the suitability of the Software for any specific purpose or
+        its error-free operation.
       </Typography>
       <Typography bold>6. Applicable Law</Typography>
       <Typography variant="sub-paragraph">
@@ -81,6 +83,10 @@ export default function License() {
         this Agreement. If you do not agree to the terms of this Agreement, do
         not use the Software.
       </Typography>
+      <PreviousAndNext
+        previous={{ label: "installation", path: "/docs/installation" }}
+        next={{ label: "Theming", path: "/docs/theming" }}
+      />
     </div>
   );
 }

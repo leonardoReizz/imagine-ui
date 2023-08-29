@@ -1,5 +1,5 @@
 "use client";
-
+import { PreviousAndNext } from "@/components/PreviousAndNext";
 import { Card, Typography } from "@imagine-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,57 +34,53 @@ export default function Installation() {
       </div>
       <div className="flex flex-col gap-4">
         <Typography variant="h6">Harmonizing with Frameworks</Typography>
+
         <Typography variant="sub-paragraph">
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <Typography variant="sub-paragraph">
-                Our dedicated guides for diverse frameworks expound on the
-                recommended methodology for incorporating @imagine-ui/react
-                within different prominent ecosystems. Make a selection from the
-                list of favored frameworks below, then proceed to implement the
-                specified instructions.
-              </Typography>
-              <Typography variant="sub-paragraph">
-                Syncing with the Tailwind CSS Framework Elevate your workflow
-                efficacy by harmoniously integrating your preferred tools,
-                empowered by the versatility of Imagine UI.
-              </Typography>
-            </div>
-            <div className="flex w-full gap-4 justify-center items-center flex-wrap ">
-              <Link href="/docs/installation/cra" className="flex-[1_1_150px]">
-                <Card
-                  className="border  dark:border-zinc-700 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition-all items-center justify-center gap-4 w-full h-[175px] hover:shadow-lg peer p-4 "
-                  color="transparent"
-                >
-                  <Image
-                    alt=""
-                    src="/create-react-app-icon.svg"
-                    width={60}
-                    height={60}
-                  />
-                </Card>
-              </Link>
-              <Link href="/docs/installation/vite" className="flex-[1_1_150px]">
-                <Card
-                  className="border dark:border-zinc-700 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition-all items-center justify-center gap-4 w-full h-[175px] hover:shadow-lg peer p-4 "
-                  color="transparent"
-                >
-                  <Image alt="" src="/vite-icon.svg" width={60} height={60} />
-                </Card>
-              </Link>
-              <Link href="/docs/installation/next" className="flex-[1_1_150px]">
-                <Card
-                  className="border dark:border-zinc-700 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition-all items-center justify-center gap-4 w-full h-[175px] hover:shadow-lg peer p-4 "
-                  color="transparent"
-                >
-                  <Image alt="" src="/next-icon.svg" width={60} height={60} />
-                </Card>
-              </Link>
-            </div>
-          </div>
+          Our dedicated guides for diverse frameworks expound on the recommended
+          methodology for incorporating @imagine-ui/react within different
+          prominent ecosystems. Make a selection from the list of favored
+          frameworks below, then proceed to implement the specified
+          instructions.
         </Typography>
+        <Typography variant="sub-paragraph">
+          Syncing with the Tailwind CSS Framework Elevate your workflow efficacy
+          by harmoniously integrating your preferred tools, empowered by the
+          versatility of Imagine UI.
+        </Typography>
+
+        <div className="flex flex-wrap gap-4">
+          <Link href="/docs/installation/cra" className="flex-[1_1_200px]">
+            <Card
+              className="border  dark:border-zinc-700 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition-all items-center justify-center gap-4 w-full h-[175px] hover:shadow-lg peer p-4 "
+              color="transparent"
+            >
+              <Image
+                alt=""
+                src="/create-react-app-icon.svg"
+                width={60}
+                height={60}
+              />
+            </Card>
+          </Link>
+          <Link href="/docs/installation/vite" className="flex-[1_1_200px]">
+            <Card
+              className="border dark:border-zinc-700 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition-all items-center justify-center gap-4 w-full h-[175px] hover:shadow-lg peer p-4 "
+              color="transparent"
+            >
+              <Image alt="" src="/vite-icon.svg" width={60} height={60} />
+            </Card>
+          </Link>
+          <Link href="/docs/installation/next" className="flex-[1_1_200px]">
+            <Card
+              className="border dark:border-zinc-700 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition-all items-center justify-center gap-4 w-full h-[175px] hover:shadow-lg peer p-4 "
+              color="transparent"
+            >
+              <Image alt="" src="/next-icon.svg" width={60} height={60} />
+            </Card>
+          </Link>
+        </div>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 ">
         <Typography variant="h6">Typescript</Typography>
         <Typography variant="sub-paragraph">
           The essence of @imagine-ui/react is rooted in components founded upon
@@ -92,6 +88,10 @@ export default function Installation() {
           projects centered around the TypeScript framework.
         </Typography>
       </div>
+      <PreviousAndNext
+        previous={{ path: "/docs/overview", label: "Overview" }}
+        next={{ path: "/docs/license", label: "License" }}
+      />
     </div>
   );
 }
