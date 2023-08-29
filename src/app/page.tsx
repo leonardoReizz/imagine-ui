@@ -39,7 +39,7 @@ export default function Home() {
             <div className="max-md:w-full max-md:mb-10">
               <Button
                 color="green"
-                onClick={() => router.push("/docs/button")}
+                onClick={() => router.push("/docs/overview")}
                 className="max-md:ml-auto max-md:mr-auto"
               >
                 Get Started <ArrowRightIcon className="h-5 w-5" />
@@ -131,60 +131,6 @@ export default function Home() {
                 Next.js
               </Typography>
               <Image alt="" src="next-icon.svg" width={60} height={60} />
-            </Card>
-          </div>
-        </Card>
-        <Card
-          className="w-full flex items-center"
-          shadow={false}
-          color="transparent"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Typography variant="h5">React UI Components</Typography>
-            <Typography className="max-w-[700px]" align="center">
-              Explore the entire collection of over 7 components and interactive
-              elements built with React and Tailwind CSS
-            </Typography>
-          </div>
-          <div
-            className="w-full flex gap-4 items-center justify-center mt-20 flex-wrap"
-            color="transparent"
-          >
-            <Card
-              className="w-full max-w-[350px] h-[250px] hover:shadow-lg peer"
-              color="transparent"
-            >
-              <div className="bg-zinc-100  rounded-t-md p-2 ">
-                <Typography>Button</Typography>
-              </div>
-              <div className="w-full h-full peer-hover:bg-zinc-100">a</div>
-            </Card>
-            <Card
-              className="w-full max-w-[350px] h-[250px] hover:shadow-lg peer"
-              color="transparent"
-            >
-              <div className="bg-zinc-100  rounded-t-md p-2 ">
-                <Typography>Button Icon</Typography>
-              </div>
-              <div className="w-full h-full peer-hover:bg-zinc-100">a</div>
-            </Card>
-            <Card
-              className="w-full max-w-[350px] h-[250px] hover:shadow-lg peer"
-              color="transparent"
-            >
-              <div className="bg-zinc-100  rounded-t-md p-2 ">
-                <Typography>List</Typography>
-              </div>
-              <div className="w-full h-full peer-hover:bg-zinc-100">a</div>
-            </Card>
-            <Card
-              className="w-full max-w-[350px] h-[250px] hover:shadow-lg peer"
-              color="transparent"
-            >
-              <div className="bg-zinc-100  rounded-t-md p-2 ">
-                <Typography>Input</Typography>
-              </div>
-              <div className="w-full h-full peer-hover:bg-zinc-100">a</div>
             </Card>
           </div>
         </Card>
