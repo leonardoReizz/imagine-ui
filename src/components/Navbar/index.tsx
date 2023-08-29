@@ -8,11 +8,10 @@ import {
   MagnifyingGlassIcon,
   SunIcon,
 } from "@heroicons/react/20/solid";
-import { useDispatch } from "react-redux";
-import { AppDispath, useAppSelector } from "@/redux/store";
-import { changeTheme } from "@/redux/features/theme-slice";
 import { SearchDialog } from "./components/SearchDialog";
 import Cookies from "js-cookie";
+import Link from "next/link";
+import { useThemeContext } from "@/hooks/useThemeContext";
 
 interface NavbarProps {
   isOpen: boolean;
@@ -27,6 +26,9 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
       if (event.ctrlKey && event.key === "k") {
         setIsOpenSearch(!isOpenSearch);
       }
+      if (event.key === "Escape") {
+        setIsOpenSearch(false);
+      }
     },
     [isOpenSearch],
   );
@@ -38,17 +40,21 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
     };
   }, [keyDownHandler]);
 
-  const dispatch = useDispatch<AppDispath>();
-  const currentTheme = useAppSelector(
-    (state) => state.themeReducer.value.theme,
+  const { theme, changeTheme } = useThemeContext();
+
+  const handleTheme = useCallback(
+    (current?: boolean) => {
+      let newTheme: "light" | "dark" = theme === "light" ? "dark" : "light";
+
+      if (current) {
+        newTheme = JSON.parse(Cookies.get("theme") || "{}")?.theme;
+      }
+
+      Cookies.set("theme", JSON.stringify({ theme: newTheme }));
+      changeTheme(newTheme);
+    },
+    [theme],
   );
-
-  const handleTheme = useCallback(() => {
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-
-    Cookies.set("theme", JSON.stringify({ theme: newTheme }));
-    dispatch(changeTheme(newTheme));
-  }, [currentTheme, dispatch]);
 
   return (
     <>
@@ -57,12 +63,12 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
         onOpenChange={(e) => setIsOpenSearch(e)}
       />
       <Card
-        className={`sticky flex-row z-10 top-0 h-14 w-full rounded-none justify-between backdrop-blur-2xl   ${
-          currentTheme === "dark" ? "bg-zinc-700/50" : "bg-zinc-300/50"
+        className={`sticky flex-row z-10 top-0 h-14 px-4 w-full rounded-none justify-between backdrop-blur-2xl   ${
+          theme === "dark" ? "bg-zinc-700/50" : "bg-zinc-300/50"
         }`}
         shadow={false}
       >
-        <div className="w-full p-4 flex items-center gap-4">
+        <div className="w-full flex items-center gap-4">
           <IconButton
             variant="text"
             onClick={() => onOpenChange(!isOpen)}
@@ -71,7 +77,12 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
             <Bars3Icon className="w-4 h-4" />
           </IconButton>
           <Typography variant="h6" align="left" className="normal-case">
-            Imagine UI
+            <Link href="/" className="max-md:opacity-0 max-md:hidden">
+              Imagine UI
+            </Link>
+            <Link href="/" className="md:opacity-100  md:hidden">
+              IUI
+            </Link>
           </Typography>
         </div>
 
@@ -80,7 +91,7 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
             variant="transparent"
             color="black"
             size="sm"
-            className="w-[200px] justify-start px-4  border border-gray-300"
+            className="w-[200px] justify-start px-4  border border-gray-300 dark:border-zinc-700"
             onClick={() => setIsOpenSearch(true)}
           >
             <MagnifyingGlassIcon className="w-4 h-4 text-green-500" />
@@ -89,11 +100,11 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
           </Button>
           <li>
             <IconButton
-              color={currentTheme === "light" ? "green" : "blue"}
+              color={theme === "light" ? "green" : "blue"}
               variant="text"
               shadow={false}
               ripple={false}
-              onClick={handleTheme}
+              onClick={() => handleTheme()}
             >
               <SunIcon className="w-5 h-5" />
             </IconButton>
@@ -105,7 +116,12 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
               shadow={false}
               ripple={false}
             >
-              <AiOutlineGithub className="w-5 h-5" />
+              <Link
+                href="https://github.com/leonardoReizz/imagine-ui"
+                target="_blank"
+              >
+                <AiOutlineGithub className="w-5 h-5" />
+              </Link>
             </IconButton>
           </li>
         </ul>
