@@ -1,6 +1,7 @@
 export function smoothScrollTo(elementY: number, duration: number): void {
   const startingY = window.pageYOffset;
-  const diff = elementY - startingY;
+  const targetY = elementY - 101; // Ajuste para 101 pixels do topo
+  const diff = targetY - startingY;
   let start: number;
 
   window.requestAnimationFrame(function step(timestamp: number) {
