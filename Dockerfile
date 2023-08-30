@@ -3,8 +3,8 @@ FROM node:16.16.0
 WORKDIR /app
 
 COPY package* ./
-COPY ./imagine-ui-react-0.3.4-beta.tgz ./
-RUN npm i ./imagine-ui-react-0.3.4-beta.tgz
+COPY ./imagine-ui-react-0.3.5-beta.tgz ./
+RUN npm i ./imagine-ui-react-0.3.5-beta.tgz
 
 RUN npm install 
 
