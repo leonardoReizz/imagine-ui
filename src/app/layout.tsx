@@ -14,6 +14,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Imagine UI - Component Library With React </title>
+        <meta
+          name="google-site-verification"
+          content="ZKMPzmc_fkTcJscBQkjxMhDCvx4cshM9DibFYyIwqV4"
+        />
       </head>
       <body className={`${inter.className} dark:bg-zinc-900`}>
         <ThemeProvider theme={{ initialTheme: "light" }}>
