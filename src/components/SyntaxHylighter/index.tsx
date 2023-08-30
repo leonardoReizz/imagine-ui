@@ -1,8 +1,5 @@
-import { PrismLight } from "react-syntax-highlighter";
-import prism from "react-syntax-highlighter/dist/esm/styles/prism/okaidia";
-import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
-
-PrismLight.registerLanguage("jsx", jsx);
+import { Prism as SyntaxHighlighterr } from "react-syntax-highlighter";
+import prism from "react-syntax-highlighter/dist/esm/styles/prism/a11y-dark";
 
 interface SyntaxHighlighterProps {
   codeString: string;
@@ -10,7 +7,7 @@ interface SyntaxHighlighterProps {
 
 export function SyntaxHighlighter({ codeString }: SyntaxHighlighterProps) {
   return (
-    <PrismLight
+    <SyntaxHighlighterr
       language="jsx"
       style={prism}
       wrapLines={true}
@@ -24,6 +21,6 @@ export function SyntaxHighlighter({ codeString }: SyntaxHighlighterProps) {
       }}
     >
       {codeString}
-    </PrismLight>
+    </SyntaxHighlighterr>
   );
 }
