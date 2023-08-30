@@ -14,8 +14,8 @@ import { Typography } from "@imagine-ui/react";
 
 export default function InstallationNext() {
   return (
-    <>
-      <ScrollSection className="mt-10">
+    <div className="flex flex-col gap-10 mt-10">
+      <ScrollSection>
         <Typography variant="h6">Imagine UI with Next.js</Typography>
         <Typography variant="sub-paragraph" className="mt-4">
           Learn how to setup and install @imagine-ui/react with Next.js. First
@@ -27,7 +27,7 @@ export default function InstallationNext() {
           CSS Documentation.
         </Typography>
       </ScrollSection>
-      <ScrollSection className="mt-10">
+      <ScrollSection>
         <Component.Container
           className="h-fit"
           title="Using NPM"
@@ -67,7 +67,7 @@ export default function InstallationNext() {
         </Component.Container>
       </ScrollSection>
 
-      <ScrollSection className="mt-10">
+      <ScrollSection>
         <Component.Container
           className="h-fit"
           title="With Next.js 13 appDir and Server Components"
@@ -77,7 +77,7 @@ export default function InstallationNext() {
         </Component.Container>
       </ScrollSection>
 
-      <ScrollSection className="mt-14">
+      <ScrollSection className="mt-4">
         <Component.Container
           title="Theme Provider"
           description="@imagine-ui/react comes with a theme provider that set's the default theme/styles for components or to provide your own theme/styles to your components. You need to wrap your entire application with the ThemeProvider coming from @imagine-ui/react. On the pages/_app put the code bellow."
@@ -85,6 +85,6 @@ export default function InstallationNext() {
           <SyntaxHighlighter codeString={nextThemeProviderCodeString} />
         </Component.Container>
       </ScrollSection>
-    </>
+    </div>
   );
 }

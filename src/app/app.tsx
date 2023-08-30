@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { List, ThemeProvider, Typography } from "@imagine-ui/react";
-import { ReactNode, useCallback, useEffect, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ListItem } from "@/components/ListItem";
@@ -21,14 +21,6 @@ export function App({ children }: AppProps) {
   const onOpenChangeSidebar = useCallback((open: boolean) => {
     setIsOpenSidebar(open);
   }, []);
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
 
   return (
     <ThemeProvider

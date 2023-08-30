@@ -1,0 +1,18 @@
+name: Execute Remote SSH Command with Password
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install sshpass
+      run: sudo apt-get install -y sshpass
+
+    - name: Execute SSH Command with Password
+      env:
+        SSH_PASSWORD: ${{ secrets.REMOTE_SSH_PASSWORD }}
+        HOST: ${{ secrets.REMOTE_SERVER_IP }}
+        USER: ${{ secrets.REMOTE_USER }}
+      run: |
+        sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no $USER@$HOST "/home/projects/deploy/imagineui.sh"

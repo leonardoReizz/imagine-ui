@@ -5,7 +5,7 @@ import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { themeProviderCodeString } from "@/utils/codeString/theming";
 import { Typography } from "@imagine-ui/react";
 
-export default function Themeing() {
+export default function Theming() {
   return (
     <>
       <ScrollSection className="mt-14">

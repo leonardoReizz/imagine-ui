@@ -6,7 +6,6 @@ import {
   PaintBrushIcon,
 } from "@heroicons/react/20/solid";
 import { Card, List, ListItem, Typography } from "@imagine-ui/react";
-import Link from "next/link";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -18,7 +17,7 @@ export default function Sidebar({ isOpen, onOpenChange }: SidebarProps) {
   return (
     <>
       <Card
-        className={`fixed bg-gray-50 z-[99] z-[100] rounded-none border-r w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
+        className={`fixed bg-gray-50 z-[100] rounded-none border-r w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
           isOpen ? "" : "max-lg:-left-64"
         }`}
         shadow={false}
