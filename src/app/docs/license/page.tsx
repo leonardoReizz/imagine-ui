@@ -83,7 +83,7 @@ export default function License() {
         not use the Software.
       </Typography>
       <PreviousAndNext
-        previous={{ label: "installation", path: "/docs/installation" }}
+        previous={{ label: "Installation", path: "/docs/installation" }}
         next={{ label: "Theming", path: "/docs/theming" }}
       />
     </div>
