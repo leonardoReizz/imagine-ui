@@ -69,13 +69,24 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
         shadow={false}
       >
         <div className="w-full flex items-center gap-4">
-          <IconButton
-            variant="text"
-            onClick={() => onOpenChange(!isOpen)}
-            className="max-lg:opacity-100 opacity-0 "
-          >
-            <Bars3Icon className="w-4 h-4" />
-          </IconButton>
+          {isOpen && (
+            <IconButton
+              variant="text"
+              onClick={() => onOpenChange(false)}
+              className="max-lg:opacity-100 opacity-0 "
+            >
+              <Bars3Icon className="w-4 h-4" />
+            </IconButton>
+          )}
+          {!isOpen && (
+            <IconButton
+              variant="text"
+              onClick={() => onOpenChange(true)}
+              className="max-lg:opacity-100 opacity-0 "
+            >
+              <Bars3Icon className="w-4 h-4" />
+            </IconButton>
+          )}
           <Typography variant="h6" align="left" className="normal-case">
             <Link href="/" className="max-md:opacity-0 max-md:hidden">
               Imagine UI
