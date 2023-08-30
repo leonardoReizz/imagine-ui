@@ -1,7 +1,6 @@
 "use client";
-import { Button, Checkbox, Typography } from "@imagine-ui/react";
+import { Checkbox, Typography } from "@imagine-ui/react";
 import Component from "@/components/ComponentPreview";
-import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
@@ -77,8 +76,8 @@ export default function Checkboxes() {
               <Component.Preview codeString={checkboxCodeString}>
                 <div className="w-full flex gap-4 justify-center">
                   <Checkbox
-                    checked={checked[1]}
-                    onClick={() => handleCheckbox(1)}
+                    checked={checked[1] || true}
+                    onChange={() => handleCheckbox(1)}
                   />
                 </div>
               </Component.Preview>
@@ -94,33 +93,33 @@ export default function Checkboxes() {
                 <div className="w-full flex gap-4 items-center justify-center">
                   <Checkbox
                     color="green"
-                    checked={checked[2]}
-                    onClick={() => handleCheckbox(2)}
+                    checked={checked[2] || true}
+                    onChange={() => handleCheckbox(2)}
                   />
                   <Checkbox
                     color="red"
-                    checked={checked[3]}
-                    onClick={() => handleCheckbox(3)}
+                    checked={checked[3] || true}
+                    onChange={() => handleCheckbox(3)}
                   />
                   <Checkbox
                     color="blue"
-                    checked={checked[4]}
-                    onClick={() => handleCheckbox(4)}
+                    checked={checked[4] || true}
+                    onChange={() => handleCheckbox(4)}
                   />
                   <Checkbox
                     color="orange"
-                    checked={checked[5]}
-                    onClick={() => handleCheckbox(5)}
+                    checked={checked[5] || true}
+                    onChange={() => handleCheckbox(5)}
                   />
                   <Checkbox
                     color="pink"
-                    checked={checked[6]}
-                    onClick={() => handleCheckbox(6)}
+                    checked={checked[6] || true}
+                    onChange={() => handleCheckbox(6)}
                   />
                   <Checkbox
                     color="purple"
-                    checked={checked[7]}
-                    onClick={() => handleCheckbox(7)}
+                    checked={checked[7] || true}
+                    onChange={() => handleCheckbox(7)}
                   />
                 </div>
               </Component.Preview>
@@ -136,13 +135,13 @@ export default function Checkboxes() {
                 <div className="w-full flex  gap-4 justify-center">
                   <Checkbox
                     color="green"
-                    checked={checked[8]}
-                    onClick={() => handleCheckbox(8)}
+                    checked={checked[8] || true}
+                    onChange={() => handleCheckbox(8)}
                   />
                   <Checkbox
                     color="red"
-                    checked={checked[9]}
-                    onClick={() => handleCheckbox(9)}
+                    checked={checked[9] || true}
+                    onChange={() => handleCheckbox(9)}
                     ripple={false}
                   />
                 </div>
@@ -171,12 +170,12 @@ export default function Checkboxes() {
                         <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
                       </svg>
                     }
-                    checked={checked[10]}
-                    onClick={() => handleCheckbox(10)}
+                    checked={checked[10] || true}
+                    onChange={() => handleCheckbox(10)}
                   />
                   <Checkbox
                     color="green"
-                    checked={checked[11]}
+                    checked={checked[11] || true}
                     size="lg"
                     icon={
                       <svg
@@ -189,7 +188,7 @@ export default function Checkboxes() {
                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
                       </svg>
                     }
-                    onClick={() => handleCheckbox(11)}
+                    onChange={() => handleCheckbox(11)}
                   />
                 </div>
               </Component.Preview>
