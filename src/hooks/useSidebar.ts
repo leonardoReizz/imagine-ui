@@ -14,6 +14,7 @@ export function useSidebar() {
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
@@ -28,5 +29,5 @@ export function useSidebar() {
     };
   }, [onOpenChange]);
 
-  return { cardRef, router, isOpen, onOpenChange };
+  return { cardRef, router, isOpen, onOpenChange, pathname };
 }
