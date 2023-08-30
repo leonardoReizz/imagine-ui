@@ -15,36 +15,36 @@ import {
 } from "@/utils/imagine-ui";
 
 export default function Sidebar() {
-  const { cardRef, router, isOpen, onOpenChange } = useSidebar();
+  const { cardRef, router, isOpen, onOpenChange, pathname } = useSidebar();
 
-  return (
+  return pathname !== "/" ? (
     <>
       {isOpen && (
         <IconButton
           variant="text"
-          onClick={() => onOpenChange(true)}
-          className="max-lg:opacity-100 opacity-0 absolute top-4 left-4 z-[101]"
+          onClick={() => onOpenChange(false)}
+          className="fixed top-[17.5px] left-4 max-lg:opacity-100 opacity-0 z-[101] "
         >
-          <Bars3Icon className="w-6 h-6" />
+          <Bars3Icon className="w-5 h-5" />
         </IconButton>
       )}
       {!isOpen && (
         <IconButton
           variant="text"
           onClick={() => onOpenChange(true)}
-          className="max-lg:opacity-100 opacity-0 absolute top-4 left-4  z-[101]"
+          className="fixed top-[17.5px] left-4 max-lg:opacity-100 opacity-0 z-[101]"
         >
-          <Bars3Icon className="w-6 h-6" />
+          <Bars3Icon className="w-5 h-5" />
         </IconButton>
       )}
       <Card
-        className={`fixed bg-gray-50 z-[100] rounded-none border-r w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
+        className={`fixed bg-gray-50 z-[100] rounded-none border-r  w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
           isOpen ? "" : "max-lg:-left-64"
         }`}
         shadow={false}
         ref={cardRef}
       >
-        <div className="flex  flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <div>
             <div className="flex items-center gap-2">
               <ArrowDownTrayIcon className="w-8 h-8 text-green-500 p-2 rounded-md" />{" "}
@@ -106,5 +106,7 @@ export default function Sidebar() {
         </div>
       </Card>
     </>
+  ) : (
+    <></>
   );
 }
