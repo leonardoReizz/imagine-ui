@@ -15,7 +15,7 @@ export function App({ children }: AppProps) {
       <div>
         <Navbar />
         <Sidebar />
-        <div className="left-64 max-lg:left-0 max-lg:w-[calc(100%-12rem)] max-md:w-full w-[calc(100%-28rem)] flex flex-col items-center justify-center gap-2 relative">
+        <div className="left-64 max-lg:left-0 max-lg:w-[calc(100%-12rem)] max-md:w-full mt-10 w-[calc(100%-28rem)] flex flex-col items-center justify-center gap-2 relative">
           <div className="w-full max-w-4xl p-4">{children}</div>
           <footer
             className={`z-[999999999] max-w-5xl flex flex-col items-center justify-center h-[200px] mt-[200px] px-10 py-4 gap-4 mb-2`}
