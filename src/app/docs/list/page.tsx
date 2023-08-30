@@ -193,7 +193,7 @@ export default function Lists() {
         </div>
         <PreviousAndNext
           previous={{ label: "Input", path: "/docs/input" }}
-          next={{ label: "Typography", path: "/docs/Typography" }}
+          next={{ label: "Typography", path: "/docs/typography" }}
         />
       </div>
       <OnThisPage list={onThisPageList} />
