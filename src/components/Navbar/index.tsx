@@ -1,16 +1,22 @@
 "use client";
 import { AiOutlineGithub } from "react-icons/ai";
 import { useCallback, useEffect, useState } from "react";
-import { Button, Card, IconButton, Typography } from "@imagine-ui/react";
+import {
+  Button,
+  Card,
+  IconButton,
+  Typography,
+  useThemeProvider,
+} from "@/utils/imagine-ui";
 
 import { MagnifyingGlassIcon, SunIcon } from "@heroicons/react/20/solid";
 import { SearchDialog } from "./components/SearchDialog";
 import Cookies from "js-cookie";
 import Link from "next/link";
-import { useThemeContext } from "@/hooks/useThemeContext";
 
 function Navbar() {
   const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
+  const { theme, changeTheme } = useThemeProvider();
 
   const keyDownHandler = useCallback(
     (event: KeyboardEvent) => {
@@ -31,7 +37,24 @@ function Navbar() {
     };
   }, [keyDownHandler]);
 
-  const { theme, changeTheme } = useThemeContext();
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    const cTheme = JSON.parse(Cookies.get("theme") || "{theme: light}").theme;
+
+    if (cTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    changeTheme(cTheme);
+  }, []);
 
   const handleTheme = useCallback(
     (current?: boolean) => {
