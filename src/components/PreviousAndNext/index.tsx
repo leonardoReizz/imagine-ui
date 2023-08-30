@@ -20,7 +20,7 @@ export function PreviousAndNext({
 }: PreviousAndNextProps) {
   return (
     <div className={`w-full flex gap-4 mt-10 ${className} max-md:flex-col`}>
-      <Link href="" className="w-full">
+      <Link href={previous.path} className="w-full">
         <Button
           variant="outlined"
           className="w-full h-20 border-green-500"
@@ -32,7 +32,7 @@ export function PreviousAndNext({
           </div>
         </Button>
       </Link>
-      <Link href="" className="w-full">
+      <Link href={next.path} className="w-full">
         <Button
           variant="outlined"
           className="w-full h-20 border-green-500"
