@@ -1,8 +1,5 @@
 declare module "react-syntax-highlighter";
-declare module "react-syntax-highlighter/dist/esm/languages/prism/jsx";
-declare module "react-syntax-highlighter/dist/esm/styles/prism/prism";
-declare module "react-syntax-highlighter/dist/esm/styles/prism/okaidia";
-
+declare module "react-syntax-highlighter/dist/esm/styles/prism/a11y-dark";
 type RefsType = {
   [key: string]: React.RefObject<HTMLDivElement>;
 };
