@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <h1>✨Imagine-UI </h1>
+   <p>
+    <strong>TailwindCSS Components Library</strong>
+  </p>
+</div>
 
-## Getting Started
+<br />
+<br />
 
-First, run the development server:
+### Getting Started
+
+Learn how to leverage the @imagine-ui/react components to swiftly craft elegant and versatile pages with the assistance of Tailwind CSS.
+
+@imagine-ui/react collaborates seamlessly with Tailwind CSS classes, requiring prior installation of Tailwind CSS in your project. For installation instructions, please refer to the 
+<a href="https://tailwindcss.com/docs/installation/framework-guides?ref=material-tailwind" target="_blank">Tailwind CSS Installation Guide.</a>
+
+<br />
+
+1. Install `@imagine-ui/react`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm i @imagine-ui/react
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Following the installation of @imagine-ui/react, configure Tailwind CSS in your project:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@imagine-ui/react/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {},
+  plugins: [],
+};
 
-## Learn More
+```
 
-To learn more about Next.js, take a look at the following resources:
+<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. @imagine-ui/react is equipped with a theme provider that sets the default theme/styles for components, or allows the provision of custom theme/styles to components. Encase your entire application with the ThemeProvider from @imagine-ui/react.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```jsx
+import { ThemeProvider } from "@imagine-ui/react";
+ 
+export default function MyApp() {
+  const theme = "light";
 
-## Deploy on Vercel
+  return (
+    <ThemeProvider theme={{ initialTheme: theme }}>
+      <App />
+    </ThemeProvider>
+  );
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. You've done it! You're now prepared to utilize @material-tailwind/react.
+
+```jsx
+import { Button } from "@imagine-ui/react";
+
+export default function Example() {
+  return <Button>Button</Button>;
+}
+```
+
+<br />
+
+For further details, please consult the <a href="https://imagine-ui.com/docs/installation" target="_blank">full installation</a> page on the Imagine UI website. This example is tailored to Create React App, as mentioned previously.
