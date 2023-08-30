@@ -3,8 +3,8 @@ import { Typography } from "@/utils/imagine-ui";
 
 export default function License() {
   return (
-    <div className="flex flex-col gap-10 mt-10">
-      <Typography variant="h6">
+    <div className="flex flex-col gap-10">
+      <Typography variant="h5">
         Imagine UI (@imagine-ui) Software License Agreement
       </Typography>
       <Typography variant="sub-paragraph">

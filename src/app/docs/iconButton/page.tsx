@@ -23,7 +23,7 @@ export default function IconButtons() {
   const { apiBody, onThisPageList } = useIconButtonPage();
 
   return (
-    <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
         <ScrollSection className="flex flex-col gap-4" id="introdution">
           <Typography variant="h5"> Icon Button - React</Typography>

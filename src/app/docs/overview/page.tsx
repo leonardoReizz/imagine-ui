@@ -4,9 +4,9 @@ import { Typography } from "@/utils/imagine-ui";
 
 export default function Overview() {
   return (
-    <div className="flex flex-col items-start justify-center gap-10 mt-10">
+    <div className="flex flex-col items-start justify-center gap-10">
       <ScrollSection>
-        <Typography variant="h6">
+        <Typography variant="h5">
           Imagine UI - Comprehensive React Component Suite
         </Typography>
         <Typography variant="sub-paragraph" className="mt-4">

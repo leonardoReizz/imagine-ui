@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export default function Installation() {
   return (
-    <div className="flex flex-col gap-10 mt-10">
+    <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">
-        <Typography variant="h6">
+        <Typography variant="h5">
           Commencing with Imagine UI and Tailwin
         </Typography>
         <Typography variant="sub-paragraph">

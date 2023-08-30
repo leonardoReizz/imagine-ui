@@ -6,9 +6,9 @@ import { Typography } from "@/utils/imagine-ui";
 
 export default function Theming() {
   return (
-    <>
-      <ScrollSection className="mt-14">
-        <Typography variant="h6">Theming</Typography>
+    <div>
+      <ScrollSection>
+        <Typography variant="h5">Theming</Typography>
         <Typography variant="sub-paragraph" className="mt-4">
           Elevate your user interface with the power of customization using the
           @imagine-ui component library. With support for both light and dark
@@ -24,6 +24,6 @@ export default function Theming() {
           <SyntaxHighlighter codeString={themeProviderCodeString} />
         </Component.Container>
       </ScrollSection>
-    </>
+    </div>
   );
 }
