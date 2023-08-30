@@ -1,3 +1,4 @@
+"use client";
 import { CSSProperties, MouseEventHandler, ReactNode } from "react";
 import { ListItem as ImagineListItem } from "@imagine-ui/react";
 
