@@ -1,7 +1,5 @@
-"use client";
-import { Button, IconButton, Typography } from "@imagine-ui/react";
+import { IconButton, Typography } from "@/utils/imagine-ui";
 import Component from "@/components/ComponentPreview";
-import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
@@ -22,12 +20,12 @@ import {
 import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function IconButtons() {
-  const { apiBody, currentSection, onThisPageList, refs } = useIconButtonPage();
+  const { apiBody, onThisPageList } = useIconButtonPage();
 
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.introdution}>
+        <ScrollSection className="flex flex-col gap-4" id="introdution">
           <Typography variant="h5"> Icon Button - React</Typography>
           <Typography
             variant="sub-paragraph"
@@ -57,10 +55,10 @@ export default function IconButtons() {
             This illustration offers a spectrum of styles, effects, and colors,
             ensuring it can be tailored to suit various design needs.
           </Typography>
-        </div>
+        </ScrollSection>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.button}>
+          <ScrollSection id="button">
             <Component.Container title="Icon Button" className="h-[280px]">
               <Component.Preview codeString={iconButtonCodeString}>
                 <IconButton>
@@ -77,7 +75,7 @@ export default function IconButtons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.variants}>
+          <ScrollSection id="variants">
             <Component.Container
               title="Variants"
               className="h-[430px]"
@@ -142,7 +140,7 @@ export default function IconButtons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.colors}>
+          <ScrollSection id="colors">
             <Component.Container
               title="Colors"
               className="h-[430px]"
@@ -196,7 +194,7 @@ export default function IconButtons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.ripple}>
+          <ScrollSection id="ripple">
             <Component.Container
               title="Ripple Effect"
               className="h-[285px]"
@@ -228,7 +226,7 @@ export default function IconButtons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.shadow}>
+          <ScrollSection id="shadow">
             <Component.Container
               title="Shadow"
               className="h-[285px]"
@@ -260,7 +258,7 @@ export default function IconButtons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.disabled}>
+          <ScrollSection id="disabled">
             <Component.Container
               title="Disable"
               className="h-[285px]"
@@ -292,7 +290,7 @@ export default function IconButtons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.api}>
+          <ScrollSection id="api">
             <div className=" flex flex-col gap-10">
               <div className="flex flex-col gap-4">
                 <Typography variant="h6">API</Typography>
@@ -311,15 +309,15 @@ export default function IconButtons() {
               </div>
             </div>
           </ScrollSection>
-          <ScrollSection ref={refs.sizeType}>
+          <ScrollSection id="sizeType">
             <Typography variant="h6">Size Type</Typography>
             <SyntaxHighlighter codeString={iconButtonSizeTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.colorType}>
+          <ScrollSection id="colorType">
             <Typography variant="h6">Color Type</Typography>
             <SyntaxHighlighter codeString={iconButtonColorTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.variantType}>
+          <ScrollSection id="variantType">
             <Typography variant="h6">Variant Type</Typography>
             <SyntaxHighlighter codeString={iconButtonVariantTypeCodeString} />
           </ScrollSection>
@@ -329,7 +327,7 @@ export default function IconButtons() {
         previous={{ label: "Checkbox", path: "/docs/checkbox" }}
         next={{ label: "Input", path: "/docs/input" }}
       />
-      <OnThisPage currentSection={currentSection} list={onThisPageList} />
+      <OnThisPage list={onThisPageList} />
     </div>
   );
 }

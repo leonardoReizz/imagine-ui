@@ -22,19 +22,13 @@ import {
 import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Checkboxes() {
-  const {
-    apiBody,
-    currentSection,
-    onThisPageList,
-    refs,
-    checked,
-    handleCheckbox,
-  } = useCheckboxPage();
+  const { apiBody, onThisPageList, checked, handleCheckbox } =
+    useCheckboxPage();
 
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.introduction}>
+        <ScrollSection className="flex flex-col gap-4" id="introduction">
           <Typography variant="h5">Checkbox - React</Typography>
           <Typography
             variant="sub-paragraph"
@@ -68,10 +62,10 @@ export default function Checkboxes() {
             diverse styles, effects, and color schemes, granting you the
             flexibility to mold it to your unique design aesthetics.
           </Typography>
-        </div>
+        </ScrollSection>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.checkbox}>
+          <ScrollSection id="checkbox">
             <Component.Container title="Checkbox" className="h-[260px]">
               <Component.Preview codeString={checkboxCodeString}>
                 <div className="w-full flex gap-4 justify-center">
@@ -83,7 +77,7 @@ export default function Checkboxes() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.colors}>
+          <ScrollSection id="colors">
             <Component.Container
               title="Colors"
               className="h-[340px]"
@@ -125,7 +119,7 @@ export default function Checkboxes() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.ripple}>
+          <ScrollSection id="ripple">
             <Component.Container
               title="Ripple"
               className="h-[245px]"
@@ -148,7 +142,7 @@ export default function Checkboxes() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.customIcon}>
+          <ScrollSection id="customIcon">
             <Component.Container
               title="Custom Icon"
               className="h-[430px]"
@@ -194,7 +188,7 @@ export default function Checkboxes() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.api}>
+          <ScrollSection id="api">
             <div className=" flex flex-col gap-10">
               <div>
                 <Typography variant="h6">API</Typography>
@@ -215,25 +209,25 @@ export default function Checkboxes() {
               </div>
             </div>
           </ScrollSection>
-          <ScrollSection ref={refs.sizeType}>
+          <ScrollSection id="sizeType">
             <Typography variant="h6">Size Type</Typography>
             <SyntaxHighlighter codeString={checkboxSizeTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.colorType}>
+          <ScrollSection id="colorType">
             <Typography variant="h6">Color Type</Typography>
             <SyntaxHighlighter codeString={checkboxColorTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.containerPropsType}>
+          <ScrollSection id="containerPropsType">
             <Typography variant="h6">Container Props Type</Typography>
             <SyntaxHighlighter
               codeString={checkboxContainerPropsTypeCodeString}
             />
           </ScrollSection>
-          <ScrollSection ref={refs.inputPropsType}>
+          <ScrollSection id="inputPropsType">
             <Typography variant="h6">Input Props Type</Typography>
             <SyntaxHighlighter codeString={checkboxInputPropsTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.spanPropsType}>
+          <ScrollSection id="spanPropsType">
             <Typography variant="h6">Span Props Type</Typography>
             <SyntaxHighlighter codeString={checkboxSpanPropsTypeCodeString} />
           </ScrollSection>
@@ -243,7 +237,7 @@ export default function Checkboxes() {
         previous={{ label: "Button", path: "/docs/button" }}
         next={{ label: "Icon Button", path: "/docs/iconButton" }}
       />
-      <OnThisPage currentSection={currentSection} list={onThisPageList} />
+      <OnThisPage list={onThisPageList} />
     </div>
   );
 }

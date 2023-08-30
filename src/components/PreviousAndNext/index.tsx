@@ -1,4 +1,4 @@
-import { Button, Typography } from "@imagine-ui/react";
+import { Button, Typography } from "@/utils/imagine-ui";
 import Link from "next/link";
 
 interface PreviousAndNextProps {

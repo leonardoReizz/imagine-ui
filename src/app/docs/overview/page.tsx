@@ -1,7 +1,6 @@
-"use client";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
 import { ScrollSection } from "@/components/ScroolSection";
-import { Typography } from "@imagine-ui/react";
+import { Typography } from "@/utils/imagine-ui";
 
 export default function Overview() {
   return (

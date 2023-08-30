@@ -1,28 +1,6 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useRef } from "react";
-import { scrollTo } from "@/utils/scroolTo";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
-import { useScroll } from "./useScroll";
 
 export function useInputPage() {
-  const refs: RefsType = {
-    introduction: useRef<HTMLDivElement>(null),
-    input: useRef<HTMLDivElement>(null),
-    colors: useRef<HTMLDivElement>(null),
-    sizes: useRef<HTMLDivElement>(null),
-    variants: useRef<HTMLDivElement>(null),
-    withIcon: useRef<HTMLDivElement>(null),
-    disabled: useRef<HTMLDivElement>(null),
-    api: useRef<HTMLDivElement>(null),
-    colorType: useRef<HTMLDivElement>(null),
-    variantType: useRef<HTMLDivElement>(null),
-    containerPropsType: useRef<HTMLDivElement>(null),
-    iconPropsType: useRef<HTMLDivElement>(null),
-    labelPropsType: useRef<HTMLDivElement>(null),
-  };
-
-  const { currentSection } = useScroll({ refs });
-
   const apiBody = [
     {
       id: "0",
@@ -37,8 +15,7 @@ export function useInputPage() {
       type: "Color",
       default: "green",
       description: "Set input color",
-      onClickType: () =>
-        scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
+      href: "/docs/input#colorType",
     },
     {
       id: "2",
@@ -53,8 +30,7 @@ export function useInputPage() {
       type: "Variant",
       default: "outlined",
       description: "Set input variant",
-      onClickType: () =>
-        scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
+      href: "/docs/input#variantType",
     },
     {
       id: "4",
@@ -83,8 +59,7 @@ export function useInputPage() {
       type: "ContainerProps",
       default: "",
       description: "Set container props",
-      onClickType: () =>
-        scrollTo({ ref: refs.containerPropsType, callback: smoothScrollTo }),
+      href: "/docs/input#containerPropsType",
     },
     {
       id: "8",
@@ -92,8 +67,7 @@ export function useInputPage() {
       type: "LabelProps",
       default: "",
       description: "Set label props",
-      onClickType: () =>
-        scrollTo({ ref: refs.labelPropsType, callback: smoothScrollTo }),
+      href: "/docs/input#labelPropsType",
     },
     {
       id: "9",
@@ -101,8 +75,7 @@ export function useInputPage() {
       type: "IconProps",
       default: "",
       description: "Set icon props",
-      onClickType: () =>
-        scrollTo({ ref: refs.iconPropsType, callback: smoothScrollTo }),
+      href: "/docs/input#iconPropsType",
     },
   ];
 
@@ -110,69 +83,64 @@ export function useInputPage() {
     {
       label: "Introduction",
       name: "introduction",
-      ref: refs.introduction,
+      href: "/docs/input#introduction",
     },
     {
       label: "Input",
       name: "input",
-      ref: refs.input,
+      href: "/docs/input#input",
     },
     {
       label: "Variants",
       name: "variants",
-      ref: refs.variants,
-    },
-    {
-      label: "Colors",
-      name: "colors",
-      ref: refs.colors,
+      href: "/docs/input#variants",
     },
     {
       label: "Sizes",
       name: "sizes",
-      ref: refs.sizes,
+      href: "/docs/input#sizes",
     },
     {
       label: "With Icons",
       name: "withIcon",
-      ref: refs.withIcon,
+      href: "/docs/input#withIcon",
     },
     {
       label: "Disabled",
       name: "disabled",
-      ref: refs.disabled,
+      href: "/docs/input#disabled",
     },
     {
       label: "Api",
       name: "api",
-      ref: refs.api,
+      href: "/docs/input#api",
     },
     {
       label: "Variants Type",
       name: "variantType",
-      ref: refs.variantType,
+      href: "/docs/input#variantType",
     },
     {
       label: "Color Type",
       name: "colorType",
-      ref: refs.colorType,
+      href: "/docs/input#colorType",
     },
     {
       label: "Container Props Type",
       name: "containerPropsType",
-      ref: refs.containerPropsType,
+      href: "/docs/input#containerPropsType",
     },
     {
       label: "Icon Props Type",
       name: "iconPropsType",
-      ref: refs.iconPropsType,
+      href: "/docs/input#iconPropsType",
     },
     {
       label: "Label Props Type",
       name: "labelPropsType",
-      ref: refs.labelPropsType,
+      href: "/docs/input#labelPropsType",
     },
   ];
 
-  return { onThisPageList, currentSection, apiBody, refs };
+  return { onThisPageList, apiBody };
 }

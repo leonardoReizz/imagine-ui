@@ -1,5 +1,4 @@
-"use client";
-import { Button, List, ListItem, Typography } from "@imagine-ui/react";
+import { List, ListItem, Typography } from "@/utils/imagine-ui";
 import {
   ArchiveBoxIcon,
   ArrowRightOnRectangleIcon,
@@ -10,7 +9,6 @@ import {
   UserIcon,
 } from "@heroicons/react/20/solid";
 import Component from "@/components/ComponentPreview";
-import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
@@ -27,13 +25,12 @@ import { useListPage } from "@/hooks/useListPage";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Lists() {
-  const { apiListBody, apiListItemBody, currentSection, onThisPageList, refs } =
-    useListPage();
+  const { apiListBody, apiListItemBody, onThisPageList } = useListPage();
 
   return (
     <div className="w-full flex flex-col items-center justify-start  gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.introdution}>
+        <ScrollSection className="flex flex-col gap-4" id="introdution">
           <Typography variant="h5">List - React</Typography>
           <Typography
             variant="sub-paragraph"
@@ -65,10 +62,10 @@ export default function Lists() {
             React. This illustration offers a wide range of styles, effects, and
             colors, assuring its adaptability to different design demands.
           </Typography>
-        </div>
+        </ScrollSection>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.list}>
+          <ScrollSection id="list">
             <Component.Container
               title="List"
               className="h-[300px]"
@@ -83,7 +80,7 @@ export default function Lists() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.withIcon}>
+          <ScrollSection id="withIcon">
             <Component.Container
               title="With Icon"
               className="h-[300px]"
@@ -106,7 +103,7 @@ export default function Lists() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.disabled}>
+          <ScrollSection id="disabled">
             <Component.Container
               title="Disabled"
               className="h-[300px]"
@@ -121,7 +118,7 @@ export default function Lists() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.customStyle}>
+          <ScrollSection id="customStyle">
             <Component.Container
               title="Custom Style"
               className="h-[300px]"
@@ -161,7 +158,7 @@ export default function Lists() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.apiList}>
+          <ScrollSection id="apiList">
             <div className=" flex flex-col gap-10">
               <div className="flex flex-col gap-4">
                 <Typography variant="h6">API List</Typography>
@@ -180,7 +177,7 @@ export default function Lists() {
               </div>
             </div>
           </ScrollSection>
-          <ScrollSection ref={refs.apiListItem}>
+          <ScrollSection id="apiListItem">
             <div className=" flex flex-col gap-10">
               <div className="flex flex-col gap-4">
                 <Typography variant="h6">API List Item</Typography>
@@ -194,38 +191,12 @@ export default function Lists() {
             </div>
           </ScrollSection>
         </div>
-        <div className="w-full flex gap-4 ">
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="w-full">
-                <Typography>Previous</Typography>
-                <Typography color="green">Typography</Typography>
-              </div>
-            </Button>
-          </Link>
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="ml-auto">
-                <Typography className="ml-auto">Next</Typography>
-                <Typography color="green">Icon Button</Typography>
-              </div>
-            </Button>
-          </Link>
-        </div>
+        <PreviousAndNext
+          previous={{ label: "Input", path: "/docs/input" }}
+          next={{ label: "Typography", path: "/docs/Typography" }}
+        />
       </div>
-      <PreviousAndNext
-        previous={{ label: "Input", path: "/docs/input" }}
-        next={{ label: "Typography", path: "/docs/Typography" }}
-      />
-      <OnThisPage currentSection={currentSection} list={onThisPageList} />
+      <OnThisPage list={onThisPageList} />
     </div>
   );
 }

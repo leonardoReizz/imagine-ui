@@ -1,5 +1,4 @@
-"use client";
-import { Button, Typography } from "@imagine-ui/react";
+import { Button, Typography } from "@/utils/imagine-ui";
 import {
   buttonCodeString,
   buttonColorTypeCodeString,
@@ -13,7 +12,6 @@ import {
   buttonVariantTypeCodeString,
 } from "@/utils/codeString/button";
 import Component from "@/components/ComponentPreview";
-import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
@@ -22,12 +20,12 @@ import { useButtonsPage } from "@/hooks/useButtonsPage";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Buttons() {
-  const { apiBody, currentSection, onThisPageList, refs } = useButtonsPage();
+  const { apiBody, onThisPageList } = useButtonsPage();
 
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.introduction}>
+        <ScrollSection className="flex flex-col gap-4" id="introduction">
           <Typography variant="h5">Button - React</Typography>
           <Typography
             variant="sub-paragraph"
@@ -49,17 +47,17 @@ export default function Buttons() {
             styles, effects, and hues, making sure it can be molded to fit
             varied design specifications.
           </Typography>
-        </div>
+        </ScrollSection>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.button}>
+          <ScrollSection id="button">
             <Component.Container title="Button" className="h-[260px]">
               <Component.Preview codeString={buttonCodeString}>
                 <Button>Example</Button>
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.variants}>
+          <ScrollSection id="variants">
             <Component.Container
               title="Variants"
               className="h-[430px]"
@@ -84,7 +82,7 @@ export default function Buttons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.colors}>
+          <ScrollSection id="colors">
             <Component.Container
               title="Colors"
               className="h-[290px]"
@@ -98,7 +96,7 @@ export default function Buttons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.ripple}>
+          <ScrollSection id="ripple">
             <Component.Container
               title="Ripple Effect"
               className="h-[235px]"
@@ -110,7 +108,7 @@ export default function Buttons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.shadow}>
+          <ScrollSection id="shadow">
             <Component.Container
               title="Shadow"
               className="h-[240px]"
@@ -122,7 +120,7 @@ export default function Buttons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.withIcon}>
+          <ScrollSection id="withIcon">
             <Component.Container
               className="h-[430px]"
               title="With Icon"
@@ -168,7 +166,7 @@ export default function Buttons() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.api}>
+          <ScrollSection id="api">
             <div className=" flex flex-col gap-10">
               <div>
                 <Typography variant="h6">API</Typography>
@@ -189,15 +187,15 @@ export default function Buttons() {
               </div>
             </div>
           </ScrollSection>
-          <ScrollSection ref={refs.sizeType}>
+          <ScrollSection id="sizeType">
             <Typography variant="h6">Size Type</Typography>
             <SyntaxHighlighter codeString={buttonSizeTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.variantType}>
+          <ScrollSection id="variantType">
             <Typography variant="h6">Variant Type</Typography>
             <SyntaxHighlighter codeString={buttonVariantTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.colorType}>
+          <ScrollSection id="colorType">
             <Typography variant="h6">Color Type</Typography>
             <SyntaxHighlighter codeString={buttonColorTypeCodeString} />
           </ScrollSection>
@@ -207,7 +205,7 @@ export default function Buttons() {
         previous={{ label: "Theming", path: "/docs/theming" }}
         next={{ label: "Checkbox", path: "/docs/checkbox" }}
       />
-      <OnThisPage currentSection={currentSection} list={onThisPageList} />
+      <OnThisPage list={onThisPageList} />
     </div>
   );
 }

@@ -1,23 +1,6 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useRef } from "react";
-import { scrollTo } from "@/utils/scroolTo";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
-import { useScroll } from "./useScroll";
 
 export function useTypographyPage() {
-  const refs: RefsType = {
-    introdution: useRef<HTMLDivElement>(null),
-    typography: useRef<HTMLDivElement>(null),
-    variants: useRef<HTMLDivElement>(null),
-    colors: useRef<HTMLDivElement>(null),
-    api: useRef<HTMLDivElement>(null),
-    colorType: useRef<HTMLDivElement>(null),
-    variantType: useRef<HTMLDivElement>(null),
-    alignType: useRef<HTMLDivElement>(null),
-  };
-
-  const { currentSection } = useScroll({ refs });
-
   const apiBody = [
     {
       id: "0",
@@ -25,8 +8,7 @@ export function useTypographyPage() {
       type: "Align",
       default: "left",
       description: "Custom styles",
-      onClickType: () =>
-        scrollTo({ ref: refs.alignType, callback: smoothScrollTo }),
+      href: "/docs/typography#alignType",
     },
     {
       id: "1",
@@ -48,8 +30,7 @@ export function useTypographyPage() {
       type: "Color",
       default: "black",
       description: "Set typography color",
-      onClickType: () =>
-        scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
+      href: "/docs/typography#colorType",
     },
     {
       id: "4",
@@ -57,8 +38,7 @@ export function useTypographyPage() {
       type: "Variant",
       default: "paragraph",
       description: "Set typography variant",
-      onClickType: () =>
-        scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
+      href: "/docs/typography#variantType",
     },
   ];
 
@@ -66,44 +46,44 @@ export function useTypographyPage() {
     {
       label: "Introdution",
       name: "introdution",
-      ref: refs.introdution,
+      href: "/docs/typography#introdution",
     },
     {
       label: "Typography",
       name: "typography",
-      ref: refs.typography,
+      href: "/docs/typography#typography",
     },
     {
       label: "Variants",
       name: "variants",
-      ref: refs.variants,
+      href: "/docs/typography#variants",
     },
     {
       label: "Colors",
       name: "colors",
-      ref: refs.colors,
+      href: "/docs/typography#colors",
     },
     {
       label: "Api",
       name: "api",
-      ref: refs.api,
+      href: "/docs/typography#api",
     },
     {
       label: "Color Type",
       name: "colorType",
-      ref: refs.colorType,
+      href: "/docs/typography#colorType",
     },
     {
       label: "Variants Type",
       name: "variantType",
-      ref: refs.variantType,
+      href: "/docs/typography#variantType",
     },
     {
       label: "Align Type",
       name: "alignType",
-      ref: refs.alignType,
+      href: "/docs/typography#alignType",
     },
   ];
 
-  return { onThisPageList, currentSection, apiBody, refs };
+  return { onThisPageList, apiBody };
 }

@@ -1,26 +1,6 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useRef } from "react";
-import { scrollTo } from "@/utils/scroolTo";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
-import { useScroll } from "./useScroll";
 
 export function useButtonsPage() {
-  const refs: RefsType = {
-    introduction: useRef<HTMLDivElement>(null),
-    button: useRef<HTMLDivElement>(null),
-    colors: useRef<HTMLDivElement>(null),
-    ripple: useRef<HTMLDivElement>(null),
-    variants: useRef<HTMLDivElement>(null),
-    withIcon: useRef<HTMLDivElement>(null),
-    shadow: useRef<HTMLDivElement>(null),
-    api: useRef<HTMLDivElement>(null),
-    colorType: useRef<HTMLDivElement>(null),
-    sizeType: useRef<HTMLDivElement>(null),
-    variantType: useRef<HTMLDivElement>(null),
-  };
-
-  const { currentSection } = useScroll({ refs });
-
   const apiBody = [
     {
       id: "0",
@@ -42,8 +22,7 @@ export function useButtonsPage() {
       type: "Color",
       default: "blue",
       description: "Change button color",
-      onClickType: () =>
-        scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
+      href: "/docs/button#colorType",
     },
     {
       id: "3",
@@ -65,8 +44,7 @@ export function useButtonsPage() {
       type: "Size",
       default: "md",
       description: "Change button size",
-      onClickType: () =>
-        scrollTo({ ref: refs.sizeType, callback: smoothScrollTo }),
+      href: "/docs/button#sizeType",
     },
     {
       id: "6",
@@ -74,8 +52,7 @@ export function useButtonsPage() {
       type: "Variant",
       default: "filled",
       description: "Change button variant",
-      onClickType: () =>
-        scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
+      href: "/docs/button#variantType",
     },
   ];
 
@@ -83,59 +60,59 @@ export function useButtonsPage() {
     {
       label: "Introduction",
       name: "introduction",
-      ref: refs.introduction,
+      href: "/docs/button#introduction",
     },
     {
       label: "Button",
       name: "button",
-      ref: refs.button,
+      href: "/docs/button#button",
     },
     {
       label: "Variants",
       name: "variants",
-      ref: refs.variants,
+      href: "/docs/button#variants",
     },
     {
       label: "Colors",
       name: "colors",
-      ref: refs.colors,
+      href: "/docs/button#colors",
     },
     {
       label: "Ripple",
       name: "ripple",
-      ref: refs.ripple,
+      href: "/docs/button#ripple",
     },
     {
       label: "Shadow",
       name: "shadow",
-      ref: refs.shadow,
+      href: "/docs/button#shadow",
     },
     {
       label: "With Icon",
       name: "withIcon",
-      ref: refs.withIcon,
+      href: "/docs/button#withIcon",
     },
     {
       label: "Api",
       name: "api",
-      ref: refs.api,
+      href: "/docs/button#api",
     },
     {
       label: "Size Type",
       name: "sizeType",
-      ref: refs.sizeType,
+      href: "/docs/button#sizeType",
     },
     {
       label: "Variants Type",
       name: "variantType",
-      ref: refs.variantType,
+      href: "/docs/button#variantType",
     },
     {
       label: "Color Type",
       name: "colorType",
-      ref: refs.colorType,
+      href: "/docs/button#colorType",
     },
   ];
 
-  return { onThisPageList, currentSection, apiBody, refs };
+  return { onThisPageList, apiBody };
 }

@@ -1,20 +1,6 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useRef } from "react";
-import { useScroll } from "./useScroll";
 
 export function useListPage() {
-  const refs: RefsType = {
-    introdution: useRef<HTMLDivElement>(null),
-    list: useRef<HTMLDivElement>(null),
-    withIcon: useRef<HTMLDivElement>(null),
-    disabled: useRef<HTMLDivElement>(null),
-    customStyle: useRef<HTMLDivElement>(null),
-    apiList: useRef<HTMLDivElement>(null),
-    apiListItem: useRef<HTMLDivElement>(null),
-  };
-
-  const { currentSection } = useScroll({ refs });
-
   const apiListBody = [
     {
       id: "1",
@@ -67,39 +53,39 @@ export function useListPage() {
     {
       label: "Introdution",
       name: "introdution",
-      ref: refs.introdution,
+      href: "/docs/list#introdution",
     },
     {
       label: "List",
       name: "list",
-      ref: refs.list,
+      href: "/docs/list#list",
     },
     {
       label: "With Icon",
       name: "withIcon",
-      ref: refs.withIcon,
+      href: "/docs/list#withIcon",
     },
     {
       label: "Disabled",
       name: "disabled",
-      ref: refs.disabled,
+      href: "/docs/list#disabled",
     },
     {
       label: "Custom Style",
       name: "customStyle",
-      ref: refs.customStyle,
+      href: "/docs/list#customStyle",
     },
     {
       label: "Api List",
       name: "apiList",
-      ref: refs.apiList,
+      href: "/docs/list#apiList",
     },
     {
       label: "Api List Item",
       name: "apiListItem",
-      ref: refs.apiListItem,
+      href: "/docs/list#apiListItem",
     },
   ];
 
-  return { onThisPageList, currentSection, apiListItemBody, apiListBody, refs };
+  return { onThisPageList, apiListItemBody, apiListBody };
 }

@@ -1,4 +1,3 @@
-"use client";
 import Component from "@/components/ComponentPreview";
 import { ScrollSection } from "@/components/ScroolSection";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
@@ -10,7 +9,7 @@ import {
   viteTailwindConfigCodeString,
   viteThemeProviderCodeString,
 } from "@/utils/codeString/viteInstallation";
-import { Button, Typography } from "@imagine-ui/react";
+import { Button, Typography } from "@/utils/imagine-ui";
 
 export default function InstallationVite() {
   return (

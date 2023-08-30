@@ -1,4 +1,5 @@
-import { Button, Card } from "@imagine-ui/react";
+"use client";
+import { Button, Card } from "@/utils/imagine-ui";
 import {
   CodeBracketIcon,
   EyeIcon,

@@ -1,4 +1,5 @@
-import { Typography } from "@imagine-ui/react";
+import { Typography } from "@/utils/imagine-ui";
+import Link from "next/link";
 
 interface TableAPIProps {
   body: {
@@ -7,7 +8,7 @@ interface TableAPIProps {
     type: string;
     default: string;
     description: string;
-    onClickType?: () => void;
+    href?: string;
   }[];
 }
 
@@ -37,17 +38,33 @@ export function TableAPI({ body }: TableAPIProps) {
               <td>
                 <Typography variant="small">{t.name}</Typography>
               </td>
-              <td onClick={t.onClickType}>
-                <Typography
-                  variant="small"
-                  className={
-                    t.onClickType
-                      ? "hover:text-green-500 cursor-pointer font-bold"
-                      : ""
-                  }
-                >
-                  {t.type}
-                </Typography>
+              <td>
+                {t.href && (
+                  <Link href={t.href}>
+                    <Typography
+                      variant="small"
+                      className={
+                        t.href
+                          ? "hover:text-green-500 cursor-pointer font-bold"
+                          : ""
+                      }
+                    >
+                      {t.type}
+                    </Typography>
+                  </Link>
+                )}
+                {!t.href && (
+                  <Typography
+                    variant="small"
+                    className={
+                      t.href
+                        ? "hover:text-green-500 cursor-pointer font-bold"
+                        : ""
+                    }
+                  >
+                    {t.type}
+                  </Typography>
+                )}
               </td>
               <td>
                 <Typography variant="small">{t.default}</Typography>

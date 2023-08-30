@@ -1,7 +1,5 @@
-"use client";
-import { Button, Input, Typography } from "@imagine-ui/react";
+import { Input, Typography } from "@/utils/imagine-ui";
 import Component from "@/components/ComponentPreview";
-import Link from "next/link";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
@@ -23,12 +21,12 @@ import {
 import { PreviousAndNext } from "@/components/PreviousAndNext";
 
 export default function Inputs() {
-  const { apiBody, currentSection, onThisPageList, refs } = useInputPage();
+  const { apiBody, onThisPageList } = useInputPage();
 
   return (
-    <div className="w-full flex fle-col items-center justify-start gap-10 p-4">
+    <div className="w-full flex flex-col items-center justify-start gap-10 p-4">
       <div className="w-full flex items-start justify-center flex-col gap-16">
-        <div className="flex flex-col gap-4" ref={refs.introduction}>
+        <ScrollSection className="flex flex-col gap-4" id="introduction">
           <Typography variant="h5">Input - React</Typography>
           <Typography
             variant="sub-paragraph"
@@ -50,10 +48,10 @@ export default function Inputs() {
             placeholders, ensuring its compatibility with a multitude of design
             aspirations.
           </Typography>
-        </div>
+        </ScrollSection>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
         <div className="flex items-center justify-center w-full flex-col gap-10 mb-28">
-          <ScrollSection ref={refs.input}>
+          <ScrollSection id="input">
             <Component.Container title="Input" className="h-[260px]">
               <Component.Preview codeString={inputCodeString}>
                 <div className="w-full flex flex-col gap-4 max-w-[250px]">
@@ -62,7 +60,7 @@ export default function Inputs() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.variants}>
+          <ScrollSection id="variants">
             <Component.Container
               title="Variants"
               className="h-[320px]"
@@ -78,7 +76,7 @@ export default function Inputs() {
             </Component.Container>
           </ScrollSection>
 
-          <ScrollSection ref={refs.sizes}>
+          <ScrollSection id="sizes">
             <Component.Container
               title="Sizes"
               className="h-[360px]"
@@ -93,7 +91,7 @@ export default function Inputs() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.withIcon}>
+          <ScrollSection id="withIcon">
             <Component.Container
               className="h-[290px]"
               title="Input With Icon"
@@ -119,7 +117,7 @@ export default function Inputs() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.disabled}>
+          <ScrollSection id="disabled">
             <Component.Container
               className="h-[240px]"
               title="Input Disabled"
@@ -132,7 +130,7 @@ export default function Inputs() {
               </Component.Preview>
             </Component.Container>
           </ScrollSection>
-          <ScrollSection ref={refs.api}>
+          <ScrollSection id="api">
             <div className=" flex flex-col gap-10">
               <div>
                 <Typography variant="h6">API</Typography>
@@ -155,59 +153,33 @@ export default function Inputs() {
               </div>
             </div>
           </ScrollSection>
-          <ScrollSection ref={refs.variantType}>
+          <ScrollSection id="variantType">
             <Typography variant="h6">Variant Type</Typography>
             <SyntaxHighlighter codeString={inputVariantTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.colorType}>
+          <ScrollSection id="colorType">
             <Typography variant="h6">Color Type</Typography>
             <SyntaxHighlighter codeString={inputColorTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.containerPropsType}>
+          <ScrollSection id="containerPropsType">
             <Typography variant="h6">Container Props Type</Typography>
             <SyntaxHighlighter codeString={inputContainerPropsTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.iconPropsType}>
+          <ScrollSection id="iconPropsType">
             <Typography variant="h6">Icon Props Type</Typography>
             <SyntaxHighlighter codeString={inputIconPropsTypeCodeString} />
           </ScrollSection>
-          <ScrollSection ref={refs.labelPropsType}>
+          <ScrollSection id="labelPropsType">
             <Typography variant="h6">Label Props Type</Typography>
             <SyntaxHighlighter codeString={inputlabelPropsTypeCodeString} />
           </ScrollSection>
         </div>
-        <div className="w-full flex gap-4 ">
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="w-full">
-                <Typography>Previous</Typography>
-                <Typography color="green">Typography</Typography>
-              </div>
-            </Button>
-          </Link>
-          <Link href="" className="w-full">
-            <Button
-              variant="outlined"
-              className="w-full h-20 border-green-200"
-              color="green"
-            >
-              <div className="ml-auto">
-                <Typography className="ml-auto">Next</Typography>
-                <Typography color="green">Icon Button</Typography>
-              </div>
-            </Button>
-          </Link>
-        </div>
+        <PreviousAndNext
+          previous={{ label: "Icon Button", path: "/docs/iconButton" }}
+          next={{ label: "List", path: "/docs/list" }}
+        />
       </div>
-      <PreviousAndNext
-        previous={{ label: "Icon Button", path: "/docs/iconButton" }}
-        next={{ label: "List", path: "/docs/list" }}
-      />
-      <OnThisPage currentSection={currentSection} list={onThisPageList} />
+      <OnThisPage list={onThisPageList} />
     </div>
   );
 }

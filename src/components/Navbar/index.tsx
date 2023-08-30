@@ -3,22 +3,13 @@ import { AiOutlineGithub } from "react-icons/ai";
 import { useCallback, useEffect, useState } from "react";
 import { Button, Card, IconButton, Typography } from "@imagine-ui/react";
 
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  SunIcon,
-} from "@heroicons/react/20/solid";
+import { MagnifyingGlassIcon, SunIcon } from "@heroicons/react/20/solid";
 import { SearchDialog } from "./components/SearchDialog";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useThemeContext } from "@/hooks/useThemeContext";
 
-interface NavbarProps {
-  isOpen: boolean;
-  onOpenChange: (open: boolean) => void;
-}
-
-function Navbar({ isOpen, onOpenChange }: NavbarProps) {
+function Navbar() {
   const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
 
   const keyDownHandler = useCallback(
@@ -53,7 +44,7 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
       Cookies.set("theme", JSON.stringify({ theme: newTheme }));
       changeTheme(newTheme);
     },
-    [theme],
+    [changeTheme, theme],
   );
 
   return (
@@ -69,25 +60,11 @@ function Navbar({ isOpen, onOpenChange }: NavbarProps) {
         shadow={false}
       >
         <div className="w-full flex items-center gap-4">
-          {isOpen && (
-            <IconButton
-              variant="text"
-              onClick={() => onOpenChange(false)}
-              className="max-lg:opacity-100 opacity-0 "
-            >
-              <Bars3Icon className="w-4 h-4" />
-            </IconButton>
-          )}
-          {!isOpen && (
-            <IconButton
-              variant="text"
-              onClick={() => onOpenChange(true)}
-              className="max-lg:opacity-100 opacity-0 "
-            >
-              <Bars3Icon className="w-4 h-4" />
-            </IconButton>
-          )}
-          <Typography variant="h6" align="left" className="normal-case">
+          <Typography
+            variant="h6"
+            align="left"
+            className="normal-case max-lg:ml-10"
+          >
             <Link href="/" className="max-md:opacity-0 max-md:hidden">
               Imagine UI
             </Link>

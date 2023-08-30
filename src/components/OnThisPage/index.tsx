@@ -1,17 +1,16 @@
-import { List, Typography } from "@imagine-ui/react";
-import { scrollTo } from "@/utils/scroolTo";
-import { RefObject } from "react";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
+"use client";
+import { List, Typography } from "@/utils/imagine-ui";
 import { ListItem } from "../ListItem";
+import Link from "next/link";
 
 export type OnThisPageList = {
-  ref: RefObject<HTMLElement>;
   name: string;
   label: string;
+  href: string;
 }[];
 
 interface OnThisPageProps {
-  currentSection: string | null;
+  currentSection?: string | null;
   list: OnThisPageList;
 }
 
@@ -26,12 +25,11 @@ export function OnThisPage({ currentSection, list }: OnThisPageProps) {
           return (
             <ListItem
               key={t.name}
-              onClick={() => scrollTo({ ref: t.ref, callback: smoothScrollTo })}
               style={{
                 color: currentSection === t.name ? "#22c55e" : "",
               }}
             >
-              {t.label}
+              <Link href={t.href}>{t.label}</Link>{" "}
             </ListItem>
           );
         })}

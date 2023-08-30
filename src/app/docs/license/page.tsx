@@ -1,6 +1,5 @@
-"use client";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
-import { Typography } from "@imagine-ui/react";
+import { Typography } from "@/utils/imagine-ui";
 
 export default function License() {
   return (

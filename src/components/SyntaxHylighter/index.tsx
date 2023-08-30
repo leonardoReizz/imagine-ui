@@ -1,3 +1,4 @@
+"use client";
 import { Prism as SyntaxHighlighterr } from "react-syntax-highlighter";
 import prism from "react-syntax-highlighter/dist/esm/styles/prism/a11y-dark";
 

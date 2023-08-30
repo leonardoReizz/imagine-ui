@@ -2,20 +2,41 @@
 import { useSidebar } from "@/hooks/useSidebar";
 import {
   ArrowDownTrayIcon,
+  Bars3Icon,
   CubeTransparentIcon,
   PaintBrushIcon,
 } from "@heroicons/react/20/solid";
-import { Card, List, ListItem, Typography } from "@imagine-ui/react";
+import {
+  Card,
+  List,
+  ListItem,
+  Typography,
+  IconButton,
+} from "@/utils/imagine-ui";
 
-interface SidebarProps {
-  isOpen: boolean;
-  onOpenChange: (open: boolean) => void;
-}
+export default function Sidebar() {
+  const { cardRef, router, isOpen, onOpenChange } = useSidebar();
 
-export default function Sidebar({ isOpen, onOpenChange }: SidebarProps) {
-  const { cardRef, router } = useSidebar({ onOpenChange });
   return (
     <>
+      {isOpen && (
+        <IconButton
+          variant="text"
+          onClick={() => onOpenChange(true)}
+          className="max-lg:opacity-100 opacity-0 absolute top-4 left-4 z-[101]"
+        >
+          <Bars3Icon className="w-6 h-6" />
+        </IconButton>
+      )}
+      {!isOpen && (
+        <IconButton
+          variant="text"
+          onClick={() => onOpenChange(true)}
+          className="max-lg:opacity-100 opacity-0 absolute top-4 left-4  z-[101]"
+        >
+          <Bars3Icon className="w-6 h-6" />
+        </IconButton>
+      )}
       <Card
         className={`fixed bg-gray-50 z-[100] rounded-none border-r w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
           isOpen ? "" : "max-lg:-left-64"

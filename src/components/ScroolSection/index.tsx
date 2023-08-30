@@ -1,13 +1,7 @@
-import { HTMLAttributes, LegacyRef, forwardRef } from "react";
+import { HTMLAttributes } from "react";
 
-export const ScrollSection = forwardRef(
-  (
-    props: HTMLAttributes<HTMLDivElement>,
-    ref: LegacyRef<HTMLDivElement> | undefined,
-  ) => (
-    <div ref={ref} {...props} className={`w-full ${props.className}`}>
-      {props.children}
-    </div>
-  ),
+export const ScrollSection = (props: HTMLAttributes<HTMLDivElement>) => (
+  <div {...props} className={`w-full scroll-mt-[100px] ${props.className}`}>
+    {props.children}
+  </div>
 );
-ScrollSection.displayName = "ScrollSection";

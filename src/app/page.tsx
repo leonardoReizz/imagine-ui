@@ -1,4 +1,3 @@
-"use client";
 import {
   Button,
   Card,
@@ -6,8 +5,7 @@ import {
   List,
   ListItem as ImagineListItem,
   Typography,
-} from "@imagine-ui/react";
-import { useRouter } from "next/navigation";
+} from "@/utils/imagine-ui";
 import {
   BellAlertIcon,
   Cog6ToothIcon,
@@ -17,8 +15,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <>
       <main className="flex min-h-screen w-full flex-col  items-center justify-start p-4 gap-32">
@@ -37,13 +33,11 @@ export default function Home() {
               Design System
             </Typography>
             <div className="max-md:w-full max-md:mb-10">
-              <Button
-                color="green"
-                onClick={() => router.push("/docs/overview")}
-                className="max-md:ml-auto max-md:mr-auto"
-              >
-                Get Started <ArrowRightIcon className="h-5 w-5" />
-              </Button>
+              <Link href={"/docs/overview"}>
+                <Button color="green" className="max-md:ml-auto max-md:mr-auto">
+                  Get Started <ArrowRightIcon className="h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="flex gap-4 h-full w-full p-4 flex-1 justify-start">

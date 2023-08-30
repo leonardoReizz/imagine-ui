@@ -1,26 +1,6 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useRef } from "react";
-import { scrollTo } from "@/utils/scroolTo";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
-import { useScroll } from "./useScroll";
 
 export function useIconButtonPage() {
-  const refs: RefsType = {
-    introdution: useRef<HTMLDivElement>(null),
-    button: useRef<HTMLDivElement>(null),
-    variants: useRef<HTMLDivElement>(null),
-    colors: useRef<HTMLDivElement>(null),
-    ripple: useRef<HTMLDivElement>(null),
-    shadow: useRef<HTMLDivElement>(null),
-    disabled: useRef<HTMLDivElement>(null),
-    api: useRef<HTMLDivElement>(null),
-    sizeType: useRef<HTMLDivElement>(null),
-    colorType: useRef<HTMLDivElement>(null),
-    variantType: useRef<HTMLDivElement>(null),
-  };
-
-  const { currentSection } = useScroll({ refs });
-
   const apiBody = [
     {
       id: "0",
@@ -42,8 +22,7 @@ export function useIconButtonPage() {
       type: "Color",
       default: "green",
       description: "Change button color",
-      onClickType: () =>
-        scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
+      href: "/docs/iconButton#colorType",
     },
     {
       id: "3",
@@ -65,8 +44,7 @@ export function useIconButtonPage() {
       type: "Size",
       default: "md",
       description: "Change button size",
-      onClickType: () =>
-        scrollTo({ ref: refs.sizeType, callback: smoothScrollTo }),
+      href: "/docs/iconButton#sizeType",
     },
     {
       id: "6",
@@ -74,8 +52,7 @@ export function useIconButtonPage() {
       type: "Variant",
       default: "filled",
       description: "Change button variant",
-      onClickType: () =>
-        scrollTo({ ref: refs.variantType, callback: smoothScrollTo }),
+      href: "/docs/iconButton#variantType",
     },
   ];
 
@@ -83,54 +60,54 @@ export function useIconButtonPage() {
     {
       label: "Introdution",
       name: "introdution",
-      ref: refs.introdution,
+      href: "/docs/iconButton#introdution",
     },
     {
       label: "Button",
       name: "button",
-      ref: refs.button,
+      href: "/docs/iconButton#button",
     },
     {
       label: "Variants",
       name: "variants",
-      ref: refs.variants,
+      href: "/docs/iconButton#variants",
     },
     {
       label: "Colors",
       name: "colors",
-      ref: refs.colors,
+      href: "/docs/iconButton#colors",
     },
     {
       label: "Ripple",
       name: "ripple",
-      ref: refs.ripple,
+      href: "/docs/iconButton#ripple",
     },
     {
       label: "Shadow",
       name: "shadow",
-      ref: refs.shadow,
+      href: "/docs/iconButton#shadow",
     },
     {
       label: "Api",
       name: "api",
-      ref: refs.api,
+      href: "/docs/iconButton#api",
     },
     {
       label: "Size Type",
       name: "sizeType",
-      ref: refs.sizeType,
+      href: "/docs/iconButton#sizeType",
     },
     {
       label: "Color Type",
       name: "colorType",
-      ref: refs.colorType,
+      href: "/docs/iconButton#colorType",
     },
     {
       label: "Variants Type",
       name: "variantType",
-      ref: refs.variantType,
+      href: "/docs/iconButton#variantType",
     },
   ];
 
-  return { onThisPageList, currentSection, apiBody, refs };
+  return { onThisPageList, apiBody };
 }

@@ -1,3 +1,4 @@
+"use client";
 import { ThemeType } from "@imagine-ui/react";
 import Cookies from "js-cookie";
 import {

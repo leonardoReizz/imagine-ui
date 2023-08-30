@@ -1,16 +1,16 @@
-"use client";
 import Component from "@/components/ComponentPreview";
 import { ScrollSection } from "@/components/ScroolSection";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import {
   nextImportButtonCodeString,
+  nextImportExampleButtonCodeString,
   nextInstallNpmCodeString,
   nextInstallPnpmCodeString,
   nextInstallYarnCodeString,
   nextTailwindConfigCodeString,
   nextThemeProviderCodeString,
 } from "@/utils/codeString/nextInstallation";
-import { Typography } from "@imagine-ui/react";
+import { Typography } from "@/utils/imagine-ui";
 
 export default function InstallationNext() {
   return (
@@ -70,10 +70,19 @@ export default function InstallationNext() {
       <ScrollSection>
         <Component.Container
           className="h-fit"
-          title="With Next.js 13 appDir and Server Components"
-          description="Multiple button designs available to suit different interface needs."
+          title="Leveraging Next.js 13's appDir and Server Components with @imagine-ui/react"
+          description="To seamlessly integrate the capabilities of @imagine-ui/react within the framework of Next.js 13, specifically the appDir feature, it's crucial to adopt a specific approach. Utilizing the 'use client' directive is key in ensuring the compatibility of these components within a client-rendered context. An effective strategy involves creating a dedicated export file for the desired components from @imagine-ui/react:"
         >
           <SyntaxHighlighter codeString={nextImportButtonCodeString} />
+        </Component.Container>
+        <Component.Container
+          className="h-fit"
+          title=""
+          description="This export file serves as a bridge between your project and the library, ensuring that these components are client-oriented when integrated.
+
+          Subsequently, instead of directly importing components from @imagine-ui/react, you'll import them from the new export file:"
+        >
+          <SyntaxHighlighter codeString={nextImportExampleButtonCodeString} />
         </Component.Container>
       </ScrollSection>
 

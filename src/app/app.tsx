@@ -1,7 +1,8 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { List, ThemeProvider, Typography } from "@imagine-ui/react";
-import { ReactNode, useCallback, useState } from "react";
+import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ListItem } from "@/components/ListItem";
@@ -16,12 +17,6 @@ export function App({ children }: AppProps) {
 
   const currentPathname = usePathname();
 
-  const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
-
-  const onOpenChangeSidebar = useCallback((open: boolean) => {
-    setIsOpenSidebar(open);
-  }, []);
-
   return (
     <ThemeProvider
       theme={{
@@ -29,10 +24,8 @@ export function App({ children }: AppProps) {
       }}
     >
       <div>
-        <Navbar onOpenChange={onOpenChangeSidebar} isOpen={isOpenSidebar} />
-        {currentPathname !== "/" && (
-          <Sidebar isOpen={isOpenSidebar} onOpenChange={onOpenChangeSidebar} />
-        )}
+        <Navbar />
+        {currentPathname !== "/" && <Sidebar />}
         {currentPathname === "/" && (
           <div className=" w-full flex items-center justify-center gap-2 relative">
             <div className="max-w-7xl p-4">{children}</div>

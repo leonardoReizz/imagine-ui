@@ -1,9 +1,8 @@
-"use client";
 import Component from "@/components/ComponentPreview";
 import { ScrollSection } from "@/components/ScroolSection";
 import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { themeProviderCodeString } from "@/utils/codeString/theming";
-import { Typography } from "@imagine-ui/react";
+import { Typography } from "@/utils/imagine-ui";
 
 export default function Theming() {
   return (

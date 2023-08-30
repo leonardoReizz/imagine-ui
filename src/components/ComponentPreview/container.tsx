@@ -1,4 +1,4 @@
-import { Typography } from "@imagine-ui/react";
+import { Typography } from "@/utils/imagine-ui";
 import { LegacyRef, ReactNode } from "react";
 
 interface ContainerPreviewProps {
@@ -8,11 +8,13 @@ interface ContainerPreviewProps {
   title?: string;
   description?: string;
   ref?: LegacyRef<HTMLDivElement>;
+  id?: string;
 }
 
 export function ContainerPreview({
   children,
   className = "",
+  id,
   containerClassName = "",
   title = "",
   description = "",
@@ -20,6 +22,7 @@ export function ContainerPreview({
 }: ContainerPreviewProps) {
   return (
     <div
+      id={id}
       className={` min-h-[200px] w-full flex flex-col gap-4 ${containerClassName} `}
       ref={ref}
     >

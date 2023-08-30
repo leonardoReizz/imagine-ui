@@ -1,8 +1,5 @@
 import { OnThisPageList } from "@/components/OnThisPage";
-import { useCallback, useRef, useState } from "react";
-import { scrollTo } from "@/utils/scroolTo";
-import { smoothScrollTo } from "@/utils/smoothScroolTo";
-import { useScroll } from "./useScroll";
+import { useCallback, useState } from "react";
 
 export function useCheckboxPage() {
   const [checked, setChecked] = useState<boolean[]>([
@@ -19,22 +16,6 @@ export function useCheckboxPage() {
     true,
     true,
   ]);
-  const refs: RefsType = {
-    introduction: useRef<HTMLDivElement>(null),
-    startPage: useRef<HTMLDivElement>(null),
-    checkbox: useRef<HTMLDivElement>(null),
-    colors: useRef<HTMLDivElement>(null),
-    ripple: useRef<HTMLDivElement>(null),
-    customIcon: useRef<HTMLDivElement>(null),
-    api: useRef<HTMLDivElement>(null),
-    colorType: useRef<HTMLDivElement>(null),
-    sizeType: useRef<HTMLDivElement>(null),
-    containerPropsType: useRef<HTMLDivElement>(null),
-    inputPropsType: useRef<HTMLDivElement>(null),
-    spanPropsType: useRef<HTMLDivElement>(null),
-  };
-
-  const { currentSection } = useScroll({ refs });
 
   const handleCheckbox = useCallback((index: number) => {
     setChecked((t) => {
@@ -51,8 +32,7 @@ export function useCheckboxPage() {
       type: "Color",
       default: "green",
       description: "Change checkbox color",
-      onClickType: () =>
-        scrollTo({ ref: refs.colorType, callback: smoothScrollTo }),
+      href: "/docs/checkbox#colorType",
     },
     {
       id: "2",
@@ -88,8 +68,7 @@ export function useCheckboxPage() {
       type: "Size",
       default: "md",
       description: "Change checkbox size",
-      onClickType: () =>
-        scrollTo({ ref: refs.sizeType, callback: smoothScrollTo }),
+      href: "/docs/checkbox#sizeType",
     },
     {
       id: "7",
@@ -97,8 +76,7 @@ export function useCheckboxPage() {
       type: "ContainerProps",
       default: "",
       description: "Change container props",
-      onClickType: () =>
-        scrollTo({ ref: refs.containerPropsType, callback: smoothScrollTo }),
+      href: "/docs/checkbox#containerPropsType",
     },
     {
       id: "8",
@@ -106,8 +84,7 @@ export function useCheckboxPage() {
       type: "InputProps",
       default: "",
       description: "Change input props",
-      onClickType: () =>
-        scrollTo({ ref: refs.inputPropsType, callback: smoothScrollTo }),
+      href: "/docs/checkbox#inputPropsType",
     },
     {
       id: "9",
@@ -115,8 +92,7 @@ export function useCheckboxPage() {
       type: "SpanProps",
       default: "",
       description: "Change span props",
-      onClickType: () =>
-        scrollTo({ ref: refs.spanPropsType, callback: smoothScrollTo }),
+      href: "/docs/checkbox#spanPropsType",
     },
   ];
 
@@ -124,65 +100,64 @@ export function useCheckboxPage() {
     {
       label: "Introduction",
       name: "introduction",
-      ref: refs.introduction,
+      href: "/docs/checkbox#introduction",
     },
     {
       label: "Checkbox",
       name: "checkbox",
-      ref: refs.checkbox,
+      href: "/docs/checkbox#checkbox",
     },
     {
       label: "Colors",
       name: "colors",
-      ref: refs.colors,
+      href: "/docs/checkbox#colors",
     },
     {
       label: "Ripple",
       name: "ripple",
-      ref: refs.ripple,
+      href: "/docs/checkbox#ripple",
     },
     {
       label: "Custom Icon",
       name: "customIcon",
-      ref: refs.customIcon,
+      href: "/docs/checkbox#customIcon",
     },
     {
       label: "Api",
       name: "api",
-      ref: refs.api,
+      href: "/docs/checkbox#api",
     },
     {
       label: "Size Type",
       name: "sizeType",
-      ref: refs.sizeType,
+      href: "/docs/checkbox#sizeType",
     },
     {
       label: "Color Type",
       name: "colorType",
-      ref: refs.colorType,
+      href: "/docs/checkbox#colorType",
     },
     {
       label: "Container Props Type",
       name: "containerPropsType",
-      ref: refs.containerPropsType,
+      href: "/docs/checkbox#containerPropsType",
     },
     {
       label: "Input Props Type",
       name: "inputPropsType",
-      ref: refs.inputPropsType,
+      href: "/docs/checkbox#inputPropsType",
     },
     {
       label: "Span Props Type",
       name: "spanPropsType",
-      ref: refs.spanPropsType,
+      href: "/docs/checkbox#spanPropsType",
     },
   ];
 
   return {
     onThisPageList,
-    currentSection,
     apiBody,
-    refs,
+
     handleCheckbox,
     checked,
   };
