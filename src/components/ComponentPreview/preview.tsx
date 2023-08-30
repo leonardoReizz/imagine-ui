@@ -1,5 +1,5 @@
 "use client";
-import { Button, Card } from "@/utils/imagine-ui";
+import { Button, Card, useThemeProvider } from "@/utils/imagine-ui";
 import {
   CodeBracketIcon,
   EyeIcon,
@@ -8,7 +8,6 @@ import {
 } from "@heroicons/react/20/solid";
 import { ReactNode, useCallback, useState } from "react";
 import { SyntaxHighlighter } from "../SyntaxHylighter";
-import { useThemeContext } from "@/hooks/useThemeContext";
 
 interface PreviewProps {
   codeString: string;
@@ -18,7 +17,7 @@ interface PreviewProps {
 export function Preview({ children, codeString }: PreviewProps) {
   const [state, setState] = useState<number>(0);
   const [copiedCode, setCopiedCode] = useState<boolean>(false);
-  const { theme } = useThemeContext();
+  const { theme } = useThemeProvider();
 
   const handleCopyCode = useCallback(() => {
     navigator.clipboard.writeText(codeString);
