@@ -46,7 +46,9 @@ function Navbar() {
   }, [theme]);
 
   useEffect(() => {
-    const cTheme = JSON.parse(Cookies.get("theme") || "{theme: light}").theme;
+    const cTheme = JSON.parse(
+      Cookies.get("theme") || '{"theme": "light"}',
+    ).theme;
 
     if (cTheme === "dark") {
       document.documentElement.classList.add("dark");
