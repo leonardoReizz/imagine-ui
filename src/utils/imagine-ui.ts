@@ -11,6 +11,7 @@ import {
   IconButton,
   ListItem,
   List,
+  useThemeProvider,
 } from "@imagine-ui/react";
 
 export {
@@ -23,5 +24,6 @@ export {
   Typography,
   Card,
   IconButton,
+  useThemeProvider,
   ListItem,
 };
