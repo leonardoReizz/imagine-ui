@@ -25,19 +25,22 @@ export default function Home() {
         >
           <div className="flex flex-col gap-6 flex-1">
             <Typography variant="h3" className="max-md:text-4xl">
-              Build modern web applications with Flowbite React
+              Create cutting-edge web experiences with Imagine UI.
             </Typography>
-            <Typography>
-              Flowbite React is an open-source UI component library built on top
-              of Tailwind CSS with React components and based on the Flowbite
-              Design System
+            <Typography className="">
+              Imagine UI for React is a free of UI components designed for
+              seamless integration with Tailwind CSS and React. Imagine UI
+              empowers you to craft modern web applications with ease.
             </Typography>
             <div className="max-md:w-full max-md:mb-10">
-              <Link href={"/docs/overview"}>
-                <Button color="green" className="max-md:ml-auto max-md:mr-auto">
+              <Button color="green" className="p-0">
+                <Link
+                  href="/docs/overview"
+                  className="flex px-8 w-full h-full items-center gap-2 max-md:ml-auto max-md:mr-auto"
+                >
                   Get Started <ArrowRightIcon className="h-5 w-5" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="flex gap-4 h-full w-full p-4 flex-1 justify-start">
