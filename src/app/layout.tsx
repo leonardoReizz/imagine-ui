@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { App } from "./app";
-import { ThemeContextProvider } from "@/context/ThemeContext";
+import { ThemeProvider } from "@/utils/imagine-ui";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +16,9 @@ export default function RootLayout({
         <title>Imagine UI - Component Library With React </title>
       </head>
       <body className={`${inter.className} dark:bg-zinc-900`}>
-        <ThemeContextProvider>
+        <ThemeProvider theme={{ initialTheme: "light" }}>
           <App>{children}</App>
-        </ThemeContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
