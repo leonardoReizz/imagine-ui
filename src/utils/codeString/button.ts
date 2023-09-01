@@ -90,7 +90,7 @@ export const buttonWithIconCodeString = `function ButtonWithIcon() {
   )
 }`;
 
-export const buttonImportCodeString = `import { Button } from "@imagine-io/react"`;
+export const buttonImportCodeString = `import { Button } from "@imagine-ui/react"`;
 
 export const buttonColorTypeCodeString = `type ButtonColor =
 | "blue"

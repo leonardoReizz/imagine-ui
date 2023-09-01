@@ -1,4 +1,4 @@
-export const listCodeString = `import { List, ListItem } from "@imagine-io/react"
+export const listCodeString = `import { List, ListItem } from "@imagine-ui/react"
 
 function ListExample() {
   return (
@@ -73,5 +73,5 @@ export const listCustomStyleCodeString = `function ListCustomStyle() {
   )
 }`;
 
-export const listImportCodeString = `import { List } from "@imagine-io/react"`;
-export const listItemImportCodeString = `import { ListItem } from "@imagine-io/react"`;
+export const listImportCodeString = `import { List } from "@imagine-ui/react"`;
+export const listItemImportCodeString = `import { ListItem } from "@imagine-ui/react"`;

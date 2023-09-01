@@ -1,4 +1,4 @@
-export const checkboxCodeString = `import { Checkbox } from "@imagine-io/react"
+export const checkboxCodeString = `import { Checkbox } from "@imagine-ui/react"
 
 export function CheckboxExample() {
   return (
@@ -58,7 +58,7 @@ export const checkboxCustomIconCodeString = `function CheckboxCustomIcon() {
   )
 }`;
 
-export const checkboxImportCodeString = `import { Checkbox } from "@imagine-io/react"`;
+export const checkboxImportCodeString = `import { Checkbox } from "@imagine-ui/react"`;
 
 export const checkboxColorTypeCodeString = `type CheckboxColor =  
 | "blue"

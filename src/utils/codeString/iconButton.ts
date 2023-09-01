@@ -206,7 +206,7 @@ export const iconButtonColorCodeString = `function IconButtonColor() {
   )
 }`;
 
-export const iconButtonImportCodeString = `import { IconButton } from "@imagine-io/react"`;
+export const iconButtonImportCodeString = `import { IconButton } from "@imagine-ui/react"`;
 
 export const iconButtonSizeTypeCodeString = `type IconButtonSize = "sm" | "md" | "lg";`;
 

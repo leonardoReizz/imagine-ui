@@ -45,7 +45,7 @@ export const typographyColorCodeString = `function TypographyColor() {
   )
 }`;
 
-export const typographyImportCodeString = `import { Typography } from "@imagine-io/react"`;
+export const typographyImportCodeString = `import { Typography } from "@imagine-ui/react"`;
 
 export const typographyAlignTypeCodeString = `type TypographyAlign =
 "center" 

@@ -1,4 +1,4 @@
-export const inputCodeString = `import { Input } from "@imagine-io/react"
+export const inputCodeString = `import { Input } from "@imagine-ui/react"
 
 export function InputExample() {
   return (
@@ -56,7 +56,7 @@ export const inputDisableCodeString = `function InputDisabled() {
   )
 }`;
 
-export const inputImportCodeString = `import { Input } from "@imagine-io/react"`;
+export const inputImportCodeString = `import { Input } from "@imagine-ui/react"`;
 
 export const inputColorTypeCodeString = `type InputColor =
 | "blue"
