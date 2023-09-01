@@ -18,6 +18,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="ZKMPzmc_fkTcJscBQkjxMhDCvx4cshM9DibFYyIwqV4"
         />
+        <link rel="icon" href="/logo-no-background.svg" type="image/svg+xml" />
       </head>
       <body className={`${inter.className} dark:bg-zinc-900`}>
         <ThemeProvider theme={{ initialTheme: "light" }}>

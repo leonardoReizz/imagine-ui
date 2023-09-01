@@ -4,6 +4,7 @@ import { List, Typography } from "@/utils/imagine-ui";
 import { ReactNode } from "react";
 import Link from "next/link";
 import { ListItem } from "@/components/ListItem";
+import Image from "next/image";
 
 interface AppProps {
   children: ReactNode;
@@ -26,7 +27,15 @@ export function App({ children }: AppProps) {
               <div className="flex w-full flex-col">
                 <div className="flex max-md:flex-col">
                   <div className="w-full">
-                    <Typography variant="h6">Imagine UI</Typography>
+                    <Typography variant="h6" className="flex gap-2">
+                      <Image
+                        height={30}
+                        width={30}
+                        alt=""
+                        src="/logo-no-background.svg"
+                      />
+                      Imagine UI
+                    </Typography>
                     <Typography>
                       User-friendly React components designed to seamlessly
                       integrate with Tailwind CSS.

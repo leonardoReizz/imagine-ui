@@ -13,6 +13,7 @@ import { MagnifyingGlassIcon, SunIcon } from "@heroicons/react/20/solid";
 import { SearchDialog } from "./components/SearchDialog";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import Image from "next/image";
 
 function Navbar() {
   const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false);
@@ -85,18 +86,15 @@ function Navbar() {
         shadow={false}
       >
         <div className="w-full flex items-center gap-4">
-          <Typography
-            variant="h6"
-            align="left"
-            className="normal-case max-lg:ml-10"
-          >
-            <Link href="/" className="max-md:opacity-0 max-md:hidden">
-              Imagine UI
-            </Link>
-            <Link href="/" className="md:opacity-100  md:hidden">
-              IUI
-            </Link>
-          </Typography>
+          <Link href="/" className="max-lg:ml-10 flex gap-4">
+            <Image
+              alt=""
+              src="/logo-no-background.svg"
+              height={30}
+              width={25}
+            />
+            <Typography className="max-md:hidden"> Imagine UI</Typography>
+          </Link>
         </div>
 
         <ul className="flex items-center gap-4 w-[400px]">
