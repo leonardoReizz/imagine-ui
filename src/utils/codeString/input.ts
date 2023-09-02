@@ -75,7 +75,7 @@ export const inputIconPropsTypeCodeString = `type InputIconProps = {
   className?: string;
 };`;
 
-export const inputContainerPropsTypeCodeString = `type InputCaontainerProps = {
+export const inputContainerPropsTypeCodeString = `type InputContainerProps = {
   className?: string;
 };`;
 
