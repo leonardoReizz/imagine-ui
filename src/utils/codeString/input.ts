@@ -71,14 +71,14 @@ export const inputSizeTypeCodeString = `type  InputSize = "sm" | "md" | "lg";`;
 
 export const inputVariantTypeCodeString = `type InputVariant = "outlined" | "static" | "standart"`;
 
-export const inputIconPropsTypeCodeString = `type TextAreaIconProps = {
+export const inputIconPropsTypeCodeString = `type InputIconProps = {
   className?: string;
 };`;
 
-export const inputContainerPropsTypeCodeString = `type CTextAreaontainerProps = {
+export const inputContainerPropsTypeCodeString = `type InputCaontainerProps = {
   className?: string;
 };`;
 
-export const inputlabelPropsTypeCodeString = `type TextAreaLabelProps = {
+export const inputlabelPropsTypeCodeString = `type InputLabelProps = {
   className?: string;
 };`;
