@@ -1,8 +1,12 @@
 <div align="center">
-  <h1>✨Imagine-UI </h1>
-   <p>
-    <strong>TailwindCSS Components Library</strong>
-  </p>
+    <h1>✨Imagine-UI </h1>
+     <p>
+      <strong>TailwindCSS Components Library</strong>
+    </p>
+    
+  <a href="https://imagine-ui.com" target="_blank">
+    Imagine UI - Page
+  </a>
 </div>
 
 <br />
@@ -13,7 +17,7 @@
 Learn how to leverage the @imagine-ui/react components to swiftly craft elegant and versatile pages with the assistance of Tailwind CSS.
 
 @imagine-ui/react collaborates seamlessly with Tailwind CSS classes, requiring prior installation of Tailwind CSS in your project. For installation instructions, please refer to the 
-<a href="https://tailwindcss.com/docs/installation/framework-guides?ref=material-tailwind" target="_blank">Tailwind CSS Installation Guide.</a>
+<a href="https://tailwindcss.com/docs/installation/framework-guides" target="_blank">Tailwind CSS Installation Guide.</a>
 
 <br />
 
