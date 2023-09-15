@@ -1,4 +1,8 @@
 "use client";
+import { OnThisPageList } from "@/components/OnThisPage";
+import { onThisPageListButton } from "@/hooks/useButtonsPage";
+import { onThisPageListInput } from "@/hooks/useInputPage";
+import { DocumentIcon } from "@heroicons/react/20/solid";
 import {
   Card,
   Dialog,
@@ -8,70 +12,71 @@ import {
   Typography,
 } from "@imagine-ui/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+interface SearchItem {
+  id: string;
+  label: string;
+  path: string;
+  refs: OnThisPageList;
+}
 
 interface SearchDialogProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const docs = [
+const pages: SearchItem[] = [
   {
-    to: "/",
-    name: "Overview",
+    id: "1",
+    label: "Button",
+    path: "/docs/button",
+    refs: onThisPageListButton,
   },
   {
-    to: "/docs/installation",
-    name: "Installation",
-  },
-  {
-    to: "/docs/license",
-    name: "License",
-  },
-  {
-    to: "/docs/theming",
-    name: "Theming",
-  },
-];
-
-const pages = [
-  {
-    to: "/docs/button",
-    name: "Button",
-  },
-  {
-    to: "/docs/checkbox",
-    name: "Checkbox",
-  },
-  {
-    to: "/docs/iconButton",
-    name: "Icon Button",
-  },
-  {
-    to: "/docs/input",
-    name: "Input",
-  },
-  {
-    to: "/docs/list",
-    name: "List",
-  },
-  {
-    to: "/docs/typography",
-    name: "Typography",
+    id: "2",
+    label: "Input",
+    path: "/docs/input",
+    refs: onThisPageListInput,
   },
 ];
 
 export function SearchDialog({ isOpen, onOpenChange }: SearchDialogProps) {
   const [searchValue, setSearchValue] = useState<string>("");
   const router = useRouter();
+  const MAX_TOTAL_ITEMS = 10;
+  const [filteredPages, setFilterefpages] = useState<SearchItem[]>([]);
 
-  const filteredPages = pages.filter((t) =>
-    t.name.toLowerCase().includes(searchValue.toLowerCase()),
-  );
+  useEffect(() => {
+    const t: any[] = [];
+    let totalItems = 0;
 
-  const filteredDocs = docs.filter((t) =>
-    t.name.toLowerCase().includes(searchValue.toLowerCase()),
-  );
+    for (const page of pages) {
+      if (totalItems >= MAX_TOTAL_ITEMS) {
+        break;
+      }
+
+      const filteredRefs = [];
+
+      for (const ref of page.refs) {
+        if (totalItems >= MAX_TOTAL_ITEMS) {
+          break;
+        }
+
+        const combinedLabels = `${page.label} ${ref.label}`.toLowerCase();
+        if (combinedLabels.includes(searchValue.toLowerCase())) {
+          filteredRefs.push(ref);
+          totalItems++;
+        }
+      }
+
+      if (filteredRefs.length > 0) {
+        t.push({ ...page, refs: filteredRefs });
+      }
+    }
+
+    setFilterefpages(t);
+  }, [searchValue]);
 
   function handlePage(page: string) {
     onOpenChange(false);
@@ -85,6 +90,7 @@ export function SearchDialog({ isOpen, onOpenChange }: SearchDialogProps) {
         onOpenChange={(e) => onOpenChange(e)}
         height="100%"
         maxHeight="500px"
+        maxWidth="700px"
       >
         <Card
           className="flex flex-col p-4 h-full max-h-[500px] w-full rounded-md dark:bg-zinc-900"
@@ -96,45 +102,44 @@ export function SearchDialog({ isOpen, onOpenChange }: SearchDialogProps) {
             onChange={(e) => setSearchValue(e.target.value)}
             value={searchValue}
           />
-          <div className="max-h-[400px] overflow-auto">
-            {filteredDocs.length > 0 && (
-              <div className="mt-4">
-                <Typography>Docs</Typography>
-                <List className="overflow-auto" shadow={false}>
-                  {filteredDocs.map((page) => {
-                    return (
-                      <ListItem
-                        key={page.name}
-                        onKeyDown={(e) =>
-                          e.key === "Enter" && handlePage(page.to)
-                        }
-                        onClick={() => handlePage(page.to)}
-                        className="bg-zinc-100 h-14 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-                      >
-                        <Typography>{page.name}</Typography>
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              </div>
-            )}
-            <hr className="mt-4 mb-4 dark:border-zinc-700" />
+          <div className=" overflow-auto h-full">
             {filteredPages.length > 0 && (
-              <div>
-                <Typography>Components</Typography>
-                <List className="overflow-auto" shadow={false}>
+              <div className="h-full">
+                <List className="overflow-auto h-full" shadow={false}>
                   {filteredPages.map((page) => {
                     return (
-                      <ListItem
-                        key={page.name}
-                        onKeyDown={(e) =>
-                          e.key === "Enter" && handlePage(page.to)
-                        }
-                        onClick={() => handlePage(page.to)}
-                        className="bg-zinc-100 h-14 dark:bg-zinc-800"
-                      >
-                        <Typography>{page.name}</Typography>
-                      </ListItem>
+                      <>
+                        <ListItem
+                          key={page.id}
+                          onKeyDown={(e) =>
+                            e.key === "Enter" && handlePage(page.path)
+                          }
+                          onClick={() => handlePage(page.path)}
+                          className="gap-4 bg-zinc-100 min-h-[55px] dark:bg-zinc-800/30 border border-zinc-800 dark:hover:bg-zinc-700/30 dark:focus:bg-zinc-700/30"
+                        >
+                          <DocumentIcon className="w-6 h-6" />
+                          <Typography>{page.label}</Typography>
+                        </ListItem>
+                        <List className="p-0 ml-3" shadow={false}>
+                          {page.refs.map((ref) => {
+                            return (
+                              <ListItem
+                                key={ref.name}
+                                onKeyDown={(e) =>
+                                  e.key === "Enter" && handlePage(ref.href)
+                                }
+                                onClick={() => handlePage(ref.href)}
+                                className="flex  gap-4 items-center bg-zinc-100 min-h-[55px] dark:bg-transparent  border-zinc-800 dark:hover:bg-zinc-700/30 dark:focus:bg-zinc-700/30 after:content-[''] after:absolute after:w-[25px] after:h-[2px] after:bg-zinc-400 before:content-[''] before:absolute before:w-[2px] before:h-[50px] before:bg-zinc-400"
+                              >
+                                <Typography variant="h6" className="ml-10">
+                                  #
+                                </Typography>
+                                <Typography>{`${page.label} ${ref.label}`}</Typography>
+                              </ListItem>
+                            );
+                          })}
+                        </List>
+                      </>
                     );
                   })}
                 </List>

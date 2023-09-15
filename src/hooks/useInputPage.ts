@@ -1,5 +1,68 @@
 import { OnThisPageList } from "@/components/OnThisPage";
 
+export const onThisPageListInput: OnThisPageList = [
+  {
+    label: "Introduction",
+    name: "introduction",
+    href: "/docs/input#introduction",
+  },
+  {
+    label: "Input",
+    name: "input",
+    href: "/docs/input#input",
+  },
+  {
+    label: "Variants",
+    name: "variants",
+    href: "/docs/input#variants",
+  },
+  {
+    label: "Sizes",
+    name: "sizes",
+    href: "/docs/input#sizes",
+  },
+  {
+    label: "With Icons",
+    name: "withIcon",
+    href: "/docs/input#withIcon",
+  },
+  {
+    label: "Disabled",
+    name: "disabled",
+    href: "/docs/input#disabled",
+  },
+  {
+    label: "Api",
+    name: "api",
+    href: "/docs/input#api",
+  },
+  {
+    label: "Variants Type",
+    name: "variantType",
+    href: "/docs/input#variantType",
+  },
+  {
+    label: "Color Type",
+    name: "colorType",
+    href: "/docs/input#colorType",
+  },
+  {
+    label: "Container Props Type",
+    name: "containerPropsType",
+    href: "/docs/input#containerPropsType",
+  },
+  {
+    label: "Icon Props Type",
+    name: "iconPropsType",
+    href: "/docs/input#iconPropsType",
+  },
+  {
+    label: "Label Props Type",
+    name: "labelPropsType",
+    href: "/docs/input#labelPropsType",
+  },
+];
+
 export function useInputPage() {
   const apiBody = [
     {
@@ -79,68 +142,5 @@ export function useInputPage() {
     },
   ];
 
-  const onThisPageList: OnThisPageList = [
-    {
-      label: "Introduction",
-      name: "introduction",
-      href: "/docs/input#introduction",
-    },
-    {
-      label: "Input",
-      name: "input",
-      href: "/docs/input#input",
-    },
-    {
-      label: "Variants",
-      name: "variants",
-      href: "/docs/input#variants",
-    },
-    {
-      label: "Sizes",
-      name: "sizes",
-      href: "/docs/input#sizes",
-    },
-    {
-      label: "With Icons",
-      name: "withIcon",
-      href: "/docs/input#withIcon",
-    },
-    {
-      label: "Disabled",
-      name: "disabled",
-      href: "/docs/input#disabled",
-    },
-    {
-      label: "Api",
-      name: "api",
-      href: "/docs/input#api",
-    },
-    {
-      label: "Variants Type",
-      name: "variantType",
-      href: "/docs/input#variantType",
-    },
-    {
-      label: "Color Type",
-      name: "colorType",
-      href: "/docs/input#colorType",
-    },
-    {
-      label: "Container Props Type",
-      name: "containerPropsType",
-      href: "/docs/input#containerPropsType",
-    },
-    {
-      label: "Icon Props Type",
-      name: "iconPropsType",
-      href: "/docs/input#iconPropsType",
-    },
-    {
-      label: "Label Props Type",
-      name: "labelPropsType",
-      href: "/docs/input#labelPropsType",
-    },
-  ];
-
-  return { onThisPageList, apiBody };
+  return { onThisPageList: onThisPageListInput, apiBody };
 }

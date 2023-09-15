@@ -1,5 +1,63 @@
 import { OnThisPageList } from "@/components/OnThisPage";
 
+export const onThisPageListButton: OnThisPageList = [
+  {
+    label: "Introduction",
+    name: "introduction",
+    href: "/docs/button#introduction",
+  },
+  {
+    label: "Button",
+    name: "button",
+    href: "/docs/button#button",
+  },
+  {
+    label: "Variants",
+    name: "variants",
+    href: "/docs/button#variants",
+  },
+  {
+    label: "Colors",
+    name: "colors",
+    href: "/docs/button#colors",
+  },
+  {
+    label: "Ripple",
+    name: "ripple",
+    href: "/docs/button#ripple",
+  },
+  {
+    label: "Shadow",
+    name: "shadow",
+    href: "/docs/button#shadow",
+  },
+  {
+    label: "With Icon",
+    name: "withIcon",
+    href: "/docs/button#withIcon",
+  },
+  {
+    label: "Api",
+    name: "api",
+    href: "/docs/button#api",
+  },
+  {
+    label: "Size Type",
+    name: "sizeType",
+    href: "/docs/button#sizeType",
+  },
+  {
+    label: "Variants Type",
+    name: "variantType",
+    href: "/docs/button#variantType",
+  },
+  {
+    label: "Color Type",
+    name: "colorType",
+    href: "/docs/button#colorType",
+  },
+];
+
 export function useButtonsPage() {
   const apiBody = [
     {
@@ -56,63 +114,5 @@ export function useButtonsPage() {
     },
   ];
 
-  const onThisPageList: OnThisPageList = [
-    {
-      label: "Introduction",
-      name: "introduction",
-      href: "/docs/button#introduction",
-    },
-    {
-      label: "Button",
-      name: "button",
-      href: "/docs/button#button",
-    },
-    {
-      label: "Variants",
-      name: "variants",
-      href: "/docs/button#variants",
-    },
-    {
-      label: "Colors",
-      name: "colors",
-      href: "/docs/button#colors",
-    },
-    {
-      label: "Ripple",
-      name: "ripple",
-      href: "/docs/button#ripple",
-    },
-    {
-      label: "Shadow",
-      name: "shadow",
-      href: "/docs/button#shadow",
-    },
-    {
-      label: "With Icon",
-      name: "withIcon",
-      href: "/docs/button#withIcon",
-    },
-    {
-      label: "Api",
-      name: "api",
-      href: "/docs/button#api",
-    },
-    {
-      label: "Size Type",
-      name: "sizeType",
-      href: "/docs/button#sizeType",
-    },
-    {
-      label: "Variants Type",
-      name: "variantType",
-      href: "/docs/button#variantType",
-    },
-    {
-      label: "Color Type",
-      name: "colorType",
-      href: "/docs/button#colorType",
-    },
-  ];
-
-  return { onThisPageList, apiBody };
+  return { onThisPageList: onThisPageListButton, apiBody };
 }
