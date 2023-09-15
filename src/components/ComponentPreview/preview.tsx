@@ -83,7 +83,7 @@ export function Preview({ children, codeString }: PreviewProps) {
 
         {state === 0 && (
           <div className="flex items-center justify-start h-full overflow-auto">
-            <div className="min-w-[600px] w-full">
+            <div className="min-w-[600px] w-full p-4">
               <div className="w-full h-full flex items-center justify-center gap-4 ">
                 {children}
               </div>
