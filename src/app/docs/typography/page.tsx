@@ -152,7 +152,7 @@ export default function Typographys() {
         </div>
       </div>
       <PreviousAndNext
-        previous={{ label: "List", path: "/docs/list" }}
+        previous={{ label: "Spinner", path: "/docs/spinner" }}
         next={{ label: "Overview", path: "/docs/overview" }}
       />
       <OnThisPage list={onThisPageList} />
