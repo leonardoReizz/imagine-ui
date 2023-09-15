@@ -38,7 +38,7 @@ export default function Sidebar() {
         </IconButton>
       )}
       <Card
-        className={`fixed bg-gray-50 z-[100] rounded-none border-r  w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
+        className={`fixed bg-gray-50 z-[100] rounded-none border-r max-h-[calc(100%-55px)] w-64 p-4 h-screen left-0 overflow-auto dark:bg-zinc-900 dark:border-zinc-700  transition-all ${
           isOpen ? "" : "max-lg:-left-64"
         }`}
         shadow={false}
@@ -98,7 +98,10 @@ export default function Sidebar() {
               <ListItem onClick={() => router.push("/docs/list")}>
                 List
               </ListItem>
-              <ListItem onClick={() => router.push("/docs/typography")}>
+              <ListItem onClick={() => router.push("/docs/spinner")}>
+                Spinner
+              </ListItem>
+              <ListItem onClick={() => router.push("/docs/typpography")}>
                 Typography
               </ListItem>
             </List>

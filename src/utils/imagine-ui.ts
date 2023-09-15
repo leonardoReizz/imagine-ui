@@ -12,6 +12,7 @@ import {
   ListItem,
   List,
   useThemeProvider,
+  Spinner,
 } from "@imagine-ui/react";
 
 export {
@@ -26,4 +27,5 @@ export {
   IconButton,
   useThemeProvider,
   ListItem,
+  Spinner,
 };
