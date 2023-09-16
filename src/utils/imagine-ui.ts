@@ -13,6 +13,9 @@ import {
   List,
   useThemeProvider,
   Spinner,
+  Textarea,
+  Drawer,
+  Chip,
 } from "@imagine-ui/react";
 
 export {
@@ -21,6 +24,7 @@ export {
   List,
   Dialog,
   Checkbox,
+  Drawer,
   Input,
   Typography,
   Card,
@@ -28,4 +32,6 @@ export {
   useThemeProvider,
   ListItem,
   Spinner,
+  Textarea,
+  Chip,
 };
