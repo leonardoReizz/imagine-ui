@@ -15,11 +15,9 @@ import {
   spinnerVariantCodeString,
   spinnerVariantTypeCodeString,
 } from "@/utils/codeString/spinner";
-import { useSpinnerPage } from "@/hooks/useSpinnerPage";
+import { apiBodySpinner, onThisPageSpinner } from "@/utils/static/spinner";
 
 export default function Spinners() {
-  const { apiBody, onThisPageList } = useSpinnerPage();
-
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
@@ -29,29 +27,28 @@ export default function Spinners() {
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            The Typography component emerges as a linchpin in web design,
-            serving as an adaptable and stylized textual element. It
-            encapsulates the essence of content, ensuring legibility while
-            enhancing the user&apos;s engagement with the platform.
+            The Spinner component emerges as a pivotal element in web design,
+            serving as a dynamic and engaging visual element. It encapsulates
+            the essence of user interaction, ensuring a smooth and intuitive
+            experience while users interact with the platform.
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            Its foremost function is to represent diverse textual hierarchies,
-            from bold headings like h1 to h6 to nuanced textual indications such
-            as paragraph, sub-paragraph, and caption. This variety ensures
-            content clarity, guiding users through the flow of information.
+            Its primary function is to provide versatile loading animations and
+            feedback indicators, from simple spinners to more elaborate loading
+            sequences. This diversity ensures users are aware of ongoing
+            processes, enhancing their overall experience.
           </Typography>
           <Typography
             variant="sub-paragraph"
             className="text-zinc-800 dark:text-zinc-300"
           >
-            Developers aiming for flexibility will find the Typography component
-            a boon. Demonstrated below, the component&apos;s seamless synergy
-            with React allows for a plethora of styles, alignments, and emphasis
-            options. This versatility ensures that every piece of text can be
-            crafted to align perfectly with the broader design narrative.
+            Developers seeking flexibility will find the Spinner component to be
+            a valuable asset. As exemplified below, its seamless integration
+            with React allows for a multitude of styles, sizes, and interactive
+            behaviors.
           </Typography>
         </ScrollSection>
         <hr className="bg-zinc-800 w-full dark:border-zinc-700" />
@@ -111,20 +108,21 @@ export default function Spinners() {
               <div className="flex flex-col gap-4">
                 <Typography variant="h6">API</Typography>
                 <Typography>
-                  Embark on a journey through the specifics of our Typography
-                  component. This section dives deep into the different styles,
-                  weight options, and customizable properties that ensure your
-                  text elements are not only readable but also aesthetically
-                  aligned with your application&apos;s design ethos. From
-                  headers to paragraphs, our Typography component has got you
-                  covered.
+                  Embark on an exploration of our Spinner component&apos;s
+                  intricacies. This section delves deep into the various styles,
+                  animation options, and customizable properties that guarantee
+                  your loading indicators are not only functional but also
+                  seamlessly aligned with your application&apos;s design
+                  philosophy. From simple spinners to intricate loading
+                  animations, our Spinner component has all your loading
+                  feedback needs covered.
                 </Typography>
               </div>
               <ScrollSection>
                 <SyntaxHighlighter codeString={spinnerImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiBody} />
+                <TableAPI body={apiBodySpinner} />
               </div>
             </div>
           </ScrollSection>
@@ -146,7 +144,7 @@ export default function Spinners() {
         previous={{ label: "List", path: "/docs/list" }}
         next={{ label: "Overview", path: "/docs/typography" }}
       />
-      <OnThisPage list={onThisPageList} />
+      <OnThisPage list={onThisPageSpinner} />
     </div>
   );
 }
