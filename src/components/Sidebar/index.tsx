@@ -89,6 +89,15 @@ export default function Sidebar() {
               <ListItem onClick={() => router.push("/docs/checkbox")}>
                 Checkbox
               </ListItem>
+              <ListItem onClick={() => router.push("/docs/chip")}>
+                Chip<span className="ml-1 text-amber-500"> - New</span>
+              </ListItem>
+              <ListItem onClick={() => router.push("/docs/dialog")}>
+                Dialog<span className="ml-1 text-amber-500"> - New</span>
+              </ListItem>
+              <ListItem onClick={() => router.push("/docs/drawer")}>
+                Drawer<span className="ml-1 text-amber-500"> - New</span>
+              </ListItem>
               <ListItem onClick={() => router.push("/docs/iconButton")}>
                 Icon Button
               </ListItem>
@@ -99,9 +108,12 @@ export default function Sidebar() {
                 List
               </ListItem>
               <ListItem onClick={() => router.push("/docs/spinner")}>
-                Spinner
+                Spinner<span className="ml-1 text-amber-500"> - New</span>
               </ListItem>
-              <ListItem onClick={() => router.push("/docs/typpography")}>
+              <ListItem onClick={() => router.push("/docs/textarea")}>
+                Textarea <span className="ml-1 text-amber-500"> - New</span>
+              </ListItem>
+              <ListItem onClick={() => router.push("/docs/typography")}>
                 Typography
               </ListItem>
             </List>
