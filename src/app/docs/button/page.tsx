@@ -16,12 +16,10 @@ import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
-import { useButtonsPage } from "@/hooks/useButtonsPage";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
+import { apiBodyButton, onThisPageButton } from "@/utils/static/button";
 
 export default function Buttons() {
-  const { apiBody, onThisPageList } = useButtonsPage();
-
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
@@ -183,7 +181,7 @@ export default function Buttons() {
                 <SyntaxHighlighter codeString={buttonImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiBody} />
+                <TableAPI body={apiBodyButton} />
               </div>
             </div>
           </ScrollSection>
@@ -205,7 +203,7 @@ export default function Buttons() {
         previous={{ label: "Theming", path: "/docs/theming" }}
         next={{ label: "Checkbox", path: "/docs/checkbox" }}
       />
-      <OnThisPage list={onThisPageList} />
+      <OnThisPage list={onThisPageButton} />
     </div>
   );
 }

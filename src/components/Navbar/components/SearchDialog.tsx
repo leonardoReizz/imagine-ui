@@ -1,7 +1,14 @@
 "use client";
 import { OnThisPageList } from "@/components/OnThisPage";
-import { onThisPageListButton } from "@/hooks/useButtonsPage";
-import { onThisPageListInput } from "@/hooks/useInputPage";
+import { onThisPageButton } from "@/utils/static/button";
+import { onThisPageCheckbox } from "@/utils/static/checkbox";
+import { onThisPageDrawer } from "@/utils/static/drawer";
+import { onThisPageIconButton } from "@/utils/static/iconButton";
+import { onThisPageInput } from "@/utils/static/input";
+import { onThisPageList } from "@/utils/static/list";
+import { onThisPageSpinner } from "@/utils/static/spinner";
+import { onThisPageTextArea } from "@/utils/static/textarea";
+import { onThisPageTypography } from "@/utils/static/typography";
 import { DocumentIcon } from "@heroicons/react/20/solid";
 import {
   Card,
@@ -31,13 +38,55 @@ const pages: SearchItem[] = [
     id: "1",
     label: "Button",
     path: "/docs/button",
-    refs: onThisPageListButton,
+    refs: onThisPageButton,
   },
   {
     id: "2",
     label: "Input",
     path: "/docs/input",
-    refs: onThisPageListInput,
+    refs: onThisPageInput,
+  },
+  {
+    id: "3",
+    label: "Drawer",
+    path: "/docs/drawer",
+    refs: onThisPageDrawer,
+  },
+  {
+    id: "4",
+    label: "TextArea",
+    path: "/docs/textarea",
+    refs: onThisPageTextArea,
+  },
+  {
+    id: "5",
+    label: "Typography",
+    path: "/docs/typography",
+    refs: onThisPageTypography,
+  },
+  {
+    id: "6",
+    label: "List",
+    path: "/docs/list",
+    refs: onThisPageList,
+  },
+  {
+    id: "7",
+    label: "Spinner",
+    path: "/docs/spinner",
+    refs: onThisPageSpinner,
+  },
+  {
+    id: "8",
+    label: "Icon Button",
+    path: "/docs/iconButton",
+    refs: onThisPageIconButton,
+  },
+  {
+    id: "9",
+    label: "Checkbox",
+    path: "/docs/checkbox",
+    refs: onThisPageCheckbox,
   },
 ];
 

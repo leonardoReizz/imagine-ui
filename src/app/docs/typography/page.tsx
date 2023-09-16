@@ -13,12 +13,13 @@ import {
   typographyVariantCodeString,
   typographyVariantTypeCodeString,
 } from "@/utils/codeString/typography";
-import { useTypographyPage } from "@/hooks/useTypographyPage";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
+import {
+  apiBodyTypography,
+  onThisPageTypography,
+} from "@/utils/static/typography";
 
 export default function Typographys() {
-  const { apiBody, onThisPageList } = useTypographyPage();
-
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
@@ -133,7 +134,7 @@ export default function Typographys() {
                 <SyntaxHighlighter codeString={typographyImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiBody} />
+                <TableAPI body={apiBodyTypography} />
               </div>
             </div>
           </ScrollSection>
@@ -155,7 +156,7 @@ export default function Typographys() {
         previous={{ label: "Spinner", path: "/docs/spinner" }}
         next={{ label: "Overview", path: "/docs/overview" }}
       />
-      <OnThisPage list={onThisPageList} />
+      <OnThisPage list={onThisPageTypography} />
     </div>
   );
 }

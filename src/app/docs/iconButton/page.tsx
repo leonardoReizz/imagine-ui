@@ -4,7 +4,6 @@ import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
-import { useIconButtonPage } from "@/hooks/useIconButtonPage";
 import {
   iconButtonCodeString,
   iconButtonColorCodeString,
@@ -18,10 +17,12 @@ import {
   iconButtonVariantTypeCodeString,
 } from "@/utils/codeString/iconButton";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
+import {
+  apiBodyIconButton,
+  onThisPageIconButton,
+} from "@/utils/static/iconButton";
 
 export default function IconButtons() {
-  const { apiBody, onThisPageList } = useIconButtonPage();
-
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
@@ -305,7 +306,7 @@ export default function IconButtons() {
                 <SyntaxHighlighter codeString={iconButtonImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiBody} />
+                <TableAPI body={apiBodyIconButton} />
               </div>
             </div>
           </ScrollSection>
@@ -327,7 +328,7 @@ export default function IconButtons() {
         previous={{ label: "Checkbox", path: "/docs/checkbox" }}
         next={{ label: "Input", path: "/docs/input" }}
       />
-      <OnThisPage list={onThisPageList} />
+      <OnThisPage list={onThisPageIconButton} />
     </div>
   );
 }

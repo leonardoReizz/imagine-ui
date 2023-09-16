@@ -21,12 +21,14 @@ import {
   listWithIconCodeString,
   listWithItemDisabledCodeString,
 } from "@/utils/codeString/list";
-import { useListPage } from "@/hooks/useListPage";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
+import {
+  apiBodyList,
+  apiBodyListItem,
+  onThisPageList,
+} from "@/utils/static/list";
 
 export default function Lists() {
-  const { apiListBody, apiListItemBody, onThisPageList } = useListPage();
-
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
@@ -173,7 +175,7 @@ export default function Lists() {
                 <SyntaxHighlighter codeString={listImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiListBody} />
+                <TableAPI body={apiBodyList} />
               </div>
             </div>
           </ScrollSection>
@@ -186,7 +188,7 @@ export default function Lists() {
                 <SyntaxHighlighter codeString={listItemImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiListItemBody} />
+                <TableAPI body={apiBodyListItem} />
               </div>
             </div>
           </ScrollSection>

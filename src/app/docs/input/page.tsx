@@ -4,7 +4,6 @@ import { SyntaxHighlighter } from "@/components/SyntaxHylighter";
 import { TableAPI } from "@/components/TableApi";
 import { ScrollSection } from "@/components/ScroolSection";
 import { OnThisPage } from "@/components/OnThisPage";
-import { useInputPage } from "@/hooks/useInputPage";
 import {
   inputCodeString,
   inputColorTypeCodeString,
@@ -19,10 +18,9 @@ import {
   inputlabelPropsTypeCodeString,
 } from "@/utils/codeString/input";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
+import { apiBodyInput, onThisPageInput } from "@/utils/static/input";
 
 export default function Inputs() {
-  const { apiBody, onThisPageList } = useInputPage();
-
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
       <div className="w-full flex items-start justify-center flex-col gap-16">
@@ -149,7 +147,7 @@ export default function Inputs() {
                 <SyntaxHighlighter codeString={inputImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiBody} />
+                <TableAPI body={apiBodyInput} />
               </div>
             </div>
           </ScrollSection>
@@ -179,7 +177,7 @@ export default function Inputs() {
           next={{ label: "List", path: "/docs/list" }}
         />
       </div>
-      <OnThisPage list={onThisPageList} />
+      <OnThisPage list={onThisPageInput} />
     </div>
   );
 }
