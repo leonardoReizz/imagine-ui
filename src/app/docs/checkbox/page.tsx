@@ -20,10 +20,10 @@ import {
   checkboxSpanPropsTypeCodeString,
 } from "@/utils/codeString/checkbox";
 import { PreviousAndNext } from "@/components/PreviousAndNext";
+import { apiBodyCheckbox, onThisPageCheckbox } from "@/utils/static/checkbox";
 
 export default function Checkboxes() {
-  const { apiBody, onThisPageList, checked, handleCheckbox } =
-    useCheckboxPage();
+  const { checked, handleCheckbox } = useCheckboxPage();
 
   return (
     <div className="w-full flex flex-col items-center justify-start gap-10">
@@ -205,7 +205,7 @@ export default function Checkboxes() {
                 <SyntaxHighlighter codeString={checkboxImportCodeString} />
               </ScrollSection>
               <div>
-                <TableAPI body={apiBody} />
+                <TableAPI body={apiBodyCheckbox} />
               </div>
             </div>
           </ScrollSection>
@@ -237,7 +237,7 @@ export default function Checkboxes() {
         previous={{ label: "Button", path: "/docs/button" }}
         next={{ label: "Icon Button", path: "/docs/iconButton" }}
       />
-      <OnThisPage list={onThisPageList} />
+      <OnThisPage list={onThisPageCheckbox} />
     </div>
   );
 }
